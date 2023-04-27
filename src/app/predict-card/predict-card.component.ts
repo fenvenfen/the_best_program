@@ -40,6 +40,7 @@ export class PredictCardComponent {
       'Of all 27 alternatives, running away is best.',
       'Closed mouth gathers no feet.',
     ];
+    
     const random = Math.floor(Math.random() * 30)
 
     this.predictText = predictions[random];
