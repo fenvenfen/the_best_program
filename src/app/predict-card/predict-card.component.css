@@ -1,0 +1,50 @@
+.predict-card {
+    padding: 20px;
+    font-size: 20px;
+    font-style: italic;
+    text-align: center;
+    color: #416074;
+    background-image: linear-gradient(to right top, #a1d2cc, #98d0d6, #95cce0, #99c7e7, #a6c1ea, #c0beeb, #dabbe5, #efb9d9, #ffc0c8, #ffceb9, #ffdfb4, #eff1be);
+    border: #ffffff solid 1px;
+    border-radius: 4px;
+    box-shadow: 8px 8px 11px -13px rgba(66, 68, 90, 1);
+
+    width: 100%;
+    min-height: 100px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.generateBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(127, 108, 202);
+    color: #ffffff;
+    font-weight: 600;
+
+    padding: 16px 24px;
+    border: none;
+    border-radius: 4px;
+
+    margin: 20px auto;
+
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in;
+}
+.generateBtn:hover {
+    background-color: rgb(94, 72, 181);
+}
+.generateBtn:active {
+    background-color: rgb(193, 62, 106);
+    box-shadow: 0px 0px 31px 0px rgba(242, 161, 22, 1);
+}
+
+
+.cookie-img {
+    width: 40px;
+    height: 100%;
+    margin-right: 4px;
+}

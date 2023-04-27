@@ -1,5 +1,20 @@
 main {
     width: 100%;
     min-width: 320px;
-    padding: 0 16px ;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+h1 {
+    text-align: center;
+    color: #f665a4;
+    margin-bottom: 8px;
+    background-color: #d3ede6;
+}
+.welcome {
+    text-align: center;
+    color: #5d263e;
+    margin-bottom: 8px;
 }
