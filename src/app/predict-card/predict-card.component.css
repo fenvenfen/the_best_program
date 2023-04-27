@@ -1,6 +1,8 @@
 .predict-card {
-    padding: 40px;
-    font-size: 20px;
+    position: relative;
+    z-index: 2;
+
+    font-size: 18px;
     font-style: italic;
     text-align: center;
     color: #416074;
@@ -11,13 +13,35 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-
+    
+    padding: 40px;
     width: 100%;
-    min-height: 100px;
+    min-width: 300px;
     max-width: 220px;
+    min-height: 226px;
     margin: 0 auto;
 }
+.allert{
+    font-size: 14px;
+    text-align: center;
+    color: #5d263e;
 
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+.fortuna-cookie {
+    position: absolute;
+    top: 32%;
+    left: 55%;
+    transform: rotate(40deg);
+
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in;
+}
+.fortuna-cookie:hover {
+    transform: rotate(60deg);
+}
 .generateBtn {
     display: flex;
     align-items: center;

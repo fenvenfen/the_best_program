@@ -1,6 +1,10 @@
-<p class="predict-card">
-    {{predictText}}
-</p>
+<div class="predict-card">
+    <p *ngIf="predictionCounter <= 5">
+        {{predictText}}
+    </p>
+    <p *ngIf="predictionCounter > 5" class="allert">No more predictions for today. Knowing too much about future could be dangerous.</p>
+</div>
+<img src="../../assets/fortune-cookie.svg" alt="cookie" class="fortuna-cookie">
 <button class="generateBtn" (click)="generatePrediction()">
     <img src="../../assets/fortune-cookie.svg" alt="cookie" class="cookie-img">
     Click to try cookie
