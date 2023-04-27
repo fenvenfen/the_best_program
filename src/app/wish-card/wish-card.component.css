@@ -1,0 +1,14 @@
+.wish-card {
+    padding: 8px;
+    font-size: 20px;
+    text-align: center;
+    color: #1b2932;
+    background-image: linear-gradient(to right top, #a1d2cc, #98d0d6, #95cce0, #99c7e7, #a6c1ea, #c0beeb, #dabbe5, #efb9d9, #ffc0c8, #ffceb9, #ffdfb4, #eff1be);
+    border: #ffffff solid 1px;
+    border-radius: 4px;
+    box-shadow: 8px 8px 11px -13px rgba(66, 68, 90, 1);
+
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
