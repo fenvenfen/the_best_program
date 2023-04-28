@@ -33,6 +33,7 @@
     position: absolute;
     top: 32%;
     left: 55%;
+    max-width: 300px;
     transform: rotate(40deg);
 
     transition-property: transform;
@@ -46,6 +47,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 
     background-color: rgb(127, 108, 202);
     color: #ffffff;
@@ -69,13 +71,15 @@
 }
 .generateBtn:disabled {
     background-color: rgb(128, 128, 128);
+    pointer-events: none;    
 }
-
 .cookie-img {
     width: 40px;
     height: 100%;
     margin-right: 4px;
 }
+
+
 .userPredictions-list {
     margin-left: auto;
     margin-right: auto;
@@ -84,4 +88,9 @@
 .userPredictions-title {
     color: #f665a4;
     padding-left: 50px;
+}
+.shine{
+    color: #d88500;
+    padding-left: 50px;
+    text-shadow: 4px 4px 12px rgba(0, 255, 31, 1);
 }

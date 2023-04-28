@@ -7,9 +7,11 @@ import { Component } from '@angular/core';
 })
 
 export class PredictCardComponent {
-  predictText: string = 'My predict is ...';
+  predictText: string = 'Fortuna cookie predicts...';
   predictionCounter: number = 0
   userPredictions : string[] = []
+  userPredictionsTitleStyle: string = "userPredictions-title"
+  fortunaCookieImg = "../../assets/fortune-cookie.svg"
   generatePrediction() {
     this.predictionCounter = this.predictionCounter + 1;
 
@@ -51,6 +53,9 @@ export class PredictCardComponent {
     this.predictText = currentPrediction;
     if (this.userPredictions.length < 5) {
       this.userPredictions.push(currentPrediction);
+    } else {
+      this.userPredictionsTitleStyle = "shine";
+      this.fortunaCookieImg = "../../assets/crumbs.png"
     }
   }
 }
