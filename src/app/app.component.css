@@ -6,9 +6,9 @@ main {
     
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
-h1 {
+h1, h2 {
     text-align: center;
     color: #f665a4;
     

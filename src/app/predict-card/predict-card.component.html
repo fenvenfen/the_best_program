@@ -5,7 +5,20 @@
     <p *ngIf="predictionCounter > 5" class="allert">No more predictions for today. Knowing too much about future could be dangerous.</p>
 </div>
 <img src="../../assets/fortune-cookie.svg" alt="cookie" class="fortuna-cookie">
-<button class="generateBtn" (click)="generatePrediction()">
-    <img src="../../assets/fortune-cookie.svg" alt="cookie" class="cookie-img">
-    Click to try cookie
+<button 
+    class="generateBtn" 
+    (click)="generatePrediction()"
+    [disabled]="predictionCounter > 5" >
+        <img src="../../assets/fortune-cookie.svg" alt="cookie" class="cookie-img">
+        {{ predictionCounter <= 5 ? "Click to try cookie" : "Enough for today" }}
 </button>
+<div class="userPredictions">
+    <h2 class="userPredictions-title">
+        Your predictions for today:
+    </h2>
+    <ol class="userPredictions-list">
+        <li *ngFor="let userPrediction of userPredictions;">
+            {{userPrediction}} 
+        </li>
+    </ol>
+</div>

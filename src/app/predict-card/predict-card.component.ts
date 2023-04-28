@@ -5,12 +5,14 @@ import { Component } from '@angular/core';
   templateUrl: './predict-card.component.html',
   styleUrls: ['./predict-card.component.css'],
 })
+
 export class PredictCardComponent {
   predictText: string = 'My predict is ...';
   predictionCounter: number = 0
+  userPredictions : string[] = []
   generatePrediction() {
     this.predictionCounter = this.predictionCounter + 1;
-    
+
     const predictions = [
       'Some days you are pigeon, some days you are statue. Today, bring umbrella.',
       'Your reality check about to bounce.',
@@ -45,7 +47,10 @@ export class PredictCardComponent {
     ];
 
     const random = Math.floor(Math.random() * 30)
-
-    this.predictText = predictions[random];
+    const currentPrediction = predictions[random]
+    this.predictText = currentPrediction;
+    if (this.userPredictions.length < 5) {
+      this.userPredictions.push(currentPrediction);
+    }
   }
 }

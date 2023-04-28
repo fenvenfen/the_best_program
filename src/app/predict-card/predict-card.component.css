@@ -67,8 +67,21 @@
 .generateBtn:active {
     box-shadow: inset 8px 8px 12px -4px rgba(66, 68, 90, 1);
 }
+.generateBtn:disabled {
+    background-color: rgb(128, 128, 128);
+}
+
 .cookie-img {
     width: 40px;
     height: 100%;
     margin-right: 4px;
+}
+.userPredictions-list {
+    margin-left: auto;
+    margin-right: auto;
+    color: #5d263e;
+}
+.userPredictions-title {
+    color: #f665a4;
+    padding-left: 50px;
 }
