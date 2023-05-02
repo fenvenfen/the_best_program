@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { InputComponent } from './input/input.component';
+import { TagsComponent } from './tags/tags.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { InputComponent } from './input/input.component';
     HeaderComponent,
     NavBarComponent,
     InputComponent,
+    TagsComponent,
   ],
   imports: [
     BrowserModule,
