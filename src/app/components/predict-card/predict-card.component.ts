@@ -48,8 +48,8 @@ export class PredictCardComponent {
       'Closed mouth gathers no feet.',
     ];
 
-    const random = Math.floor(Math.random() * 30)
-    const currentPrediction = predictions[random]
+    const random = Math.floor(Math.random() * 30);
+    const currentPrediction = predictions[random];
     this.predictText = currentPrediction;
     if (this.userPredictions.length < 5) {
       this.userPredictions.push(currentPrediction);

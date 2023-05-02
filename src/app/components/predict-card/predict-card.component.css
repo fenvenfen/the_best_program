@@ -1,3 +1,26 @@
+main {
+    width: 100%;
+    min-width: 320px;
+    height: 100vh;
+    background-image: linear-gradient(to right top, #a1d2cc, #98d0d6, #95cce0, #99c7e7, #a6c1ea, #c0beeb, #dabbe5, #efb9d9, #ffc0c8, #ffceb9, #ffdfb4, #eff1be);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+h1, h2 {
+    text-align: center;
+    color: #f665a4;
+    
+    margin-bottom: 8px;
+}
+.welcome {
+    font-size: 20px;
+    text-align: center;
+    color: #5d263e;
+    margin-bottom: 16px;
+}
+
 .predict-card {
     position: relative;
     z-index: 2;

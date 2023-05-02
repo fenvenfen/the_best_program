@@ -1,0 +1,35 @@
+.header {
+    font-size: 8px;
+    width: 100%;
+    padding: 8px 12px;
+    background-color: #FFFFFF;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.user__name{
+    margin-right: 8px;
+}
+
+.user__logo {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    padding: 5px 0;
+    border-radius: 50%;
+
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: capitalize;
+    text-align: center;
+    color: #FFFFFF;
+    
+    background-image: linear-gradient(to left top, #000000, #313131, #f7f7f7);
+}
+/* :root {
+    background-color: #f1f1f1;
+    color of btns: #ededed;
+    color of lamp: #4b4b4b;
+} */

@@ -1,0 +1,37 @@
+<main>
+    <div class="predict-card">
+        <h1>Hello World!</h1>
+        <p class="welcome">Welcome to <em>prediction App</em> </p>
+      
+        <p *ngIf="predictionCounter <= 5">
+            {{ predictText }}
+        </p>
+        <p *ngIf="predictionCounter > 5" class="allert">
+            No more predictions for today. Knowing too much about future could be dangerous.
+        </p>
+    </div>
+    <img 
+        [src]="fortunaCookieImg" 
+        alt="cookie" 
+        class="fortuna-cookie">
+    <button 
+        class="generateBtn" 
+        (click)="generatePrediction()"
+        [disabled]="predictionCounter > 5" >
+            <img 
+                src="../../assets/fortune-cookie.svg" 
+                alt="cookie" 
+                class="cookie-img">
+            {{ predictionCounter <= 5 ? "Click to try cookie" : "Enough for today" }}
+    </button>
+    <div class="userPredictions">
+        <h2 [ngClass]="userPredictionsTitleStyle">
+            Your predictions for today:
+        </h2>
+        <ol class="userPredictions-list">
+            <li *ngFor="let userPrediction of userPredictions;">
+                {{userPrediction}} 
+            </li>
+        </ol>
+    </div>
+</main>
