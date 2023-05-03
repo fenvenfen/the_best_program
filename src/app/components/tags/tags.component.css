@@ -1,3 +1,7 @@
+.tags__block {
+    position: relative;
+}
+
 .tags__list {
     list-style: none;
     display: flex;
@@ -5,8 +9,7 @@
 
     position: relative;
 
-    outline: 1px solid red;
-    overflow: hidden;
+    cursor: pointer;
 }
 
 .tags__item {
@@ -35,4 +38,16 @@
     position: absolute;
     top: 0;
     right: 0;
+    z-index: 2;
+}
+
+.shadow {
+    background-image: linear-gradient(to right, #ffffff00, #ffffff, #ffffff, #ffffff, #ffffff);
+    
+    position: absolute;
+    top: 0;
+    left: 92%;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
 }

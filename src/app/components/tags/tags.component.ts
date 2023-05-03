@@ -12,6 +12,10 @@ import { TagsService } from 'src/app/tags.service';
     .closed {
       transform: rotate(0deg);
     }
+    .hidden {
+      overflow: hidden;
+      height: 36px;
+    }
   `],
   providers: [TagsService]
 })
@@ -27,7 +31,6 @@ export class TagsComponent {
   }
 
   toggleIsOpen() {
-    console.log(this.isTagsOpened);
     this.isTagsOpened = !this.isTagsOpened;
   }
   
