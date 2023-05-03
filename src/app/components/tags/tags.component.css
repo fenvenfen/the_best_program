@@ -1,0 +1,38 @@
+.tags__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    position: relative;
+
+    outline: 1px solid red;
+    overflow: hidden;
+}
+
+.tags__item {
+    font-size: 14px;
+    background-color: #ededed;
+    color: #4b4b4b;
+    padding: 8px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+}
+
+.tags__item:not(:last-child) {
+    margin-right: 4px;
+}
+
+.show-more__btn {
+    padding: 8px;
+}
+
+.show-more__btn__dots {
+    background-color: #ededed;
+    color: #8c8c8c;
+    padding: 3px 12px 10px;
+    border-radius: 4px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+}

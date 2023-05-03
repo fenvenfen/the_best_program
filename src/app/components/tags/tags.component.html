@@ -1,0 +1,22 @@
+<ul class="tags__list">
+    <li 
+    [ngClass]="{
+        opened: isTagsOpened,
+        closed: !isTagsOpened
+    }"
+    class="show-more__btn"
+    (click)="toggleIsOpen()"
+    >
+        <img 
+        src="../../../assets/arrow-icon.svg" 
+        alt="arrow show more">
+    </li>
+
+    <li *ngFor="let tag of tags" class="tags__item">
+        <img src="../../../assets/hashtag-icon.svg" alt="hashtag">
+        {{tag.name}}
+    </li>
+
+    <li class="show-more__btn__dots">...</li>
+</ul>
+<div class="shadow"></div>
