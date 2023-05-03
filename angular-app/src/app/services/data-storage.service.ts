@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class DataStorageService {
 
-  tags = [
+  public readonly tags = [
     { name: 'Жанр' },
     { name: 'Автор' },
     { name: 'Видавництво' },
