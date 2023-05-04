@@ -37,9 +37,5 @@ export class TagsService {
     { name: 'Популярність' }
   ];
   constructor() { }
-  
-  getHeroes() {
-    return this.tags;
-  }
 
 }

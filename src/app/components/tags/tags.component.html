@@ -1,6 +1,7 @@
 <div class="tags__block">
     <ul class="tags__list" 
-        [ngClass]="{hidden: !isTagsOpened}">
+        [ngClass]="{hidden: !isTagsOpened}" 
+        #taglist id="taglist" ngModel >
         <li
         [ngClass]="{
             opened: isTagsOpened,
@@ -12,7 +13,9 @@
             <img src="../../../assets/arrow-icon.svg" alt="arrow show more" />
         </li>
 
-        <li *ngFor="let tag of tags" class="tags__item">
+        <li *ngFor="let tag of tags" 
+        class="tags__item"
+        #tagitem id="tagitem">
             <img src="../../../assets/hashtag-icon.svg" alt="hashtag" />
             {{ tag.name }}
         </li>
