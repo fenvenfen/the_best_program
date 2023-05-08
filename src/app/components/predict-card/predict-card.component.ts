@@ -11,7 +11,7 @@ export class PredictCardComponent {
   predictionCounter: number = 0
   userPredictions : string[] = []
   userPredictionsTitleStyle: string = "userPredictions-title"
-  fortunaCookieImg = "../../assets/fortune-cookie.svg"
+  fortunaCookieImg = "../../../assets/predict-app-icons/fortune-cookie.svg"
   generatePrediction() {
     this.predictionCounter = this.predictionCounter + 1;
 
@@ -55,7 +55,7 @@ export class PredictCardComponent {
       this.userPredictions.push(currentPrediction);
     } else {
       this.userPredictionsTitleStyle = "shine";
-      this.fortunaCookieImg = "../../assets/crumbs.png"
+      this.fortunaCookieImg = "/assets/predict-app-icons/crumbs.png"
     }
   }
 }

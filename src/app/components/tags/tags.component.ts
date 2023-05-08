@@ -3,11 +3,10 @@ import {
   OnInit,
   AfterViewInit,
   ViewChild,
-  ViewChildren,
   ElementRef,
-  QueryList,
 } from '@angular/core';
-import { TagsService } from 'src/app/tags.service';
+import { TagsService } from 'src/app/servises/tags.service';
+import { Tag } from "../../interfaces";
 
 @Component({
   selector: 'app-tags',
@@ -30,7 +29,7 @@ import { TagsService } from 'src/app/tags.service';
   providers: [TagsService],
 })
 export class TagsComponent implements AfterViewInit {
-  tags: { name: String }[] = [];
+  tags: Tag[] = [];
   isTagsOpened = false;
 
   @ViewChild('taglist') taglist!: ElementRef;
@@ -50,7 +49,7 @@ export class TagsComponent implements AfterViewInit {
   }
 
   checkTagsEnoughToOpenTaglist(tagsListChildren: { offsetWidth: number}[], parentTagsWidth: number){
-    const tagsWidth: number = tagsListChildren.reduce((commonWidth: number, tag) => {
+    const tagsWidth: number = tagsListChildren.reduce((commonWidth, tag) => {
       const tagListGap = 4;
       const { offsetWidth } = tag;
       if(offsetWidth) {
