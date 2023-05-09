@@ -8,34 +8,34 @@ import { DataStorageService } from '../services/data-storage.service';
 })
 export class TagsComponent implements OnInit {
   public readonly tags = this.dataStorageService.tags;
-  public isTagsInMultiRow!: boolean;
-  public isTagsClosed = true;
+  isTagsInMultiRow!: boolean;
+  isTagsClosed = true;
   
-  private _tagsWidth = 0;
-  private _tagsContainerWidth!: number;
+  tagsWidth = 0;
+  tagsContainerWidth!: number;
 
   @ViewChild('tagsContainerTpl')
-  private _tagsContainerTpl!: ElementRef<any>;
+  _tagsContainerTpl!: ElementRef<any>;
 
   @ViewChildren('tags')
-  private _tags!: QueryList<ElementRef>;
+  _tags!: QueryList<ElementRef>;
   
   constructor(
     public readonly dataStorageService: DataStorageService,
     private readonly _changeDetectorRef: ChangeDetectorRef,
   ) { }
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
   }
 
-  public ngAfterViewInit(): void {
+  ngAfterViewInit(): void {
     this.getAllTagsWidth();
-    this._tagsContainerWidth = this._tagsContainerTpl.nativeElement.offsetWidth;
-    this.isTagsInMultiRow = this._tagsContainerWidth < (this._tagsWidth);
+    this.tagsContainerWidth = this._tagsContainerTpl.nativeElement.offsetWidth;
+    this.isTagsInMultiRow = this.tagsContainerWidth < (this.tagsWidth);
     this._changeDetectorRef.detectChanges();
   }
  
-  public getAllTagsWidth(): void {
-    this._tags.forEach((tag) => this._tagsWidth += tag.nativeElement.offsetWidth)
+  getAllTagsWidth(): void {
+    this._tags.forEach((tag) => this.tagsWidth += tag.nativeElement.offsetWidth)
   }
 }

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.sass']
 })
 export class HeaderComponent implements OnInit {
-  public userName = 'Superuser'
+  userName = 'Superuser'
   constructor() { }
 
   ngOnInit(): void {
