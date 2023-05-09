@@ -39,7 +39,7 @@ export class DataStorageService {
   ];
     
   public readonly shelfsCollections = [
-    { id: 1, tags: [2,3], src: 'https://m.media-amazon.com/images/I/71-k7upkQjL._AC_SX444_SY639_FMwebp_QL65_.jpg', name: "The Lord of the Rings", favorite: false},
+    { id: 1, tags: [2,3, 6, 29, 25, 22], src: 'https://m.media-amazon.com/images/I/71-k7upkQjL._AC_SX444_SY639_FMwebp_QL65_.jpg', name: "The Lord of the Rings", favorite: true},
     { id: 2, tags: [6,4], src: 'https://m.media-amazon.com/images/I/61wOt39gY6L._AC_UF1000,1000_QL80_FMwebp_.jpg', name: "The Hunger Games", favorite: false },
     { id: 3, tags: [6,5], src: 'https://m.media-amazon.com/images/I/71szrqzf22L._AC_UF1000,1000_QL80_FMwebp_.jpg', name: "The Chronicles of Narnia", favorite: true },
     { id: 4, tags: [11, 23], src: 'https://m.media-amazon.com/images/I/91r0dvXhNGL._AC_UF1000,1000_QL80_FMwebp_.jpg', name: "Harry Potter", favorite: false },
