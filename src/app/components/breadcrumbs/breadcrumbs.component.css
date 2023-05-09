@@ -15,6 +15,19 @@ nav {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    padding-left: 60px;
+}
+.navigation{
+    position: relative;
+}
+.navigation::before{
+    content: "\e900";
+    font-size: 3em;
+    font-family: 'icomoon';
+
+    position: absolute;
+    top: 50%;
+    left: -60%;
 }
 
 .lamp__icon {

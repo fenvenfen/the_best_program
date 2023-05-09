@@ -1,5 +1,16 @@
 label {
     position: relative;
+}
+label::after{
+    content: "\e986";
+    font-size: 1.2em;
+    font-family: 'icomoon';   
+
+    opacity: 0.5;
+
+    position: absolute;
+    top: 30%;
+    right: 2%;
 
 }
 
@@ -24,11 +35,3 @@ label {
     color: #4b4b4b51;
 }
 
-.search__icon {
-    width: 22px;
-    opacity: 0.5;
-
-    position: absolute;
-    top: 30%;
-    right: 2%;
-}

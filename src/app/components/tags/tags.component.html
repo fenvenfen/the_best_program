@@ -10,12 +10,10 @@
         class="show-more__btn"
         (click)="toggleIsOpen()"
         >
-            <img src="/assets/icons/arrow-icon.svg" alt="arrow show more" />
         </li>
 
         <li *ngFor="let tag of tags" 
         class="tags__item">
-            <img src="/assets/icons/hashtag-icon.svg" alt="hashtag" />
             {{ tag.name }}
         </li>
 

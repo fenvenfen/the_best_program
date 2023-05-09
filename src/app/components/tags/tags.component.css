@@ -21,13 +21,26 @@
     border-radius: 4px;
 }
 
+.tags__item::before{
+    content: "\e902";
+    color: #bebebe;
+    font-size: 0.8em;
+    font-family: 'icomoon';
+}
+
 .tags__item:not(:last-child) {
     margin-right: 4px;
 }
 
 .show-more__btn {
-    padding: 8px;
+    padding: 4px 8px;
 }
+.show-more__btn::before{
+    content: "\e901";
+    font-size: 1.2em;
+    font-family: 'icomoon';
+}
+
 
 .show-more__btn__dots {
     background-color: #ededed;
