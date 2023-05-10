@@ -2,8 +2,6 @@
     display: flex
     justify-content: space-between
 
-    span 
-        color: transparent
     &_title
         font-weight: bold
         margin-bottom: 40px
@@ -13,8 +11,14 @@
             font-family: icomoon
             display: inline-block
             margin-right: 8px
+    
+    &_favorite
+        color: transparent
 
-.BooksContainer
+        &__show
+            color: #8ac8e1
+
+.ShelvesContainer
     display: flex
     flex-wrap: wrap
     justify-content: space-between
@@ -24,5 +28,5 @@
     &_hide
         height: 315px
 
-.Book
+.Shelf
     margin-bottom: 18px

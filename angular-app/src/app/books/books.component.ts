@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Book } from '../shared/interfaces';
 import { DataStorageService } from '../shared/data-storage.service';
+import { BooksService } from '../shared/books.service';
 
 @Component({
   selector: 'app-books',
@@ -20,11 +21,11 @@ export class BooksComponent implements OnInit {
   @ViewChild('booksContainer')
   booksContainer!: ElementRef<any>;
 
-  constructor(private readonly dataStoregeService: DataStorageService,
+  constructor(private readonly booksService: BooksService,
               private readonly _changeDetectorRef: ChangeDetectorRef,) { }
 
   ngOnInit(): void {
-    this.books = this.dataStoregeService.bookCollections;
+    this.books = this.booksService.books;
   }
 
   ngAfterViewInit(): void {

@@ -2,8 +2,12 @@
     <img class="Book_img" src="{{book.src}}">
     
     <div class="Book_controls">
-        <button><span class="icon-star-svgrepo-com Book_controls_star" [ngClass]="{Favorite : book.favorite}"></span></button>
-        <button><span class="icon-delete Book_controls_bin"></span></button>
+        <button><span class="icon-star-svgrepo-com Book_controls_star" 
+                      [ngClass]="{Favorite : book.favorite}"
+                      (click)="makeFavorite()">
+                </span>
+        </button>
+        <button (click)="deleteBook()"><span class="icon-delete Book_controls_bin"></span></button>
     </div>
 
     <hr>

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { DataStorageService } from '../shared/data-storage.service';
 import { Book } from '../shared/interfaces';
 
@@ -8,14 +8,6 @@ import { Book } from '../shared/interfaces';
   styleUrls: ['./book.component.sass']
 })
 export class BookComponent implements OnInit {
-  shelfTagsIds!: number[]; 
-  shelfTagsNames!: string[];
-
-  isTagsInMultiRow!: boolean;
-  isTagsClosed = true;
-  tagsWidth = 0;
-  tagsContainerWidth!: number;
-
   @ViewChild('tagsContainerTpl')
   _tagsContainerTpl!: ElementRef<any>;
 
@@ -24,8 +16,19 @@ export class BookComponent implements OnInit {
 
   @ViewChild('bookContainer')
   bookContainer!: ElementRef<any>;
-  // @Input() bookContainerHeights: any;
+
   @Input() book!: Book;
+
+  @Output() onFavorite: EventEmitter<number> = new EventEmitter<number>();
+  @Output() onDeleteBook: EventEmitter<number> = new EventEmitter<number>()
+
+  shelfTagsIds!: number[]; 
+  shelfTagsNames!: string[];
+
+  isTagsInMultiRow!: boolean;
+  isTagsClosed = true;
+  tagsWidth = 0;
+  tagsContainerWidth!: number;
 
   constructor(private readonly dataStorageService: DataStorageService,
               private readonly _changeDetectorRef: ChangeDetectorRef,) { }
@@ -40,7 +43,6 @@ export class BookComponent implements OnInit {
     this.tagsContainerWidth = this._tagsContainerTpl.nativeElement.offsetWidth;
     this.isTagsInMultiRow = this.tagsContainerWidth < (this.tagsWidth);
     this._changeDetectorRef.detectChanges();
-    // this.bookContainerHeights = this.bookContainer.nativeElement.offsetHeight;
   }
 
   getTagsNamesByIds(idArray: number[]) :string[] {
@@ -54,6 +56,14 @@ export class BookComponent implements OnInit {
 
   getAllTagsWidth(): void {
     this._tags.forEach((tag) => this.tagsWidth += tag.nativeElement.offsetWidth);
+  }
+
+  makeFavorite() {
+    this.onFavorite.emit(this.book.id)
+  }
+
+  deleteBook() {
+    this.onDeleteBook.emit(this.book.id)
   }
 
 }

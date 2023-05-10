@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Book } from '../shared/interfaces';
-import { DataStorageService } from '../shared/data-storage.service';
+import { BooksService } from '../shared/books.service';
 
 @Component({
   selector: 'app-shelves',
@@ -8,37 +8,45 @@ import { DataStorageService } from '../shared/data-storage.service';
   styleUrls: ['./shelves.component.sass']
 })
 export class ShelvesComponent implements OnInit {
-  books!: Book[];
-  book: any;
-  bookHeight!: number;
-  bookMargin!: number;
-  booksContainerHeight!: number;
-  isBooksInMultipleRow!: boolean;
+  shelves!: Book[];
+  shelvesCopy!: Book[];
+  shelf: any;
+  shelfHeight!: number;
+  shelfMargin!: number;
+  shelvesContainerHeight!: number;
+  isShelvesInMultipleRow!: boolean;
+  isOnlyFavorite: boolean = false;
 
   buttonText = 'SHOW MORE';
 
-  @ViewChild('booksContainer')
-  booksContainer!: ElementRef<any>;
+  @ViewChild('shelvesContainer')
+  shelvesContainer!: ElementRef<any>;
 
-  constructor(private readonly dataStoregeService: DataStorageService,
+  constructor(public booksService: BooksService,
               private readonly _changeDetectorRef: ChangeDetectorRef,) { }
 
   ngOnInit(): void {
-    this.books = this.dataStoregeService.shelfsCollections;
+    this.shelves = this.booksService.shelves;
+    this.shelvesCopy = [...this.shelves];
   }
 
   ngAfterViewInit(): void {
-    this.booksContainerHeight = this.booksContainer.nativeElement.offsetHeight;
-    this.book = document.getElementById("book");
-    this.bookMargin = parseFloat(window.getComputedStyle(this.book).marginBottom);
-    this.bookHeight = Math.ceil(parseFloat(window.getComputedStyle(this.book).height)) +  this.bookMargin;
-    this.isBooksInMultipleRow = this.booksContainerHeight > this.bookHeight;
+    this.shelvesContainerHeight = this.shelvesContainer.nativeElement.offsetHeight;
+    this.shelf = document.getElementById("shelf");
+    this.shelfMargin = parseFloat(window.getComputedStyle(this.shelf).marginBottom);
+    this.shelfHeight = Math.ceil(parseFloat(window.getComputedStyle(this.shelf).height)) +  this.shelfMargin;
+    this.isShelvesInMultipleRow = this.shelvesContainerHeight > this.shelfHeight;
     this._changeDetectorRef.detectChanges();
   }
 
   openOrCloseBooks() : void {
-    (this.isBooksInMultipleRow) ? this.buttonText = 'SHOW LESS' : this.buttonText = 'SHOW MORE';
-    this.isBooksInMultipleRow = !this.isBooksInMultipleRow;
+    (this.isShelvesInMultipleRow) ? this.buttonText = 'SHOW LESS' : this.buttonText = 'SHOW MORE';
+    this.isShelvesInMultipleRow = !this.isShelvesInMultipleRow;
   }
 
+  showFavorites() {
+    this.isOnlyFavorite = !this.isOnlyFavorite;
+    let favoriteBooksArray = this.shelvesCopy.filter((book) => {return book.favorite === true});
+    (this.isOnlyFavorite) ? this.shelves = favoriteBooksArray : this.shelves = this.shelvesCopy;
+  }
 }
