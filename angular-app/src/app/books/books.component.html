@@ -1,14 +1,21 @@
-<div class="Selves-header">
-    <p class="Selves-header_title">КНИГИ</p>
-    <button><span class="icon-star-svgrepo-com"></span></button>
+<div class="Books-header">
+    <p class="Books-header_title">КНИГИ</p>
+    <button (click)="showFavorites()">
+        <span class="icon-star-svgrepo-com Books-header_favorite"
+              [ngClass]="{'Books-header_favorite__show': isOnlyFavorite}">
+        </span>
+    </button>
 </div>
+
 <div class="BooksContainer" 
      [ngClass]="{'BooksContainer_hide': isBooksInMultipleRow}"
      #booksContainer>
     <ng-container *ngFor="let book of books">
         <app-book class="Book" 
                   [book] = 'book' 
-                  id="book"></app-book>
+                  id="book"
+                  (onFavorite)="booksService.updateFavorites($event, books)"
+                  (onDeleteBook)="booksService.updateBooks($event, books, booksCopy)"></app-book>
     </ng-container>
 </div>
 <button class="Button Button-show"

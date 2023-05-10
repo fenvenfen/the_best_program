@@ -10,22 +10,25 @@ import { BooksService } from '../shared/books.service';
 })
 export class BooksComponent implements OnInit {
   books!: Book[];
+  booksCopy!: Book[];
   book: any;
   bookHeight!: number;
   bookMargin!: number;
   booksContainerHeight!: number;
   isBooksInMultipleRow!: boolean;
+  isOnlyFavorite: boolean = false;
 
   buttonText = 'SHOW MORE';
 
   @ViewChild('booksContainer')
   booksContainer!: ElementRef<any>;
 
-  constructor(private readonly booksService: BooksService,
+  constructor(public booksService: BooksService,
               private readonly _changeDetectorRef: ChangeDetectorRef,) { }
 
   ngOnInit(): void {
     this.books = this.booksService.books;
+    this.booksCopy = [...this.books];
   }
 
   ngAfterViewInit(): void {
@@ -42,5 +45,10 @@ export class BooksComponent implements OnInit {
     this.isBooksInMultipleRow = !this.isBooksInMultipleRow;
   }
 
+  showFavorites() {
+    this.isOnlyFavorite = !this.isOnlyFavorite;
+    let favoriteBooksArray = this.booksCopy.filter((book) => {return book.favorite === true});
+    (this.isOnlyFavorite) ? this.books = favoriteBooksArray : this.books = this.booksCopy;
+  }
 
 }
