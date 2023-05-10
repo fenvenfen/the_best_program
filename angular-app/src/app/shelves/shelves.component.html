@@ -10,7 +10,7 @@
 <div class="ShelvesContainer" 
      [ngClass]="{'ShelvesContainer_hide': isShelvesInMultipleRow}"
      #shelvesContainer>
-    <ng-container *ngFor="let shelf of shelves">
+    <ng-container *ngFor="let shelf of shelves | filter:searchValue">
         <app-book class="Shelf" 
                   [book] = 'shelf' 
                   id="shelf"

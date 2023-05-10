@@ -9,6 +9,8 @@ import { TagsComponent } from './tags/tags.component';
 import { ShelvesComponent } from './shelves/shelves.component';
 import { BookComponent } from './book/book.component';
 import { BooksComponent } from './books/books.component';
+import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './shared/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,11 @@ import { BooksComponent } from './books/books.component';
     ShelvesComponent,
     BookComponent,
     BooksComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-input',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./input.component.sass']
 })
 export class InputComponent implements OnInit {
+  @Output() onInput: EventEmitter<string> = new EventEmitter<string>()
+  searchValue = '';
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  filterByInput() {
+    this.onInput.emit(this.searchValue)
+  }
 }

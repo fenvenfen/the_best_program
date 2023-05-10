@@ -1,1 +1,4 @@
-<input class="Search-input" placeholder="Search">
+<input class="Search-input" 
+       placeholder="Search" 
+       [(ngModel)]="searchValue"
+       (keyup)="filterByInput()">

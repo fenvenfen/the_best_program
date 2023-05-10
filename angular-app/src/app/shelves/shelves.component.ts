@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Book } from '../shared/interfaces';
 import { BooksService } from '../shared/books.service';
 
@@ -8,6 +8,8 @@ import { BooksService } from '../shared/books.service';
   styleUrls: ['./shelves.component.sass']
 })
 export class ShelvesComponent implements OnInit {
+  @Input() searchValue!: string;
+
   shelves!: Book[];
   shelvesCopy!: Book[];
   shelf: any;

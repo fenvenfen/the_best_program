@@ -3,16 +3,16 @@
     <app-nav-bar></app-nav-bar>
 
     <div class="Page-content">
-        <app-input></app-input>
+        <app-input (onInput)="changeInput($event)"></app-input>
         <app-tags></app-tags>
     </div>
 
     <div class="Page-content">
-        <app-shelves></app-shelves>
+        <app-shelves [searchValue]="searchValue"></app-shelves>
     </div>
 
     <div class="Page-content">
-        <app-books></app-books>
+        <app-books [searchValue]="searchValue"></app-books>
     </div>
 </div>
 

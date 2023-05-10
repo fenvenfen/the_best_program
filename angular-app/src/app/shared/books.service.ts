@@ -8,6 +8,7 @@ import { DataStorageService } from './data-storage.service';
 export class BooksService {
   shelves!: Book[];
   books!: Book[];
+  query = '';
 
   constructor(private readonly dataStorageService: DataStorageService) { 
     this.shelves = dataStorageService.shelfsCollections;
