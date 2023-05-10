@@ -92,7 +92,7 @@ hr
     font-weight: bold
     letter-spacing: 0.1em
 
-.Button-showMore
+.ButtonShow
     display: block
     margin: 0 auto
     font-size: 0.7em
@@ -102,8 +102,9 @@ hr
     letter-spacing: 0
     box-shadow: 1px 1px 4px #EBECF0
 
-    &::after
-        content: "\e900" 
-        font-family: icomoon
+    &_arrow
         display: inline-block
         margin-left: 3px
+
+        &__close
+            transform: rotate(180deg)

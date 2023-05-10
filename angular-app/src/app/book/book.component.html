@@ -1,14 +1,14 @@
-<div class="Book">
-    <img class="Book_img" src="{{shelfOne.src}}">
+<div class="Book" #bookContainer>
+    <img class="Book_img" src="{{book.src}}">
     
     <div class="Book_controls">
-        <button><span class="icon-star-svgrepo-com Book_controls_star" [ngClass]="{Favorite : shelfOne.favorite}"></span></button>
+        <button><span class="icon-star-svgrepo-com Book_controls_star" [ngClass]="{Favorite : book.favorite}"></span></button>
         <button><span class="icon-delete Book_controls_bin"></span></button>
     </div>
 
     <hr>
 
-    <p class="Book_title">{{shelfOne.name}}</p>
+    <p class="Book_title">{{book.name}}</p>
 
     <div class="Tags_container">
         <div class="Tags" [ngClass]="{
