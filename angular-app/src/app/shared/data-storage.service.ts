@@ -52,5 +52,22 @@ export class DataStorageService {
     { id: 11, tags: [4, 5], src: 'https://m.media-amazon.com/images/I/91VelHkK8yL._AC_UF1000,1000_QL80_FMwebp_.jpg', name: "The Mortal Instruments", favorite: false },
     { id: 12, tags: [5, 6], src: 'https://m.media-amazon.com/images/I/71IkcEies6L._AC_UF1000,1000_QL80_FMwebp_.jpg', name: "The Maze Runner", favorite: false }
   ];
+
+  public readonly bookCollections = [
+    { tags: [2], name: "The Godfather", favorite: false, src: "https://m.media-amazon.com/images/I/41pSXiKR39L._SX324_BO1,204,203,200_.jpg", id: 1 },
+    { tags: [3, 4, 5], name: "The Silence of the Lambs", favorite: false, src: "https://m.media-amazon.com/images/I/519n1y9Q9kL._SY344_BO1,204,203,200_QL70_ML2_.jpg", id: 2 },
+    { tags: [6, 23, 27, 2, 5], name: "The Shawshank Redemption", favorite: true, src: "https://m.media-amazon.com/images/I/51HX9XQ9HBL._SY344_BO1,204,203,200_QL70_ML2_.jpg", id: 3 },
+    { tags: [5, 6], name: "The Da Vinci Code", favorite: false, src: "https://m.media-amazon.com/images/I/41wy5DBifEL._SX319_BO1,204,203,200_.jpg", id: 4 },
+    { tags: [1], name: "The Girl with the Dragon Tattoo", favorite: false, src: "https://m.media-amazon.com/images/I/41quWoJq+8L._SY344_BO1,204,203,200_.jpg", id: 5 },
+    { tags: [2], name: "To Kill a Mockingbird", favorite: true, src: "https://m.media-amazon.com/images/I/51cTCiLMNAL._SX339_BO1,204,203,200_.jpg", id: 6 },
+    { tags: [3], name: "One Hundred Years of Solitude", favorite: false, src: "https://m.media-amazon.com/images/I/51IfaP5qfoL._SY344_BO1,204,203,200_QL70_ML2_.jpg", id: 7 },
+    { tags: [4, 7], name: "The Great Gatsby", favorite: false, src: "https://m.media-amazon.com/images/I/41CPOyQP6xL._SX331_BO1,204,203,200_.jpg", id: 8 },
+    { tags: [8, 19], name: "Jurassic Park", favorite: true, src: "https://m.media-amazon.com/images/I/513qk1TGinL._SX323_BO1,204,203,200_.jpg", id: 9 },
+    { tags: [2, 3, 4, 5, 6], name: "The Shining", favorite: true, src: "https://m.media-amazon.com/images/I/51jSPyJ8v2L._SY344_BO1,204,203,200_QL70_ML2_.jpg", id: 10 },
+    { tags: [3], name: "The Martian", favorite: false, src: "https://m.media-amazon.com/images/I/51Bw27SCLDL._SY498_BO1,204,203,200_.jpg", id: 11 },
+    { tags: [4], name: "The Hobbit", favorite: false, src: "https://m.media-amazon.com/images/I/41DfP7NpIIL._SX327_BO1,204,203,200_.jpg", id: 12 }
+  ];
+
   constructor() { }
 }
+

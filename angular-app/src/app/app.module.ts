@@ -8,6 +8,7 @@ import { InputComponent } from './input/input.component';
 import { TagsComponent } from './tags/tags.component';
 import { ShelvesComponent } from './shelves/shelves.component';
 import { BookComponent } from './book/book.component';
+import { BooksComponent } from './books/books.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { BookComponent } from './book/book.component';
     TagsComponent,
     ShelvesComponent,
     BookComponent,
+    BooksComponent,
   ],
   imports: [
     BrowserModule,
