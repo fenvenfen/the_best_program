@@ -1,0 +1,9 @@
+<article class="card" *ngIf="book">
+    <img [src]="book.src" [alt]="book.name" class="book__poster">
+    <span class="icon-favorite"></span>
+    <span class="icon-delete"></span>
+    <hr>
+    <p class="book__name">{{book.name}}</p>
+    <app-tags></app-tags>
+
+</article>

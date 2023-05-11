@@ -1,0 +1,31 @@
+.card{
+    border-radius: 8px;
+    border: 1px solid #ededed;
+    padding: 16px;
+}
+.icon-favorite::before{
+    content: "\e907";
+    color: #8ac8e1;
+    -webkit-text-stroke: 1px #8ac8e1; 
+    font-size: 0.8em;
+    font-family: 'icomoon';
+    margin-right: 8px;
+}
+.icon-delete::before {
+    content: "\e903";
+    font-size: 0.8em;
+    font-family: 'icomoon';
+}
+
+.book__poster{
+    display: block;
+    margin: 0 auto;
+    max-width: 150px;
+    min-height: 270px;
+    height: 100%;
+    object-fit: contain;
+}
+.book__name {
+    margin-bottom: 16px;
+    font-size: 18px;
+}

@@ -179,4 +179,6 @@ export class BookService {
         favorite: false,
         },
     ];
+
+    constructor() {}
 }

@@ -1,0 +1,12 @@
+<div class="shelves">
+    <div class="shelves__title">
+        <h2 class="shelves__title_name">полиці</h2>
+        <span class="icon-favorite"></span>
+    </div>
+    <ul class="shelves__list">
+        <li *ngFor="let shelf of shelves">
+            <app-card [book]="shelf"></app-card>
+        </li>
+    </ul>
+    <button class="showmore__btn">SHOW MORE</button>
+</div>

@@ -11,7 +11,6 @@ label::after{
     position: absolute;
     top: 30%;
     right: 2%;
-
 }
 
 .input {
@@ -24,13 +23,10 @@ label::after{
     color: #4b4b4b;
     width: 100%;
     box-shadow: 8px 8px 10px -11px rgba(66, 68, 90, 1);
-
 }
-
 .input:focus {
     border: 1px solid #aaaaaa;
 }
-
 .input::placeholder{
     color: #4b4b4b51;
 }

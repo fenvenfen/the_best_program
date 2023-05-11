@@ -1,0 +1,12 @@
+<div class="books">
+    <div class="books__title">
+        <h2 class="books__title_name">книги</h2>
+        <span class="icon-favorite"></span>
+    </div>
+    <ul class="books__list">
+        <li *ngFor="let book of books">
+            <app-card [book]="book"></app-card>
+        </li>
+    </ul>
+</div>
+

@@ -1,9 +1,12 @@
-.container {
+.app_root{
     max-width: 1280px;
     margin: 0 auto;
-
-    background-color: #f1f1f1;
     min-height: 100vh;
+}
+
+.container {
+    background-color: #f1f1f1;
+    padding-bottom: 100px;
 }
 
 ul {

@@ -7,6 +7,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 import { InputComponent } from './components/input/input.component';
 import { TagsComponent } from './components/tags/tags.component';
+import { ShelvesComponent } from './components/shelves/shelves.component';
+import { CardComponent } from './components/card/card.component';
+import { BooksComponent } from './components/books/books.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +18,10 @@ import { TagsComponent } from './components/tags/tags.component';
     HeaderComponent,
     BreadcrumbsComponent,
     InputComponent,
-    TagsComponent
+    TagsComponent,
+    ShelvesComponent,
+    CardComponent,
+    BooksComponent
 
   ],
   imports: [
