@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Book } from '../shared/interfaces';
-import { DataStorageService } from '../shared/data-storage.service';
-import { BooksService } from '../shared/books.service';
+import { DataStorageService } from '../shared/services/data-storage.service';
+import { BooksService } from '../shared/services/books.service';
 
 @Component({
   selector: 'app-books',

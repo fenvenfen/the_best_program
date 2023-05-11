@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Book } from '../shared/interfaces';
-import { BooksService } from '../shared/books.service';
+import { BooksService } from '../shared/services/books.service';
 
 @Component({
   selector: 'app-shelves',
@@ -51,7 +51,5 @@ export class ShelvesComponent implements OnInit {
     this.isOnlyFavorite = !this.isOnlyFavorite;
     let favoriteBooksArray = this.shelvesCopy.filter((book) => {return book.favorite === true});
     (this.isOnlyFavorite) ? this.shelves = favoriteBooksArray : this.shelves = this.shelvesCopy;
-    console.log(this.chosenTagsArray);
-    
   }
 }

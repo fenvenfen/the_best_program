@@ -10,8 +10,8 @@ import { ShelvesComponent } from './shelves/shelves.component';
 import { BookComponent } from './book/book.component';
 import { BooksComponent } from './books/books.component';
 import { FormsModule } from '@angular/forms';
-import { FilterPipe } from './shared/filter.pipe';
-import { FilterByTagsPipe } from './shared/filter-by-tags.pipe';
+import { FilterPipe } from './shared/pipes/filter.pipe';
+import { FilterByTagsPipe } from './shared/pipes/filter-by-tags.pipe';
 
 @NgModule({
   declarations: [
