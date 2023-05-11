@@ -4,8 +4,8 @@ import {
   AfterViewInit,
   ViewChild,
   ElementRef,
+  Input
 } from '@angular/core';
-import { TagsService } from 'src/app/servises/tags.service';
 import { Tag } from "../../interfaces";
 
 @Component({
@@ -26,21 +26,17 @@ import { Tag } from "../../interfaces";
       }
     `,
   ],
-  providers: [TagsService],
 })
 export class TagsComponent implements AfterViewInit {
-  tags: Tag[] = [];
+  @Input() tags?: Tag[] = [];
+
   isTagsOpened = false;
 
   @ViewChild('taglist') taglist!: ElementRef;
 
-  constructor(private tagsServece: TagsService) {
-    this.taglist = {} as ElementRef;
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-    this.tags = this.tagsServece.tags;
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     const tagsListChildren = [...this.taglist.nativeElement.childNodes];

@@ -1,3 +1,9 @@
 <label for="input__search">
-    <input type="text" placeholder="Search" class="input" id="input__search">
+    <input 
+    type="text" 
+    placeholder="Search" 
+    class="input" 
+    id="input__search"
+    (input)="changeQuery($event)"
+    >
 </label>

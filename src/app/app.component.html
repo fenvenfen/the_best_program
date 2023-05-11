@@ -4,8 +4,8 @@
     <app-header></app-header>
     <app-breadcrumbs></app-breadcrumbs>
     <div class="white-frame">
-      <app-input></app-input>
-      <app-tags></app-tags>
+      <app-input (queryParamsChange)="receiveQuery($event)"></app-input>
+      <app-tags [tags]="tags"></app-tags>
     </div>
     <app-shelves></app-shelves>
     <app-books></app-books>
