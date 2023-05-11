@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BookService } from 'src/app/servises/books.service';
 import { Book } from '../../interfaces';
 
@@ -16,11 +16,12 @@ import { Book } from '../../interfaces';
   providers: [BookService],
 })
 export class BooksComponent implements OnInit {
-  books: Book[] = [];
+  // books: Book[] = [];
   shouldFavoriteBooksBeShown: boolean = false;
+  @Input() books?: Book[];
+
   constructor(private bookService: BookService){}
   ngOnInit(): void {
-    this.books = this.bookService.bookCollections;
   }
   onChangeBookfFavorites(isFavorite: boolean, index: number){
     //here go to all array and change this value!
@@ -29,8 +30,10 @@ export class BooksComponent implements OnInit {
   }
   toggleShowFavoriteBooks(): void {
     this.shouldFavoriteBooksBeShown = !this.shouldFavoriteBooksBeShown;
+    
+    let filtredBooksByFavorite: Book[] = JSON.parse(JSON.stringify(this.books));
     this.books = this.shouldFavoriteBooksBeShown ?
-    this.bookService.bookCollections.filter(book => book.favorite) :
-    this.bookService.bookCollections;
+    filtredBooksByFavorite.filter(book => book.favorite) :
+    filtredBooksByFavorite;
   }
 }

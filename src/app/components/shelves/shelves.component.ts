@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BookService } from 'src/app/servises/books.service';
 import { Shelf } from "../../interfaces"
 
@@ -16,13 +16,14 @@ import { Shelf } from "../../interfaces"
   providers: [BookService],
 })
 export class ShelvesComponent implements OnInit {
-  shelves: Shelf[] = [];
+  // shelves: Shelf[] = [];
   shouldFavoriteShelvesBeShown: boolean = false;
+  @Input() shelves?: Shelf[];
 
   constructor(private bookService: BookService){ }
 
   ngOnInit(): void {
-    this.shelves = this.bookService.shelfsCollections;
+    // this.shelves = this.bookService.shelfsCollections;
   }
   onChangeShelfFavorites(isFavorite: boolean, index: number){
     //here go to all array and change this value!
@@ -31,9 +32,11 @@ export class ShelvesComponent implements OnInit {
   }
   toggleShowFavoriteShelves(): void {
     this.shouldFavoriteShelvesBeShown = !this.shouldFavoriteShelvesBeShown;
+    let filtredShelvesByFavorite: Shelf[] = JSON.parse(JSON.stringify(this.shelves));
+
     this.shelves = this.shouldFavoriteShelvesBeShown ?
-    this.bookService.shelfsCollections.filter(shelf => shelf.favorite) :
-    this.bookService.shelfsCollections;
+    filtredShelvesByFavorite.filter(shelf => shelf.favorite) :
+    filtredShelvesByFavorite;
   }
 
 }

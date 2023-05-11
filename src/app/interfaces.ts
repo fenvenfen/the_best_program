@@ -19,3 +19,8 @@ export interface Shelf {
     name: string,
     favorite: boolean,
 }
+
+export interface QueryParams {
+    search: string,
+    tags: Tag[]
+}

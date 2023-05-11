@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Book, Shelf } from '../interfaces';
+import { Book, Shelf, QueryParams } from '../interfaces';
 
 @Injectable({
     providedIn: 'root',
@@ -180,7 +180,39 @@ export class BookService {
         },
     ];
 
+    query: QueryParams = {
+        search: '',
+        tags: []
+    }
+
     constructor() {}
+
+    changeQueryParams(queryParams: QueryParams): void {
+        this.query = queryParams;
+    }
+
+    getBooks() {
+        let books = [...this.bookCollections];
+        //filter
+        books = books.filter(book => {
+            if (book.name.toLowerCase().includes(this.query.search.toLowerCase())) {return true};
+            //add tag filtration
+            return false;
+        })
+        return books;
+    }
+
+    getShelves() {
+        let shelves = [...this.shelfsCollections];
+        //filter
+        shelves = shelves.filter(shelf => {
+            if (shelf.name.toLowerCase().includes(this.query.search.toLowerCase())) {return true};
+            //add tag filtration
+            return false;
+        })
+        return shelves;
+    }
+
 
     changeFavoriteShelf(isFavorite: boolean, index: number): void {
         this.shelfsCollections[index].favorite = isFavorite;
