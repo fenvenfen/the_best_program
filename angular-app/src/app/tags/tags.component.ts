@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, OnInit, Output, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
@@ -7,12 +7,15 @@ import { DataStorageService } from '../shared/data-storage.service';
   styleUrls: ['./tags.component.sass']
 })
 export class TagsComponent implements OnInit {
-  public readonly tags = this.dataStorageService.tags;
+  @Output() onChooseTag: EventEmitter<number[]> = new EventEmitter<number[]>();
+
+  tags = this.dataStorageService.tags;
   isTagsInMultiRow!: boolean;
   isTagsClosed = true;
   
   tagsWidth = 0;
   tagsContainerWidth!: number;
+  chosenTagsArray!: number[];
 
   @ViewChild('tagsContainerTpl')
   _tagsContainerTpl!: ElementRef<any>;
@@ -37,5 +40,25 @@ export class TagsComponent implements OnInit {
  
   getAllTagsWidth(): void {
     this._tags.forEach((tag) => this.tagsWidth += tag.nativeElement.offsetWidth)
+  }
+
+  chooseOrUnchooseTag(event: any) {
+    const clickedTagId = +event.target.id;
+    this.changeActiveValues(clickedTagId);
+    this.pushChosenTagsNameInArray();
+    this.onChooseTag.emit(this.chosenTagsArray)
+  }
+  
+  changeActiveValues(id: number) {
+    this.tags.map(tag => {
+      if (tag.id === id) tag.active = !tag.active
+    })
+  }
+
+  pushChosenTagsNameInArray() {
+    this.chosenTagsArray = this.tags.reduce((acc, curr) => {
+      if (curr.active) acc.push(curr.id);
+      return acc;
+    }, [] as number[] )
   }
 }

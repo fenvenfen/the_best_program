@@ -7,13 +7,10 @@ import { Book } from './interfaces';
 export class FilterPipe implements PipeTransform {
 
   transform(books: Book[], search: string = ''): Book[] {
-    if (!search.trim()) {
-      return books
-    }
+    if (!search.trim()) return books;
 
     return books.filter(book => {
       return book.name.toLowerCase().includes(search.toLocaleLowerCase())
     })
   }
-
 }

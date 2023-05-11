@@ -9,6 +9,7 @@ import { BooksService } from '../shared/books.service';
 })
 export class ShelvesComponent implements OnInit {
   @Input() searchValue!: string;
+  @Input() chosenTagsArray!: number[];
 
   shelves!: Book[];
   shelvesCopy!: Book[];
@@ -50,5 +51,7 @@ export class ShelvesComponent implements OnInit {
     this.isOnlyFavorite = !this.isOnlyFavorite;
     let favoriteBooksArray = this.shelvesCopy.filter((book) => {return book.favorite === true});
     (this.isOnlyFavorite) ? this.shelves = favoriteBooksArray : this.shelves = this.shelvesCopy;
+    console.log(this.chosenTagsArray);
+    
   }
 }

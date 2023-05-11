@@ -3,16 +3,20 @@
     <app-nav-bar></app-nav-bar>
 
     <div class="Page-content">
-        <app-input (onInput)="changeInput($event)"></app-input>
-        <app-tags></app-tags>
+        <app-input (onInput)="updateInputValue($event)"></app-input>
+        <app-tags (onChooseTag)="updateTagsValue($event)"></app-tags>
     </div>
 
     <div class="Page-content">
-        <app-shelves [searchValue]="searchValue"></app-shelves>
+        <app-shelves [searchValue]="searchValue"
+                     [chosenTagsArray]="chosenTags">
+        </app-shelves>
     </div>
 
     <div class="Page-content">
-        <app-books [searchValue]="searchValue"></app-books>
+        <app-books [searchValue]="searchValue"
+                   [chosenTagsArray]="chosenTags">
+        </app-books>
     </div>
 </div>
 

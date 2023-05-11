@@ -9,7 +9,8 @@ import { BooksService } from '../shared/books.service';
   styleUrls: ['./books.component.sass']
 })
 export class BooksComponent implements OnInit {
-  @Input() searchValue!: string
+  @Input() searchValue!: string;
+  @Input() chosenTagsArray!: number[];
 
   books!: Book[];
   booksCopy!: Book[];

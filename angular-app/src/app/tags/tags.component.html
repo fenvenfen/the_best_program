@@ -10,7 +10,14 @@
                 (click)="isTagsClosed = !isTagsClosed"><img src="/assets/arrow.svg">
         </button>
 
-            <p class="Tags_tag" *ngFor="let tag of tags" #tags>{{tag.name}}</p>
+            <button *ngFor="let tag of tags"
+                    class="Tags_tag" 
+                    [ngClass]="{'Tags_tag__active': tag.active}"
+                    id="{{tag.id}}" 
+                    #tags
+                    (click)="chooseOrUnchooseTag($event)">
+                    {{tag.name}}
+            </button>
     </div>
     <button *ngIf="isTagsInMultiRow && isTagsClosed" 
             class="Tags_button-open_cover"
