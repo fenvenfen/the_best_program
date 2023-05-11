@@ -193,23 +193,30 @@ export class BookService {
 
     getBooks() {
         let books = [...this.bookCollections];
-        //filter
+
         books = books.filter(book => {
-            if (book.name.toLowerCase().includes(this.query.search.toLowerCase())) {return true};
-            //add tag filtration
-            return false;
+            const doesBookNameContainQuerySearchParam = book.name.toLowerCase().includes(this.query.search.toLowerCase());
+            const doesBookTagContainQueryTag = book.tags.some(tag => this.query.tags.includes(tag));
+            console.log(`${book.name}`, doesBookTagContainQueryTag);
+            if (this.query.search && !doesBookNameContainQuerySearchParam) { return false};
+            if (this.query.tags.length !== 0 && !doesBookTagContainQueryTag) { return false }
+            return true;
         })
+
         return books;
     }
 
     getShelves() {
         let shelves = [...this.shelfsCollections];
-        //filter
+        
         shelves = shelves.filter(shelf => {
-            if (shelf.name.toLowerCase().includes(this.query.search.toLowerCase())) {return true};
-            //add tag filtration
-            return false;
+            const doesShelfNameContainQuerySearchParam = shelf.name.toLowerCase().includes(this.query.search.toLowerCase());
+            const doesShelfTagContainQueryTag = shelf.tags.some(tag => this.query.tags.includes(tag));
+            if (this.query.search && !doesShelfNameContainQuerySearchParam) {return false};
+            if (this.query.tags.length !== 0 && !doesShelfTagContainQueryTag) { return false }
+            return true;
         })
+
         return shelves;
     }
 

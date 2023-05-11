@@ -4,9 +4,11 @@ import {
   AfterViewInit,
   ViewChild,
   ElementRef,
-  Input
+  Input,
+  Output,
+  EventEmitter
 } from '@angular/core';
-import { Tag } from "../../interfaces";
+import { Tag } from '../../interfaces';
 
 @Component({
   selector: 'app-tags',
@@ -24,6 +26,10 @@ import { Tag } from "../../interfaces";
         overflow: hidden;
         height: 36px;
       }
+      .active {
+        background-color: #017667;
+        color: #ffffff;
+      }
     `,
   ],
 })
@@ -31,8 +37,11 @@ export class TagsComponent implements AfterViewInit {
   @Input() tags?: Tag[] = [];
 
   isTagsOpened = false;
+  activeTags: number[] = [];
 
   @ViewChild('taglist') taglist!: ElementRef;
+
+  @Output() queryTagsChange = new EventEmitter<number[]>();
 
   constructor() {}
 
@@ -41,22 +50,36 @@ export class TagsComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     const tagsListChildren = [...this.taglist.nativeElement.childNodes];
     const parentTagsWidth = this.taglist.nativeElement.offsetWidth;
-    this.checkTagsEnoughToOpenTaglist(tagsListChildren, parentTagsWidth)
+    this.checkTagsEnoughToOpenTaglist(tagsListChildren, parentTagsWidth);
   }
 
-  checkTagsEnoughToOpenTaglist(tagsListChildren: { offsetWidth: number}[], parentTagsWidth: number){
+  checkTagsEnoughToOpenTaglist(
+    tagsListChildren: { offsetWidth: number }[],
+    parentTagsWidth: number
+  ) {
     const tagsWidth: number = tagsListChildren.reduce((commonWidth, tag) => {
       const tagListGap = 4;
       const { offsetWidth } = tag;
-      if(offsetWidth) {
+      if (offsetWidth) {
         commonWidth = commonWidth + offsetWidth + tagListGap;
-        }
-        return commonWidth;
+      }
+      return commonWidth;
     }, 0);
-    this.isTagsOpened = parentTagsWidth > tagsWidth
+    this.isTagsOpened = parentTagsWidth > tagsWidth;
   }
 
   toggleIsOpen() {
     this.isTagsOpened = !this.isTagsOpened;
+  }
+
+  makeTagActive(id: number) {
+    const index = this.activeTags.indexOf(id);
+    if (index > -1) {
+      this.activeTags.splice(index, 1);
+    } else {
+      this.activeTags.push(id);
+    }
+
+    this.queryTagsChange.emit(this.activeTags);
   }
 }

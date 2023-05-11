@@ -16,7 +16,6 @@ import { Shelf } from "../../interfaces"
   providers: [BookService],
 })
 export class ShelvesComponent implements OnInit {
-  // shelves: Shelf[] = [];
   shouldFavoriteShelvesBeShown: boolean = false;
   @Input() shelves?: Shelf[];
 

@@ -22,5 +22,5 @@ export interface Shelf {
 
 export interface QueryParams {
     search: string,
-    tags: Tag[]
+    tags: number[]
 }

@@ -16,7 +16,6 @@ import { Book } from '../../interfaces';
   providers: [BookService],
 })
 export class BooksComponent implements OnInit {
-  // books: Book[] = [];
   shouldFavoriteBooksBeShown: boolean = false;
   @Input() books?: Book[];
   favoriteBooks = this.books?.filter(book => book.favorite)

@@ -42,4 +42,13 @@ export class AppComponent implements OnInit {
 
     // console.log(this.shelves);
   }
+  receiveQueryTags(activeTags: number[]) {
+    this.bookService.query.tags = [...activeTags];
+    
+    this.shelves = this.bookService.getShelves();
+    this.books = this.bookService.getBooks();
+
+    // console.log(this.shelves);
+  }
+
 }

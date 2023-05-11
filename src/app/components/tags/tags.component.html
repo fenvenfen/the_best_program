@@ -3,24 +3,27 @@
         [ngClass]="{hidden: !isTagsOpened}" 
         #taglist >
         <li
-        [ngClass]="{
-            opened: isTagsOpened,
-            closed: !isTagsOpened
-        }"
-        class="show-more__btn"
-        (click)="toggleIsOpen()"
+            [ngClass]="{
+                opened: isTagsOpened,
+                closed: !isTagsOpened
+            }"
+            class="show-more__btn"
+            (click)="toggleIsOpen()"
         >
         </li>
 
-        <li *ngFor="let tag of tags" 
-        class="tags__item">
+        <li 
+            *ngFor="let tag of tags"
+            (click)="makeTagActive(tag.id)" 
+            [ngClass]="{active: activeTags.includes(tag.id)}"
+            class="tags__item">
             {{ tag.name }}
         </li>
 
         <li 
-        class="show-more__btn__dots" 
-        (click)="toggleIsOpen()"
-        *ngIf="!isTagsOpened">
+            class="show-more__btn__dots" 
+            (click)="toggleIsOpen()"
+            *ngIf="!isTagsOpened">
             ...
         </li>
     </ul>
