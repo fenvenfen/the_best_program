@@ -197,7 +197,7 @@ export class BookService {
         books = books.filter(book => {
             const doesBookNameContainQuerySearchParam = book.name.toLowerCase().includes(this.query.search.toLowerCase());
             const doesBookTagContainQueryTag = book.tags.some(tag => this.query.tags.includes(tag));
-            console.log(`${book.name}`, doesBookTagContainQueryTag);
+
             if (this.query.search && !doesBookNameContainQuerySearchParam) { return false};
             if (this.query.tags.length !== 0 && !doesBookTagContainQueryTag) { return false }
             return true;
@@ -212,6 +212,7 @@ export class BookService {
         shelves = shelves.filter(shelf => {
             const doesShelfNameContainQuerySearchParam = shelf.name.toLowerCase().includes(this.query.search.toLowerCase());
             const doesShelfTagContainQueryTag = shelf.tags.some(tag => this.query.tags.includes(tag));
+            
             if (this.query.search && !doesShelfNameContainQuerySearchParam) {return false};
             if (this.query.tags.length !== 0 && !doesShelfTagContainQueryTag) { return false }
             return true;
@@ -220,12 +221,17 @@ export class BookService {
         return shelves;
     }
 
-
     changeFavoriteShelf(isFavorite: boolean, index: number): void {
         this.shelfsCollections[index].favorite = isFavorite;
     }
     changeFavoriteBook(isFavorite: boolean, index: number): void {
         this.bookCollections[index].favorite = isFavorite;
+
     }
 
+    deleteBook(id: number): void {
+        const index = this.bookCollections.findIndex(book => id === book.id)
+        this.bookCollections.splice(index, 1);
+        this.getBooks();
+    }
 }

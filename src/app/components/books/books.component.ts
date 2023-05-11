@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { BookService } from 'src/app/servises/books.service';
 import { Book } from '../../interfaces';
 
@@ -23,6 +23,14 @@ export class BooksComponent implements OnInit {
   constructor(private bookService: BookService){}
   ngOnInit(): void { }
 
+  // ngOnChanges(changes: SimpleChanges) {
+  //   console.log("changes", changes);
+  //   if (changes.books.currentValue.length !== changes.books.previousValue.length && !changes.books.firstChange) {
+  //     console.log("Im changed");
+  //   }
+  //   // changes.prop contains the old and the new value...
+  // }
+
   onChangeBookfFavorites(isFavorite: boolean, index: number){
     //here go to all array and change this value!
     //BUT STILL NOT SAVE AFTER RELOAD PAGE
@@ -30,5 +38,9 @@ export class BooksComponent implements OnInit {
   }
   toggleShowFavoriteBooks(): void {
     this.shouldFavoriteBooksBeShown = !this.shouldFavoriteBooksBeShown;
+  }
+  deletingBook(id: number){
+    this.bookService.deleteBook(id);
+    console.log(this.bookService.bookCollections);
   }
 }

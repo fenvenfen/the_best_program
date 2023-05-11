@@ -19,7 +19,7 @@ export class CardComponent implements OnInit {
   booksTags: Tag[] = [];
   isFavorite = this.book?.favorite; //чому тут доводиться повторювати?
   @Output() favoriteChange = new EventEmitter<boolean>();
-
+  @Output() deleteBookbyId = new EventEmitter<number>();
   constructor(private tagsServece: TagsService) {  }
 
   ngOnInit(): void {
@@ -32,5 +32,9 @@ export class CardComponent implements OnInit {
   toggleFavorite(): void {
     this.isFavorite = !this.isFavorite;
     this.favoriteChange.emit(this.isFavorite);
+  }
+
+  deleteBook(id: number): void{
+    this.deleteBookbyId.emit(id);
   }
 }

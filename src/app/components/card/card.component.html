@@ -5,7 +5,8 @@
     [ngClass]="{favorite: isFavorite}"
     (click)="toggleFavorite()"
     ></span>
-    <span class="icon-delete"></span>
+    <span class="icon-delete"
+    (click)="deleteBook(book.id)"></span>
     <hr>
     <p class="book__name">{{book.name}}</p>
     <app-tags [tags]="booksTags"></app-tags>

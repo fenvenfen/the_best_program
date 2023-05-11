@@ -17,6 +17,8 @@ import { Shelf } from "../../interfaces"
 })
 export class ShelvesComponent implements OnInit {
   shouldFavoriteShelvesBeShown: boolean = false;
+  showMore: boolean = false;
+  
   @Input() shelves?: Shelf[];
 
   constructor(private bookService: BookService){ }

@@ -10,11 +10,13 @@
     <ul class="shelves__list">
         <li *ngFor="let shelf of shelves; let i = index">
             <app-card
-            *ngIf="!shouldFavoriteShelvesBeShown || shelf.favorite" 
+                *ngIf="!shouldFavoriteShelvesBeShown || shelf.favorite" 
                 [book]="shelf" 
                 (favoriteChange)="onChangeShelfFavorites($event, i)" >
             </app-card>
         </li>
     </ul>
+    <p *ngIf="shelves?.length === 0">no results, please try again</p>
+
     <button class="showmore__btn">SHOW MORE</button>
 </div>

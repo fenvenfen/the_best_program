@@ -6,14 +6,16 @@
         [ngClass]="{favorite: shouldFavoriteBooksBeShown}"
         (click)="toggleShowFavoriteBooks()"></span>
     </div>
-    <ul class="books__list">
+    <ul class="books__list" *ngIf="books">
         <li *ngFor="let book of books; let i = index">
             <app-card 
             *ngIf="!shouldFavoriteBooksBeShown || book.favorite"
                 [book]="book"
-                (favoriteChange)="onChangeBookfFavorites($event, i)" >
+                (favoriteChange)="onChangeBookfFavorites($event, i)"
+                (deleteBookbyId)="deletingBook($event)" >
             </app-card>
         </li>
     </ul>
+    <p *ngIf="books?.length === 0">no results, please try again</p>
 </div>
 

@@ -16,6 +16,9 @@
     font-size: 0.8em;
     font-family: 'icomoon';
 }
+.icon-delete:hover::before {
+    color: #8ac8e1;
+}
 
 .book__poster{
     display: block;
