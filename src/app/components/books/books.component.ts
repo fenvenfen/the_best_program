@@ -19,10 +19,11 @@ export class BooksComponent implements OnInit {
   // books: Book[] = [];
   shouldFavoriteBooksBeShown: boolean = false;
   @Input() books?: Book[];
+  favoriteBooks = this.books?.filter(book => book.favorite)
 
   constructor(private bookService: BookService){}
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
+
   onChangeBookfFavorites(isFavorite: boolean, index: number){
     //here go to all array and change this value!
     //BUT STILL NOT SAVE AFTER RELOAD PAGE
@@ -30,10 +31,5 @@ export class BooksComponent implements OnInit {
   }
   toggleShowFavoriteBooks(): void {
     this.shouldFavoriteBooksBeShown = !this.shouldFavoriteBooksBeShown;
-    
-    let filtredBooksByFavorite: Book[] = JSON.parse(JSON.stringify(this.books));
-    this.books = this.shouldFavoriteBooksBeShown ?
-    filtredBooksByFavorite.filter(book => book.favorite) :
-    filtredBooksByFavorite;
   }
 }

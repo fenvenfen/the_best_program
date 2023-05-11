@@ -9,7 +9,8 @@
     </div>
     <ul class="shelves__list">
         <li *ngFor="let shelf of shelves; let i = index">
-            <app-card 
+            <app-card
+            *ngIf="!shouldFavoriteShelvesBeShown || shelf.favorite" 
                 [book]="shelf" 
                 (favoriteChange)="onChangeShelfFavorites($event, i)" >
             </app-card>

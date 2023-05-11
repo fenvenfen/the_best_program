@@ -9,6 +9,7 @@
     <ul class="books__list">
         <li *ngFor="let book of books; let i = index">
             <app-card 
+            *ngIf="!shouldFavoriteBooksBeShown || book.favorite"
                 [book]="book"
                 (favoriteChange)="onChangeBookfFavorites($event, i)" >
             </app-card>
