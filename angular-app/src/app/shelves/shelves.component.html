@@ -7,11 +7,11 @@
     </button>
 </div>
 
-<div class="ShelvesContainer" 
-     [ngClass]="{'ShelvesContainer_hide': isShelvesInMultipleRow}"
+<div class="BooksContainer" 
+     [ngClass]="{'BooksContainer_hide': isShelvesInMultipleRow}"
      #shelvesContainer>
     <ng-container *ngFor="let shelf of shelves | filter:searchValue | filterByTags:chosenTagsArray">
-        <app-book class="Shelf" 
+        <app-book class="Books" 
                   [book] = 'shelf' 
                   id="shelf"
                   (onFavorite)="booksService.updateFavorites($event, shelves)"
