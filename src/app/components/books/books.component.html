@@ -1,11 +1,17 @@
 <div class="books">
     <div class="books__title">
         <h2 class="books__title_name">книги</h2>
-        <span class="icon-favorite"></span>
+        <span 
+        class="icon-favorite"
+        [ngClass]="{favorite: shouldFavoriteBooksBeShown}"
+        (click)="toggleShowFavoriteBooks()"></span>
     </div>
     <ul class="books__list">
-        <li *ngFor="let book of books">
-            <app-card [book]="book"></app-card>
+        <li *ngFor="let book of books; let i = index">
+            <app-card 
+                [book]="book"
+                (favoriteChange)="onChangeBookfFavorites($event, i)" >
+            </app-card>
         </li>
     </ul>
 </div>

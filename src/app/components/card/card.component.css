@@ -5,7 +5,7 @@
 }
 .icon-favorite::before{
     content: "\e907";
-    color: #8ac8e1;
+    color: #ffffff;
     -webkit-text-stroke: 1px #8ac8e1; 
     font-size: 0.8em;
     font-family: 'icomoon';

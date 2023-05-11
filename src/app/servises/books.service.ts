@@ -181,4 +181,12 @@ export class BookService {
     ];
 
     constructor() {}
+
+    changeFavoriteShelf(isFavorite: boolean, index: number): void {
+        this.shelfsCollections[index].favorite = isFavorite;
+    }
+    changeFavoriteBook(isFavorite: boolean, index: number): void {
+        this.bookCollections[index].favorite = isFavorite;
+    }
+
 }

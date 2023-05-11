@@ -20,7 +20,7 @@
 }
 .icon-favorite::after{
     content: "\e907";
-    color: #8ac8e1;
+    color: #ffffff;
     -webkit-text-stroke: 1px #8ac8e1; 
     font-size: 1em;
     font-family: 'icomoon';
