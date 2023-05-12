@@ -18,25 +18,16 @@ import { Book } from '../../interfaces';
 export class BooksComponent implements OnInit {
   shouldFavoriteBooksBeShown: boolean = false;
   @Input() books?: Book[];
-  favoriteBooks = this.books?.filter(book => book.favorite)
+
+  // favoriteBooks = this.books?.filter(book => book.favorite)
 
   constructor(private bookService: BookService){}
+
   ngOnInit(): void { }
 
-  // ngOnChanges(changes: SimpleChanges) {
-  //   console.log("changes", changes);
-  //   if (changes.books.currentValue.length !== changes.books.previousValue.length && !changes.books.firstChange) {
-  //     console.log("Im changed");
-  //   }
-  //   // changes.prop contains the old and the new value...
-  // }
-
   onChangeBookfFavorites(isFavorite: boolean, index: number){
-    //here go to all array and change this value!
-    //BUT STILL NOT SAVE AFTER RELOAD PAGE
     this.bookService.changeFavoriteBook(isFavorite, index)
     this.books = this.bookService.getBooks()
-
   }
   toggleShowFavoriteBooks(): void {
     this.shouldFavoriteBooksBeShown = !this.shouldFavoriteBooksBeShown;

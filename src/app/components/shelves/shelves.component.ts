@@ -11,6 +11,10 @@ import { Shelf } from "../../interfaces"
       .favorite::after {
         color: #8ac8e1;
       }
+      .hidden {
+        max-height: 450px;
+        overflow: hidden;
+      }
     `,
   ],
   providers: [BookService],
@@ -20,14 +24,14 @@ export class ShelvesComponent implements OnInit {
   showMore: boolean = false;
   
   @Input() shelves?: Shelf[];
-
+  
   constructor(private bookService: BookService){ }
 
   ngOnInit(): void { }
+
   onChangeShelfFavorites(isFavorite: boolean, index: number){
-    //here go to all array and change this value!
-    //BUT STILL NOT SAVE AFTER RELOAD PAGE
     this.bookService.changeFavoriteShelf(isFavorite, index)
+    this.shelves = this.bookService.getShelves()
   }
   toggleShowFavoriteShelves(): void {
     this.shouldFavoriteShelvesBeShown = !this.shouldFavoriteShelvesBeShown;
@@ -36,6 +40,7 @@ export class ShelvesComponent implements OnInit {
     this.bookService.deleteShelf(id);
     this.shelves = this.bookService.getShelves()
   }
-
-
+  showMoreToggler(){
+    this.showMore = !this.showMore;
+  }
 }

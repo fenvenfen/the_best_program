@@ -226,19 +226,15 @@ export class BookService {
     }
     changeFavoriteBook(isFavorite: boolean, index: number): void {
         this.bookCollections[index].favorite = isFavorite;
-
     }
 
     deleteBook(id: number): void {
         const index = this.bookCollections.findIndex(book => id === book.id)
         this.bookCollections.splice(index, 1);
-        this.getBooks();
     }
-
     deleteShelf(id: number): void {
         const index = this.shelfsCollections.findIndex(book => id === book.id)
         this.shelfsCollections.splice(index, 1);
-        this.getShelves();
     }
 
 }

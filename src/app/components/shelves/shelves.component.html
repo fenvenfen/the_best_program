@@ -7,17 +7,22 @@
         (click)="toggleShowFavoriteShelves()"
         ></span>
     </div>
-    <ul class="shelves__list">
+    <ul class="shelves__list" [ngClass]="{hidden: !showMore}">
         <li *ngFor="let shelf of shelves; let i = index">
-            <app-card
-                *ngIf="!shouldFavoriteShelvesBeShown || shelf.favorite" 
-                [book]="shelf" 
-                (favoriteChange)="onChangeShelfFavorites($event, i)"
-                (deleteBookbyId)="deletingShelf($event)" >
-            </app-card>
+            <div *ngIf="!shouldFavoriteShelvesBeShown || shelf.favorite" >
+                <app-card                    
+                    [book]="shelf" 
+                    (favoriteChange)="onChangeShelfFavorites($event, i)"
+                    (deleteBookbyId)="deletingShelf($event)" >
+                </app-card>
+            </div>
         </li>
     </ul>
     <p *ngIf="shelves?.length === 0">no results, please try again</p>
 
-    <button class="showmore__btn">SHOW MORE</button>
+    <button  
+        class="showmore__btn" 
+        (click)="showMoreToggler()">
+        {{showMore ? "HIDE" : "SHOW MORE"}}
+    </button>
 </div>
