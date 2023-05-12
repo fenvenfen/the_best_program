@@ -24,7 +24,7 @@ import { Tag } from '../../interfaces';
       }
       .hidden {
         overflow: hidden;
-        height: 36px;
+        height: 32px;
       }
       .active {
         background-color: #017667;

@@ -14,6 +14,7 @@ import { Shelf } from "../../interfaces"
       .hidden {
         max-height: 450px;
         overflow: hidden;
+        gap: 0 30px;
       }
     `,
   ],
