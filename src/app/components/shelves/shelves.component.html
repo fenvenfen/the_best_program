@@ -12,7 +12,8 @@
             <app-card
                 *ngIf="!shouldFavoriteShelvesBeShown || shelf.favorite" 
                 [book]="shelf" 
-                (favoriteChange)="onChangeShelfFavorites($event, i)" >
+                (favoriteChange)="onChangeShelfFavorites($event, i)"
+                (deleteBookbyId)="deletingShelf($event)" >
             </app-card>
         </li>
     </ul>

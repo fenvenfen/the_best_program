@@ -35,12 +35,14 @@ export class BooksComponent implements OnInit {
     //here go to all array and change this value!
     //BUT STILL NOT SAVE AFTER RELOAD PAGE
     this.bookService.changeFavoriteBook(isFavorite, index)
+    this.books = this.bookService.getBooks()
+
   }
   toggleShowFavoriteBooks(): void {
     this.shouldFavoriteBooksBeShown = !this.shouldFavoriteBooksBeShown;
   }
   deletingBook(id: number){
     this.bookService.deleteBook(id);
-    console.log(this.bookService.bookCollections);
+    this.books = this.bookService.getBooks()
   }
 }

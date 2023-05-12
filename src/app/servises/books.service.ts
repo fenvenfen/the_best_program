@@ -234,4 +234,11 @@ export class BookService {
         this.bookCollections.splice(index, 1);
         this.getBooks();
     }
+
+    deleteShelf(id: number): void {
+        const index = this.shelfsCollections.findIndex(book => id === book.id)
+        this.shelfsCollections.splice(index, 1);
+        this.getShelves();
+    }
+
 }
