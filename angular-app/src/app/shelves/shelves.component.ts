@@ -12,7 +12,7 @@ export class ShelvesComponent implements OnInit {
   @Input() chosenTagsArray!: number[];
 
   shelves!: Book[];
-  shelvesCopy!: Book[];
+  shelvesCopy!: Book[]; //put in service
   shelf: any;
   shelfHeight!: number;
   shelfMargin!: number;
@@ -30,12 +30,12 @@ export class ShelvesComponent implements OnInit {
 
   ngOnInit(): void {
     this.shelves = this.booksService.shelves;
-    this.shelvesCopy = [...this.shelves];
+    this.shelvesCopy = [...this.shelves];  //put in service
   }
 
   ngAfterViewInit(): void {
     this.shelvesContainerHeight = this.shelvesContainer.nativeElement.offsetHeight;
-    this.shelf = document.getElementById("shelf");
+    this.shelf = document.getElementById("shelf"); //check if is
     this.shelfMargin = parseFloat(window.getComputedStyle(this.shelf).marginBottom);
     this.shelfHeight = Math.ceil(parseFloat(window.getComputedStyle(this.shelf).height)) +  this.shelfMargin;
     this.isShelvesInMultipleRow = this.shelvesContainerHeight > this.shelfHeight;
@@ -45,7 +45,7 @@ export class ShelvesComponent implements OnInit {
   openOrCloseBooks() : void {
     (this.isShelvesInMultipleRow) ? this.buttonText = 'SHOW LESS' : this.buttonText = 'SHOW MORE';
     this.isShelvesInMultipleRow = !this.isShelvesInMultipleRow;
-  }
+  }  //not ngClass - slice array in service. if 4 fit the row
 
   showFavorites() {
     this.isOnlyFavorite = !this.isOnlyFavorite;

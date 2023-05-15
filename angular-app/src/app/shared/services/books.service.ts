@@ -22,7 +22,7 @@ export class BooksService {
   }
 
   updateBooks(id: number, booksSet: Book[], booksCopy: Book[]) {
-    let bookEl = booksSet.find((book) => book.id === id)
+    let bookEl = booksSet.find((book) => book.id === id) //findIndexOf!!!
     let bookIndex = booksSet.indexOf(bookEl as Book)
     booksSet.splice(bookIndex, 1);
     booksCopy.splice(bookIndex, 1);

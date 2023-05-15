@@ -6,7 +6,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./input.component.sass']
 })
 export class InputComponent implements OnInit {
-  @Output() onInput: EventEmitter<string> = new EventEmitter<string>()
+  @Output() onInput = new EventEmitter<string>()
   searchValue = '';
 
   constructor() { }
