@@ -30,6 +30,7 @@ export class BookComponent implements OnInit {
   isTagsClosed = true;
   tagsWidth = 0;
   tagsContainerWidth!: number;
+  tagsNumber!: number;
   price: number = this.booksService.genereteRandomPrice();
   bookDescription: string = 'Lorem ipsum dolor sit amet cons adipisicing elit. Recusandae, nobis!'
 
@@ -46,6 +47,7 @@ export class BookComponent implements OnInit {
     this.getAllTagsWidth();
     this.tagsContainerWidth = this._tagsContainerTpl.nativeElement.offsetWidth;
     this.isTagsInMultiRow = this.tagsContainerWidth < (this.tagsWidth);
+    this.tagsNumber = this._tags.length;
     this._changeDetectorRef.detectChanges();
   }
 

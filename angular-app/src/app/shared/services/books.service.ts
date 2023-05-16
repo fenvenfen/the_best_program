@@ -29,6 +29,6 @@ export class BooksService {
   }
 
   genereteRandomPrice(): number {
-    return  Math.floor(Math.random() * 30) + 10;
+    return  Math.floor(Math.random() * 21) + 10;
   }
 }
