@@ -9,6 +9,6 @@ export interface Book {
     name: string,
     tags: number[],
     src: string,
-    favorite: boolean
-
+    favorite: boolean,
+    date: string
 }
