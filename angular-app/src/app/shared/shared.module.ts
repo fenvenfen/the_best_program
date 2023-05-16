@@ -4,6 +4,7 @@ import { FilterByTagsPipe } from "./pipes/filter-by-tags.pipe";
 import { ChangeSecondWordToStarsPipe } from './pipes/change-second-word-to-stars.pipe';
 import { BorderColorDirective } from './directives/border-color.directive';
 import { InputColorDirective } from './directives/input-color.directive';
+import { ImageSizeDirective } from './directives/image-size.directive';
 
 @NgModule({
     declarations: [
@@ -11,14 +12,16 @@ import { InputColorDirective } from './directives/input-color.directive';
         FilterByTagsPipe,
         ChangeSecondWordToStarsPipe,
         BorderColorDirective,
-        InputColorDirective
+        InputColorDirective,
+        ImageSizeDirective
     ],
     exports: [
         FilterPipe,
         FilterByTagsPipe,
         ChangeSecondWordToStarsPipe,
         BorderColorDirective,
-        InputColorDirective
+        InputColorDirective,
+        ImageSizeDirective
     ]
 })
 export class SharedModule {

@@ -1,5 +1,7 @@
 <div class="Book" [appBorderColor]='tagsNumber' #bookContainer>
-    <img class="Book_img" src="{{book.src}}">
+    <div class="Book_img__container">
+        <img appImageSize class="Book_img" src="{{book.src}}">
+    </div>
     
     <div class="Book_controls">
         <button><span class="icon-star-svgrepo-com Book_controls_star" 

@@ -12,7 +12,6 @@ export class InputColorDirective {
       this.r.setStyle(this.el.nativeElement, 'borderColor', 'green')
     } else {
       this.r.setStyle(this.el.nativeElement, 'borderColor', null)
-    }
-    
+    } 
   }
 }
