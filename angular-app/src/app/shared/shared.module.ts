@@ -3,19 +3,22 @@ import { FilterPipe } from "./pipes/filter.pipe";
 import { FilterByTagsPipe } from "./pipes/filter-by-tags.pipe";
 import { ChangeSecondWordToStarsPipe } from './pipes/change-second-word-to-stars.pipe';
 import { BorderColorDirective } from './directives/border-color.directive';
+import { InputColorDirective } from './directives/input-color.directive';
 
 @NgModule({
     declarations: [
         FilterPipe,
         FilterByTagsPipe,
         ChangeSecondWordToStarsPipe,
-        BorderColorDirective
+        BorderColorDirective,
+        InputColorDirective
     ],
     exports: [
         FilterPipe,
         FilterByTagsPipe,
         ChangeSecondWordToStarsPipe,
-        BorderColorDirective
+        BorderColorDirective,
+        InputColorDirective
     ]
 })
 export class SharedModule {

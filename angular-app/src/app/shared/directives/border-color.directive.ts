@@ -17,12 +17,6 @@ export class BorderColorDirective {
       default:
         this.borderColor = 'green';
     }
-    // if (tagsNumber > 2) {
-    //   console.log(tagsNumber);
-    //   this.borderColor = 'red';
-    // } else {
-    //   this.borderColor = 'black';
-    // }
   }
 
   constructor(private el: ElementRef, private r: Renderer2) { 
