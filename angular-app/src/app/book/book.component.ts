@@ -31,6 +31,7 @@ export class BookComponent implements OnInit {
   tagsWidth = 0;
   tagsContainerWidth!: number;
   price: number = this.booksService.genereteRandomPrice();
+  bookDescription: string = 'Lorem ipsum dolor sit amet cons adipisicing elit. Recusandae, nobis!'
 
   constructor(private readonly dataStorageService: DataStorageService,
               private readonly booksService: BooksService,
