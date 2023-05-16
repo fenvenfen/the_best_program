@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { DataStorageService } from '../shared/services/data-storage.service';
 import { Book } from '../shared/interfaces';
+import { BooksService } from '../shared/services/books.service';
 
 @Component({
   selector: 'app-book',
@@ -29,8 +30,10 @@ export class BookComponent implements OnInit {
   isTagsClosed = true;
   tagsWidth = 0;
   tagsContainerWidth!: number;
+  price: number = this.booksService.genereteRandomPrice();
 
   constructor(private readonly dataStorageService: DataStorageService,
+              private readonly booksService: BooksService,
               private readonly _changeDetectorRef: ChangeDetectorRef,) { }
 
   ngOnInit(): void {

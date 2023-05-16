@@ -15,16 +15,20 @@ export class BooksService {
     this.books = dataStorageService.bookCollections;
   }
 
-  updateFavorites(id: number, booksSet: Book[]) {
+  updateFavorites(id: number, booksSet: Book[]): void {
     booksSet.map((book) => {
       if (book.id === id) book.favorite = !book.favorite;
     })
   }
 
-  updateBooks(id: number, booksSet: Book[], booksCopy: Book[]) {
+  updateBooks(id: number, booksSet: Book[], booksCopy: Book[]): void {
     let bookEl = booksSet.find((book) => book.id === id) //findIndexOf!!!
     let bookIndex = booksSet.indexOf(bookEl as Book)
     booksSet.splice(bookIndex, 1);
     booksCopy.splice(bookIndex, 1);
+  }
+
+  genereteRandomPrice(): number {
+    return  Math.floor(Math.random() * 30) + 10;
   }
 }
