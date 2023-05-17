@@ -10,6 +10,7 @@ import { TagsComponent } from './components/tags/tags.component';
 import { ShelvesComponent } from './components/shelves/shelves.component';
 import { CardComponent } from './components/card/card.component';
 import { BooksComponent } from './components/books/books.component';
+import { SharingModule } from './sharing/sharing.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BooksComponent } from './components/books/books.component';
 
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    SharingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

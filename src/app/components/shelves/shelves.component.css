@@ -4,7 +4,6 @@
     width: 90%;
     margin: 16px auto 0;
     font-size: 24px;
-    /* margin-top: 16px; */
     padding: 20px 36px;
 }
 .shelves__title{
@@ -29,9 +28,11 @@
 }
 .shelves__list{
     list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-right: -20px;
+    margin-bottom: -20px;
 }
 .showmore__btn{
     display: block;

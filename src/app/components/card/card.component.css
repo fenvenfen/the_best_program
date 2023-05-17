@@ -2,6 +2,10 @@
     border-radius: 8px;
     border: 1px solid #ededed;
     padding: 16px;
+    width: 250px;
+
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 .icon-favorite::before{
     content: "\e907";
@@ -25,8 +29,8 @@
     margin: 0 auto 12px;
     width: 100%;
     max-width: 150px;
-    min-height: 270px;
     height: 100%;
+    min-height: 270px;
     object-fit: contain;
 }
 .book__name {

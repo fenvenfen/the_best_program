@@ -9,7 +9,7 @@
     <ul class="books__list" *ngIf="books">
         <li *ngFor="let book of books; let i = index">
             <app-card 
-            *ngIf="!shouldFavoriteBooksBeShown || book.favorite"
+                *ngIf="!shouldFavoriteBooksBeShown || book.favorite"
                 [book]="book"
                 (favoriteChange)="onChangeBookfFavorites($event, i)"
                 (deleteBookbyId)="deletingBook($event)" >
