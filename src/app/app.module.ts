@@ -22,7 +22,7 @@ import { SharingModule } from './sharing/sharing.module';
     TagsComponent,
     ShelvesComponent,
     CardComponent,
-    BooksComponent
+    BooksComponent,
 
   ],
   imports: [

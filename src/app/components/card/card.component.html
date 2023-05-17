@@ -9,5 +9,9 @@
     (click)="deleteBook(book.id)"></span>
     <hr>
     <p class="book__name">{{book.name}}</p>
+    <p class="book_price">Price: {{price | currency:'USD'}}</p>
     <app-tags [tags]="booksTags"></app-tags>
+
+    <p class="book__date">{{book.date | date:'dd.MM.YYYY'}}</p>
+    <p class="book__description">{{book.description | starMaker}}</p>
 </article>

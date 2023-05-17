@@ -36,4 +36,15 @@
 .book__name {
     margin-bottom: 16px;
     font-size: 18px;
+    min-height: 50px;
+}
+.book_price{
+    margin-bottom: 16px;    
+}
+.book__date{
+    font-size: 14px;
+    margin: 16px 0 16px;
+}
+.book__description{
+    font-size: 14px;
 }

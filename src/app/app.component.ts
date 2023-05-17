@@ -16,10 +16,6 @@ export class AppComponent implements OnInit {
   tags: Tag[] = [];
   shelves: Shelf[] = [];
   books: Book[] = [];
-  // currentQuery: QueryParams = {
-  //   search: "",
-  //   tags: []
-  // }
 
   constructor(
     private tagsServece: TagsService, 
@@ -31,7 +27,6 @@ export class AppComponent implements OnInit {
     this.tags = this.tagsServece.tags;
     this.shelves = this.bookService.shelfsCollections;
     this.books = this.bookService.bookCollections;
-    // this.currentQuery = this.bookService.query;
   }
   
 
@@ -40,7 +35,6 @@ export class AppComponent implements OnInit {
     this.shelves = this.bookService.getShelves();
     this.books = this.bookService.getBooks();
 
-    // console.log(this.shelves);
   }
   receiveQueryTags(activeTags: number[]) {
     this.bookService.query.tags = [...activeTags];
@@ -48,7 +42,6 @@ export class AppComponent implements OnInit {
     this.shelves = this.bookService.getShelves();
     this.books = this.bookService.getBooks();
 
-    // console.log(this.shelves);
   }
 
 }

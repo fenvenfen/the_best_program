@@ -10,6 +10,8 @@ export interface Book {
     favorite: boolean,
     src: string,
     id: number,
+    date: string,
+    description: string,
 }
 
 export interface Shelf {
@@ -18,6 +20,8 @@ export interface Shelf {
     src: string,
     name: string,
     favorite: boolean,
+    date: string,
+    description: string,
 }
 
 export interface QueryParams {
