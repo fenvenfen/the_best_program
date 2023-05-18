@@ -27,10 +27,8 @@
 .book__poster{
     display: block;
     margin: 0 auto 12px;
-    width: 100%;
-    max-width: 150px;
-    height: 100%;
-    min-height: 270px;
+    max-width: 100%;
+    min-height: 270px; 
     object-fit: contain;
 }
 .book__name {
