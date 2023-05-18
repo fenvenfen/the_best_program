@@ -15,17 +15,21 @@ import { BookService } from 'src/app/servises/books.service';
   ]
 })
 export class CardComponent implements OnInit {
-  @Input() book?: Book;
+  @Input() book!: Book;
+  
   booksTags: Tag[] = [];
   isFavorite = this.book?.favorite; 
   price = this.bookService.generateRandomPrice();
+
+
   @Output() favoriteChange = new EventEmitter<boolean>();
   @Output() deleteBookbyId = new EventEmitter<number>();
+
   constructor(private tagsServece: TagsService, private bookService: BookService) {  }
 
   ngOnInit(): void {
     this.booksTags = this.tagsServece.tags.filter(tag =>
-      this.book?.tags.includes(tag.id) 
+      this.book.tags.includes(tag.id) 
     );
     this.isFavorite = this.book?.favorite;
   }

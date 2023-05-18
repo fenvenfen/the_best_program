@@ -1,4 +1,7 @@
-<article class="card" *ngIf="book">
+<article 
+    *ngIf="book"
+    [appBookBorderColorChanging]="book.tags.length"
+    class="card" >
     <img [src]="book.src" [alt]="book.name" class="book__poster">
     <span 
     class="icon-favorite"
@@ -13,5 +16,5 @@
     <app-tags [tags]="booksTags"></app-tags>
 
     <p class="book__date">{{book.date | date:'dd.MM.YYYY'}}</p>
-    <p class="book__description">{{book.description | starMaker}}</p>
+    <p class="book__description">{{book.description | starMaker | slice:0:200}}</p>
 </article>
