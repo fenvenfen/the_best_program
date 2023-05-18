@@ -1,10 +1,10 @@
-import { Directive, ElementRef, Input , Renderer2} from '@angular/core';
+import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
   selector: '[appBookBorderColorChanging]'
 })
 export class BookBorderColorChangingDirective {
-  @Input("appBookBorderColorChanging") tagsNumber?: number;
+  @Input("appBookBorderColorChanging") tagsNumber!: number;
 
   constructor(private el: ElementRef) { }
 
@@ -13,19 +13,8 @@ export class BookBorderColorChangingDirective {
   }
 
   setBorderColor() {
-    switch (this.tagsNumber) {
-      case 1:
-        this.el.nativeElement.style.borderColor = "#000000"
-        break;
-      case 2:
-        this.el.nativeElement.style.borderColor = "#aaaaaa"
-        break;
-      case 3:
-        this.el.nativeElement.style.borderColor = "rgb(0 255 125)"
-        break;
-      default:
-        this.el.nativeElement.style.borderColor = "#aaaaaa"
-        break;
-    }
+    if (this.tagsNumber === 1) {this.el.nativeElement.style.borderColor = "#000000"};
+    if (this.tagsNumber === 2) {this.el.nativeElement.style.borderColor = "#aaaaaa"};
+    if (this.tagsNumber >= 3) {this.el.nativeElement.style.borderColor = "rgb(0 255 125)"};
   }
 }

@@ -23,7 +23,6 @@ import { SharingModule } from './sharing/sharing.module';
     ShelvesComponent,
     CardComponent,
     BooksComponent,
-
   ],
   imports: [
     BrowserModule,

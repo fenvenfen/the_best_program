@@ -11,11 +11,11 @@ import { Shelf } from "../../interfaces"
       .favorite::after {
         color: #8ac8e1;
       }
-      .hidden {
+      /* .hidden {
         max-height: 450px;
         overflow: hidden;
         gap: 0 30px;
-      }
+      } */
     `,
   ],
   providers: [BookService],
