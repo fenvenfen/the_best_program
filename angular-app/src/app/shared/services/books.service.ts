@@ -11,8 +11,8 @@ export class BooksService {
   query = '';
 
   constructor(private readonly dataStorageService: DataStorageService) { 
-    this.shelves = dataStorageService.shelfsCollections;
-    this.books = dataStorageService.bookCollections;
+    this.shelves = this.dataStorageService.shelfsCollections;
+    this.books = this.dataStorageService.bookCollections;
   }
 
   updateFavorites(id: number, booksSet: Book[]): void {

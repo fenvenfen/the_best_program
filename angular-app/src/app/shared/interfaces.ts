@@ -1,7 +1,8 @@
 export interface Tag {
     id: number,
     active: boolean,
-    name: string
+    name: string,
+    timesUsed: number
 }
 
 export interface Book {
