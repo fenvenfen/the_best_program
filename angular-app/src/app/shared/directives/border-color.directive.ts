@@ -11,7 +11,7 @@ export class BorderColorDirective {
   constructor(private el: ElementRef) { 
   }
 
-  ngOnChanges(): void {
+  ngOnInit(): void {
     switch (this.tagsNumber) {
       case 1:
         this.borderColor = 'black';

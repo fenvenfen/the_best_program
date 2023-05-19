@@ -41,13 +41,13 @@ export class BookComponent implements OnInit {
   ngOnInit(): void {
     this.shelfTagsIds = this.book.tags;
     this.shelfTagsNames = this.getTagsNamesByIds(this.shelfTagsIds);
+    this.tagsNumber = this.book.tags.length
   }
 
   ngAfterViewInit(): void {
     this.getAllTagsWidth();
     this.tagsContainerWidth = this._tagsContainerTpl.nativeElement.offsetWidth;
     this.isTagsInMultiRow = this.tagsContainerWidth < (this.tagsWidth);
-    this.tagsNumber = this._tags.length;
     this._changeDetectorRef.detectChanges();
   }
 
