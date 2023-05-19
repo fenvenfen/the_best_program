@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input, OnInit, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appBorderColor]'
@@ -6,8 +6,13 @@ import { Directive, ElementRef, HostListener, Input, OnInit, Renderer2 } from '@
 export class BorderColorDirective {
   borderColor!: string;
 
-  @Input() set appBorderColor(tagsNumber: number) {
-    switch (tagsNumber) {
+  @Input('appBorderColor') tagsNumber!: number;
+
+  constructor(private el: ElementRef) { 
+  }
+
+  ngOnChanges(): void {
+    switch (this.tagsNumber) {
       case 1:
         this.borderColor = 'black';
         break;
@@ -17,13 +22,7 @@ export class BorderColorDirective {
       default:
         this.borderColor = 'green';
     }
+    
+    this.el.nativeElement.style.borderColor = this.borderColor;
   }
-
-  constructor(private el: ElementRef, private r: Renderer2) { 
-  }
-
-  ngOnChanges(): void {
-    this.r.setStyle(this.el.nativeElement, 'borderColor', this.borderColor)
-  }
-
 }

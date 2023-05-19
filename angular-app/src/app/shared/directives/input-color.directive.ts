@@ -1,17 +1,17 @@
-import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostListener} from '@angular/core';
 
 @Directive({
   selector: '[appInputColor]'
 })
 export class InputColorDirective {
 
-  constructor(private el: ElementRef, private r:Renderer2) { }
+  constructor(private el: ElementRef) { }
 
   @HostListener('keyup') onInput() {
     if (this.el.nativeElement.value.length > 5) {
-      this.r.setStyle(this.el.nativeElement, 'borderColor', 'green')
+      this.el.nativeElement.style.borderColor = 'green';
     } else {
-      this.r.setStyle(this.el.nativeElement, 'borderColor', null)
+      this.el.nativeElement.style.borderColor = null;
     } 
   }
 }
