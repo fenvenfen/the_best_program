@@ -73,16 +73,15 @@ export class DataStorageService {
     this.addPopular(this.shelfsCollections);
     this.addPopular(this.bookCollections);
     this.sortTags(this.tags);
-    console.log(this.tags);
-    
    }
 
   addPopular(shelvesOrBooks: Book[]) :void {
-    shelvesOrBooks.forEach((shelf) => {
-      shelf.tags.forEach((tagInShelf) => {
-        let neededTag = this.tags.find((tag) => tag.id === tagInShelf);
-        if (neededTag) neededTag.timesUsed++;
-      })
+    let tagsArray: any[] = [];
+    shelvesOrBooks.forEach((shelf) => tagsArray.push(...shelf.tags));
+    
+    tagsArray.forEach((tagInArray) => {
+      let neededTag = this.tags.find((tag) => tag.id === tagInArray);
+      if (neededTag) neededTag.timesUsed++;
     })
   }
 

@@ -5,9 +5,9 @@ import { Directive, ElementRef, Renderer2 } from '@angular/core';
 })
 export class ImageSizeDirective {
 
-  constructor(private el: ElementRef) { 
-  }
+  constructor(private el: ElementRef, private renderer: Renderer2) { }
 
+  
   ngAfterViewInit(): void {
     const isImgHorizontal = this.el.nativeElement.width > this.el.nativeElement.height;
     
