@@ -1,0 +1,16 @@
+<div class="Page-content">
+    <app-input (onInput)="updateInputValue($event)"></app-input>
+    <app-tags (onChooseTag)="updateTagsValue($event)"></app-tags>
+</div>
+
+<div class="Page-content">
+    <app-shelves [searchValue]="searchValue"
+                 [chosenTagsArray]="chosenTags">
+    </app-shelves>
+</div>
+
+<div class="Page-content">
+    <app-books [searchValue]="searchValue"
+               [chosenTagsArray]="chosenTags">
+    </app-books>
+</div>

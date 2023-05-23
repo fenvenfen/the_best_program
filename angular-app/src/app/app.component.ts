@@ -7,18 +7,9 @@ import { BooksService } from './shared/services/books.service';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent implements OnInit {
-  searchValue!: string;
-  chosenTags!: number[];
-  constructor(private booksService: BooksService) {}
+  constructor( ) {}
 
   ngOnInit(): void {
   }
 
-  updateInputValue(inputValue: string): void {
-    this.searchValue = inputValue
-  }
-
-  updateTagsValue(chosenTags: number[]) {
-   this.chosenTags = chosenTags;
-  }
 }
