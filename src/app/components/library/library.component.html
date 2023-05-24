@@ -1,0 +1,16 @@
+<div class="container">
+    
+    <app-header></app-header>
+    <app-breadcrumbs></app-breadcrumbs>
+
+    <div class="white-frame">
+        <app-input (querySearchChange)="receiveQuerySearch($event)"></app-input>
+        <app-tags [tags]="tags"
+        (queryTagsChange)="receiveQueryTags($event)"
+        ></app-tags>
+    </div>
+
+    <app-shelves [shelves]="shelves"></app-shelves>
+    <app-books [books]="books"></app-books>
+    
+</div>

@@ -35,6 +35,7 @@ import { Tag } from '../../interfaces';
 })
 export class TagsComponent implements AfterViewInit {
   @Input() tags?: Tag[] = [];
+  
 
   isTagsOpened = false;
   activeTags: number[] = [];

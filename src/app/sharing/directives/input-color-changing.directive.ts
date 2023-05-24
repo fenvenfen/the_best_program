@@ -8,7 +8,6 @@ export class InputColorChangingDirective {
 
   constructor(private el: ElementRef) { }
 
-  //чому використовуэться саме ОнЧендж лайфсайкл Хук?
   ngOnChanges() {
     this.setBorderColor();
   }

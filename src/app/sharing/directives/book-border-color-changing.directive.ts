@@ -8,7 +8,7 @@ export class BookBorderColorChangingDirective {
 
   constructor(private el: ElementRef) { }
 
-  ngOnChanges() {
+  ngOnInit() {
     this.setBorderColor();
   }
 

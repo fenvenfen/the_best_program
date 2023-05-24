@@ -1,3 +1,212 @@
+============Урок 5=======================================
+Роутінг 
+
+Це механізм який дозволяє контролювати які компоненти показуємо в конкретних шляхів аплікації.
+В angular і в іньших фреймворках роутинг дозволяє створювати SPA single page application, це зміна вмісту 
+сторінки без перезавантаження всієї сторінки. Також ми можемо передавати данні в роутингу який допомогає вивисти 
+конкретний вміст сторінки.
+
+Навіщо він потрібний і яку роль відіграє
+Ми Використовуємо для багато речей передача параметрів, слідкування за навігацією, також і має секюрні функції,
+і функції які відповідають за пошук за використання сайту
+
+Як підключити і використовувати Роутінг в angular
+Все починається що ми створюємо app-routing.module.ts, в якому нам потрібно імпорутувати такі Класи
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+далі нам потрібно описати наші роути 
+
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
+];
+const routes: Routes = [
+  {
+    path: '',
+    component: AdminPanelComponent,
+    children: [
+      { path: '', redirectTo: '/admin/companies', pathMatch: 'full' },
+      {
+        path: 'companies',
+        component: CompaniesComponent,
+        data: { animationState: 'companies' },
+      },
+      {
+        path: 'admin-management',
+        component: AdminManagementComponent,
+        data: { animationState: 'admin-management' },
+      },
+      { path: ':companyId/company-page', component: CompanyPageComponent, canDeactivate: [IsSubscriptionGuard] },
+      { path: 'profile-page', component: ProfileInformationComponent },
+    ],
+  },
+];
+І основне це підключення 
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+Потім ми маємо підключити наш роутинг модуль до основного модуля. В app.module.ts
+Щоб почати використовувати не потрібно забути про добавлення 
+<router-outlet></router-outlet> в шаблон.
+Для кожного модуля можна створювати інші роути
+
+Ми можемо створювати роути окремі для окремих модулів наприклад ми можемо створити роут auth-routing.module.ts
+підключити його в imports нашого модуля де ми створили, бажано такої логіки і притримуватися якщо модуль вимагає створення декількох
+роутів то краще під кожен модуль створити свій модуль роутінга.
+
+Створення окремих роутів, розібратися які параметри приймає роут типу 
+{
+    *path: Шлях або шаблон шляху, який повинен відповідати URL-адресі, щоб активувати цей маршрут.
+    *component: Компонент, який буде відображений при активації маршруту.
+    redirectTo: Шлях, на який буде перенаправлено при спробі активувати цей маршрут.
+    pathMatch:  Спосіб, яким шлях маршруту буде порівнюватись з URL-адресою. Допустимі значення: 'prefix' 
+    (маршрут співпадає, якщо URL-адреса починається з шляху маршруту) або 'full' (маршрут співпадає, якщо URL-адреса 
+    повністю збігається з шляхом маршруту). За замовчуванням використовується 'prefix'
+    *data: Додаткові дані, які можна передати разом з маршрутом. Наприклад, 
+    { title: 'Home Page' }. Ці дані можна використовувати для налаштування заголовків сторінок, метаданих тощо.
+    canActivate / canActivateChild / canDeactivate: Функції або масив функцій, які використовуються для визначення, чи може маршрут бути активований (або деактивований). Ці функції повинні повертати значення типу boolean або обіцянку (Promise<boolean> або Observable<boolean>).
+    resolve: Об'єкт або масив об'єктів, які представляють дані, які потрібно завантажити перед активацією маршруту. Використовується 
+    для розв'язання даних перед відображенням компонента.
+    pathMatch: Значення, яке визначає, як виконувати порівняння шляху маршруту з URL-адресою. Можливі значення: 'prefix', 'full' або 'legacy'. 'legacy' використовує старий алгоритм порівняння шляхів.
+    outlet: Назва виводу (outlet), в якому повинен бути відображений компонент при активації маршруту. Використовується для визначення кількох виводів (outlets) в шаблоні.
+    runGuardsAndResolvers: Налаштування, яке визначає, коли виконувати функції canActivate, canActivateChild, canDeactivate та resolve. Можливі значення: 'always', 'paramsOrQueryParamsChange', 'paramsChange' або 'pathParamsOrQueryParamsChange'.
+    redirectToHandler: Функція, яка виконується для визначення шляху перенаправлення. Використовується для налаштування динамічних перенаправлень.
+    matcher: Функція-визначник, яка використовується для заміни стандартного алгоритму порівняння шляхів для маршруту.
+} і так далі розібрати основні параметри
+
+loadChildren є параметром, який використовується для лінивого завантаження модуля компонентів. Замість того, 
+щоб завантажувати всі компоненти одразу при старті додатка, ви можете використовувати loadChildren, щоб завантажити модуль 
+компонентів тільки тоді, коли він потрібний.
+{ path: 'lazy', loadChildren: () => import('./admin-panel/admin-panel.module').then((m) => m.AdminPanelModule) }
+{ path: 'lazy', loadChildren: () => import('./lazy.module').then(m => m.LazyModule) }
+
+Створення children роутів
+Створення вкладених (children) роутів в Angular дозволяє вам організувати ієрархічну структуру 
+маршрутизації, де деякі компоненти можуть бути вкладеними в інші компоненти. Це дозволяє вам створювати складніші 
+структури сторінок і додатків.
+ { 
+    path: 'parent',
+    component: ParentComponent,
+    children: [
+      { path: 'child1', component: Child1Component },
+      { path: 'child2', component: Child2Component }
+    ]
+  }
+Використання наприклад
+<h1>Parent Component</h1>
+<nav>
+  <a routerLink="/parent/child1">Child 1</a>
+  <a routerLink="/parent/child2">Child 2</a>
+</nav>
+
+<router-outlet></router-outlet>
+
+Передача параметрів через роутинг
+Ми можемо передавати через : , їх може бути безліч /:name/:id/:title
+{ path: 'product/:id', component: ProductDetailComponent }
+Також можемо передавати через параметер data
+{ path: 'product/:id', component: ProductDetailComponent, data: { title: 'Product Detail' } }
+
+Щоб почати використовувати в компоненті потрібно імпортувати 
+import { ActivatedRoute } from '@angular/router';
+і за його допомоги можемо витягнути потрібні нам данні, використовувати в ngOnInit
+route: ActivatedRoute
+Якщо передаємо данні через  data 
+const id = this.activatedRoute.snapshot.params.name;
+this.title = this.route.snapshot.data.title;
+
+this.route.params.subscribe(params => {
+      const id = params['id']; // Отримання значення параметра 'id'
+});
+
+Перехід на інші роути через компонент логіку
+import { Router } from '@angular/router';
+this.router.navigate(['/other-route']);
+this.router.navigate([`/client/${authInfo.company_id}/planning-cycle`]); якщо наприклад в нас є параметер
+this.router.navigate(['product-details', { id: productId }]);
+this.router.navigate(['/product', productId]);
+
+В шаблоні ми можемо  переходити через <a routerLink="/other-route">ROUT</a>
+[routerLink]="['product-details', { id: productId }]"
+
+Як ми можемо отримати наш роут в роуті
+const currentRoute = this.route.snapshot.url.join('/');
+
+  
+Використання активних роутів
+routerLinkActive добавляє класи і стилі до активного роута
+<a routerLink="/home" routerLinkActive="active">Home</a>
+<a routerLink="/about" routerLinkActive="active">About</a>
+<a routerLink="/contact" routerLinkActive="active">Contact</a>
+Розібратися що ще може ця деректива 
+
+
+Що таке guard і як їх писати і використовувати
+Створіть guard клас, який реалізує CanActivate, CanActivateChild, CanLoad, CanDeactivate або 
+Resolve інтерфейси з @angular/router. Кожен з цих інтерфейсів відповідає певному типу guard.
+import { Injectable } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
+
+@Injectable()
+export class AuthGuard implements CanActivate {
+  constructor(private router: Router) { }
+
+  canActivate(): boolean {
+    // Ваш код перевірки авторизації
+    if (isUserLoggedIn) {
+      return true;
+    } else {
+      this.router.navigate(['/login']);
+      return false;
+    }
+  }
+}
+ {
+    path: 'dashboard',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+  },
+
+Розібратися що ми можемо використовувати з @angular/router?
+
+Завдання:
+
+1) Створити RoutModule
+2) Описати дефолтний rout для path: '' і добавити до нього redirectTo: '/НАЗВА_ВАШОГО_ОСНОВНОГО_РОУТА'
+2) Описати rout для path: 'library/books/:id' component detail-book.component.ts {data: 'books'}
+2) Описати rout для path: 'library/shelfs/:id' component detail-book.component.ts {data: 'shelfs'}
+3) Створити основний роут який буде відображати основну вашу компоненту
+4) Створити компоненту (detail-book.component.ts) яка буде мати в собі header, tags і breadcrumbs компоненти
+5) Створити роут для новоствореної компоненти і добавити можливість передавти в нього параметер id це буде id нашої книги
+6) При кліку на одну з книг в полиці використати дефолтний меганізм переходу на інший роут в шаблоні, передати параметре id книги
+7) При кліку на одну з книг в книги використати меганізм переходу через можливості в компоненті, передати параметре id книги
+8) Зробити повністю динамічну комоненту breadcrumbs, показувати повний шлях до компоненти в якій ми знаходимося
+    зробити активною назву компоненти в якій ми знаходимось зробити клікабельні переходи на інші роути
+
+
+
+
+
+
+    
+9) Добавити до книги поле 18+ по цьому параметру ми будемо створювати guard, створення quard в окремому class
+10) Створити компоненту з тими самими компонентами окрім input and tags і написати напис "Книга не доступна 18+"
+    створити кнопку "Back" при кліку на яку користувача повино повернути назад на один степ роутінга
+11) Створити роут для цієї компоненти
+12) Створити guard чи ми можемо переходити на книгу, якщо книга має параметер 18+ то не дозволяти перехід на роут з пункту 4) 
+    а перенаправляти на роут з пункта 11)
+
+Додатково: 
+Розділити книги і полиці на два окремих модуля і для кожного створити свій роутінг модуль
+Описати для кожного роут і викликати там основну компоненту цього модуля
+
+
+
+
 ----------------TASK 04--------------------
 Урок 4, Модулі, пайпи, дерективи  і їх застосування
 

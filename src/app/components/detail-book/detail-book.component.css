@@ -1,0 +1,12 @@
+.book__fullInfo {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.book_fullInfo__poster{
+    height: 500px;
+    max-width: 100%;
+}
+.book__fullInfo_list{
+    font-size: 28px;
+}

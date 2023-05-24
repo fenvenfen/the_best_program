@@ -1,21 +1,24 @@
 <div class="books">
-    <div class="books__title">
-        <h2 class="books__title_name">книги</h2>
-        <span 
-        class="icon-favorite"
-        [ngClass]="{favorite: shouldFavoriteBooksBeShown}"
-        (click)="toggleShowFavoriteBooks()"></span>
-    </div>
-    <ul class="books__list" *ngIf="books">
-        <li *ngFor="let book of books; let i = index">
-            <app-card 
-                *ngIf="!shouldFavoriteBooksBeShown || book.favorite"
-                [book]="book"
-                (favoriteChange)="onChangeBookfFavorites($event, i)"
-                (deleteBookbyId)="deletingBook($event)" >
-            </app-card>
-        </li>
-    </ul>
-    <p *ngIf="books?.length === 0">no results, please try again</p>
+    <a routerLink="/library/books">
+
+            <div class="books__title">
+                <h2 class="books__title_name">книги</h2>
+                <span 
+                class="icon-favorite"
+                [ngClass]="{favorite: shouldFavoriteBooksBeShown}"
+                (click)="toggleShowFavoriteBooks()"></span>
+            </div>
+            <ul class="books__list" *ngIf="books">
+                <li *ngFor="let book of books; let i = index">
+                    <app-card 
+                    *ngIf="!shouldFavoriteBooksBeShown || book.favorite"
+                    [book]="book"
+                    (favoriteChange)="onChangeBookfFavorites($event, i)"
+                    (deleteBookbyId)="deletingBook($event)" >
+                </app-card>
+            </li>
+        </ul>
+        <p *ngIf="books?.length === 0">no results, please try again</p>
+    </a>
 </div>
 

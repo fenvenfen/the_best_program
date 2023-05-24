@@ -28,7 +28,6 @@
     display: block;
     margin: 0 auto 12px;
     max-width: 100%;
-    min-height: 270px; 
     object-fit: contain;
 }
 .book__name {

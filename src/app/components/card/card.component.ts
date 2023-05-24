@@ -28,6 +28,7 @@ export class CardComponent implements OnInit {
   constructor(private tagsServece: TagsService, private bookService: BookService) {  }
 
   ngOnInit(): void {
+    
     this.booksTags = this.tagsServece.tags.filter(tag =>
       this.book.tags.includes(tag.id) 
     );
