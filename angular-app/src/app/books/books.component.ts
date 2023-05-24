@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } fr
 import { Book } from '../shared/interfaces';
 import { DataStorageService } from '../shared/services/data-storage.service';
 import { BooksService } from '../shared/services/books.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-books',
@@ -27,7 +28,8 @@ export class BooksComponent implements OnInit {
   booksContainer!: ElementRef<any>;
 
   constructor(public booksService: BooksService,
-              private readonly _changeDetectorRef: ChangeDetectorRef,) { }
+              private readonly _changeDetectorRef: ChangeDetectorRef,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.books = this.booksService.books;
@@ -54,4 +56,7 @@ export class BooksComponent implements OnInit {
     (this.isOnlyFavorite) ? this.books = favoriteBooksArray : this.books = this.booksCopy;
   }
 
+  openBook(id: number) {
+    this.router.navigate(['/library/books', id]);
+  }
 }
