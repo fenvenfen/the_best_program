@@ -20,7 +20,7 @@ export class DetailBookComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.shelvesOrBooks = this.route.snapshot.url[1].path;
       this.book = this.booksService.getBookById(this.shelvesOrBooks, +params['id'])
-    })
+    });
 
     this.bookTags = this.booksService.getTagsNamesByIds(this.book.tags);
   }

@@ -11,5 +11,6 @@ export interface Book {
     tags: number[],
     src: string,
     favorite: boolean,
-    date: string
+    date: string,
+    forAdults: boolean
 }
