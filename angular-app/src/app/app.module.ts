@@ -15,6 +15,7 @@ import { InputComponent } from './input/input.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DetailBookComponent } from './detail-book/detail-book.component';
+import { UnavailableComponent } from './unavailable/unavailable.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { DetailBookComponent } from './detail-book/detail-book.component';
     LibraryComponent,
     HomePageComponent,
     DetailBookComponent,
+    UnavailableComponent,
   ],
   imports: [
     BrowserModule,
