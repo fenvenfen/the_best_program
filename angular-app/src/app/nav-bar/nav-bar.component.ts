@@ -33,9 +33,8 @@ export class NavBarComponent implements OnInit, OnDestroy {
     } else this.currentPage = 'Home';
   }
 
-  goToClickedRoute(route: string) {
+  getClickedRoute(route: string) {
     const neededRouterLinkArray = this.currentRouteUrlArray.slice(0, this.currentRouteUrlArray.indexOf(route) + 1);
-    const neededRouterLink = `/${neededRouterLinkArray.join('/')}`;
-    this.router.navigate([neededRouterLink]);
+    return `/${neededRouterLinkArray.join('/')}`;
   }
 }
