@@ -34,13 +34,12 @@ export class BookComponent implements OnInit {
   price: number = this.booksService.genereteRandomPrice();
   bookDescription: string = 'Lorem ipsum dolor sit amet cons adipisicing elit. Recusandae, nobis!'
 
-  constructor(private readonly dataStorageService: DataStorageService,
-              private readonly booksService: BooksService,
+  constructor(private readonly booksService: BooksService,
               private readonly _changeDetectorRef: ChangeDetectorRef,) { }
 
   ngOnInit(): void {
     this.shelfTagsIds = this.book.tags;
-    this.shelfTagsNames = this.getTagsNamesByIds(this.shelfTagsIds);
+    this.shelfTagsNames = this.booksService.getTagsNamesByIds(this.shelfTagsIds);
     this.tagsNumber = this.book.tags.length
   }
 
@@ -49,15 +48,6 @@ export class BookComponent implements OnInit {
     this.tagsContainerWidth = this._tagsContainerTpl.nativeElement.offsetWidth;
     this.isTagsInMultiRow = this.tagsContainerWidth < (this.tagsWidth);
     this._changeDetectorRef.detectChanges();
-  }
-
-  getTagsNamesByIds(idArray: number[]) :string[] {
-    const neededTagsNames = this.dataStorageService.tags.reduce((acc: any, curr: any) => {
-      if (idArray.includes(curr.id)) acc.push(curr.name);
-      return acc
-    }, [])
-    
-    return neededTagsNames;
   }
 
   getAllTagsWidth(): void {

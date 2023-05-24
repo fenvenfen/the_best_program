@@ -14,6 +14,7 @@ import { LibraryComponent } from './library/library.component';
 import { InputComponent } from './input/input.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AppRoutingModule } from './app-routing.module';
+import { DetailBookComponent } from './detail-book/detail-book.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     BooksComponent,
     LibraryComponent,
     HomePageComponent,
+    DetailBookComponent,
   ],
   imports: [
     BrowserModule,

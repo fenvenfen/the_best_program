@@ -14,6 +14,7 @@
         <app-book class="Book" 
                   [book] = 'book' 
                   id="book"
+                  [routerLink]="['/library/books', book.id]"
                   (onFavorite)="booksService.updateFavorites($event, books)"
                   (onDeleteBook)="booksService.updateBooks($event, books, booksCopy)"></app-book>
     </ng-container>

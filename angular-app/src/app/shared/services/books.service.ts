@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Book } from '../interfaces';
+import { Book, Tag } from '../interfaces';
 import { DataStorageService } from './data-storage.service';
 
 @Injectable({
@@ -8,11 +8,13 @@ import { DataStorageService } from './data-storage.service';
 export class BooksService {
   shelves!: Book[];
   books!: Book[];
+  tags!: Tag[];
   query = '';
 
   constructor(private readonly dataStorageService: DataStorageService) { 
     this.shelves = this.dataStorageService.shelfsCollections;
     this.books = this.dataStorageService.bookCollections;
+    this.tags = this.dataStorageService.tags;
   }
 
   updateFavorites(id: number, booksSet: Book[]): void {
@@ -30,5 +32,19 @@ export class BooksService {
 
   genereteRandomPrice(): number {
     return  Math.floor(Math.random() * 21) + 10;
+  }
+
+  getBookById(shelvesOrBooks: string, id: number): any {
+    if (shelvesOrBooks === 'shelves') return this.shelves.find(book => book.id === id);
+    else if (shelvesOrBooks === 'books') return this.books.find(book => book.id === id);
+  }
+
+  getTagsNamesByIds(idArray: number[]) :string[] {
+    const neededTagsNames = this.tags.reduce((acc: any, curr: any) => {
+      if (idArray.includes(curr.id)) acc.push(curr.name);
+      return acc
+    }, [])
+    
+    return neededTagsNames;
   }
 }
