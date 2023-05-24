@@ -3,6 +3,7 @@ import { Book } from '../shared/interfaces';
 import { DataStorageService } from '../shared/services/data-storage.service';
 import { BooksService } from '../shared/services/books.service';
 import { Router } from '@angular/router';
+import { IsBookAvailableService } from '../shared/services/isBookAvailable.service';
 
 @Component({
   selector: 'app-books',
@@ -29,7 +30,8 @@ export class BooksComponent implements OnInit {
 
   constructor(public booksService: BooksService,
               private readonly _changeDetectorRef: ChangeDetectorRef,
-              private router: Router) { }
+              private router: Router,
+              public isBookAvailableService: IsBookAvailableService) { }
 
   ngOnInit(): void {
     this.books = this.booksService.books;

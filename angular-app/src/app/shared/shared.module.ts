@@ -13,7 +13,7 @@ import { ImageSizeDirective } from './directives/image-size.directive';
         ChangeSecondWordToStarsPipe,
         BorderColorDirective,
         InputColorDirective,
-        ImageSizeDirective
+        ImageSizeDirective,
     ],
     exports: [
         FilterPipe,
@@ -21,7 +21,7 @@ import { ImageSizeDirective } from './directives/image-size.directive';
         ChangeSecondWordToStarsPipe,
         BorderColorDirective,
         InputColorDirective,
-        ImageSizeDirective
+        ImageSizeDirective,
     ]
 })
 export class SharedModule {

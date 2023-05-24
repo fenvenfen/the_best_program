@@ -17,7 +17,9 @@ export class NavBarComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.routeSub = this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
-        this.currentRouteUrlArray = event.url.split('/').filter(n => n != '' && n != 'home');
+        this.currentRouteUrlArray = event.url.split('/').filter(n => {
+          return n != '' && n != 'home' && n != 'unavailable?isAdult=false'
+        });
         this.getCurrentPage();
       }
     })

@@ -14,7 +14,7 @@
         <app-book class="Book" 
                   [book] = 'book' 
                   id="book"
-                  (click)="openBook(book.id)"
+                  (click)="openBook(book.id); isBookAvailableService.passIfAvailable(books, book.id)"
                   (onFavorite)="booksService.updateFavorites($event, books)"
                   (onDeleteBook)="booksService.updateBooks($event, books, booksCopy)"></app-book>
     </ng-container>

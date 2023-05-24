@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Book } from '../shared/interfaces';
 import { BooksService } from '../shared/services/books.service';
+import { IsBookAvailableService } from '../shared/services/isBookAvailable.service';
 
 @Component({
   selector: 'app-shelves',
@@ -26,7 +27,8 @@ export class ShelvesComponent implements OnInit {
   shelvesContainer!: ElementRef<any>;
 
   constructor(public booksService: BooksService,
-              private readonly _changeDetectorRef: ChangeDetectorRef,) { }
+              private readonly _changeDetectorRef: ChangeDetectorRef,
+              public isBookAvailableService: IsBookAvailableService) { }
 
   ngOnInit(): void {
     this.shelves = this.booksService.shelves;
