@@ -2,9 +2,7 @@
     <p class="Detail-book_title">{{book.name}}</p>
 
     <div class="Detail-book_container">
-        <div class="Detail-book_img__container">
-            <img appImageSize class="Detail-book_img" src="{{book.src}}">
-        </div>
+            <img class="Detail-book_img" src="{{book.src}}">
         <div>
             <p class="Light-grey Detail-book_date">{{book.date | date:'dd.MM.yyy'}}</p>
             <div class="Detail-book_tags">
