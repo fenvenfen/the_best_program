@@ -4,12 +4,14 @@
         <div>
             <div class="Nav-bar_info_breadcrumbs">
                 <p>HOME</p>
-                <img class="Nav-bar_info_breadcrumbs_arrow" src="/assets/arrow.svg">
-                <p class="Light-grey">Library</p>
+                <ng-container *ngFor="let route of currentRouteUrlArray">
+                    <img class="Nav-bar_info_breadcrumbs_arrow" src="/assets/arrow.svg">
+                    <p class="Light-grey">{{route | titlecase}}</p>
+                </ng-container>
             </div>
-            
-            <p class="Nav-bar_info_current-page">LIBRARY</p>
+
+            <p class="Nav-bar_info_current-page">{{currentPage | uppercase}}</p>
         </div>
     </div>
-    <button class="Button Button-goBack">BACK HOME</button>
+    <button class="Button Button-goBack" [routerLink]="['/']">BACK HOME</button>
 </nav>

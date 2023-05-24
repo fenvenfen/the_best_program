@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-library',
@@ -8,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class LibraryComponent implements OnInit {
   searchValue!: string;
   chosenTags!: number[];
-  constructor( ) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    // console.log(this.route.snapshot.url.join('/'));
   }
 
   updateInputValue(inputValue: string): void {
