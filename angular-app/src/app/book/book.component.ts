@@ -54,12 +54,18 @@ export class BookComponent implements OnInit {
     this._tags.forEach((tag) => this.tagsWidth += tag.nativeElement.offsetWidth);
   }
 
-  makeFavorite() {
-    this.onFavorite.emit(this.book.id)
+  makeFavorite(event: any): void {
+    this.onFavorite.emit(this.book.id);
+    event.stopPropagation();
   }
 
-  deleteBook() {
-    this.onDeleteBook.emit(this.book.id)
+  deleteBook(event: any): void {
+    this.onDeleteBook.emit(this.book.id);
+    event.stopPropagation();
   }
 
+  openTags(event: any): void {
+    this.isTagsClosed = !this.isTagsClosed;
+    event.stopPropagation();
+  }
 }

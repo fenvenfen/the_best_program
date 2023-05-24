@@ -6,10 +6,10 @@
     <div class="Book_controls">
         <button><span class="icon-star-svgrepo-com Book_controls_star" 
                       [ngClass]="{Favorite : book.favorite}"
-                      (click)="makeFavorite()">
+                      (click)="makeFavorite($event)">
                 </span>
         </button>
-        <button (click)="deleteBook()"><span class="icon-delete Book_controls_bin"></span></button>
+        <button (click)="deleteBook($event)"><span class="icon-delete Book_controls_bin"></span></button>
     </div>
 
     <hr>
@@ -31,7 +31,7 @@
         </div>
         <button *ngIf="isTagsInMultiRow" 
                 class="Tags_button-open_cover"
-                (click)="isTagsClosed = !isTagsClosed">
+                (click)="openTags($event)">
                 <p class="Tags_button-open">&#183;&#183;&#183;</p>
         </button>
     </div>
