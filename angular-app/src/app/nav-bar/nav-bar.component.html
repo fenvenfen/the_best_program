@@ -3,13 +3,12 @@
         <img class='Nav-bar_icon' src="/assets/lamp.png">
         <div>
             <div class="Nav-bar_info_breadcrumbs">
-                <p>HOME</p>
+                <a [routerLink]="['/home']">HOME</a>
                 <ng-container *ngFor="let route of currentRouteUrlArray">
-                    <img class="Nav-bar_info_breadcrumbs_arrow" src="/assets/arrow.svg">
-                    <p class="Light-grey">{{route | titlecase}}</p>
+                        <img class="Nav-bar_info_breadcrumbs_arrow" src="/assets/arrow.svg">
+                        <a (click)="goToClickedRoute(route)">{{route | titlecase}}</a>
                 </ng-container>
             </div>
-
             <p class="Nav-bar_info_current-page">{{currentPage | uppercase}}</p>
         </div>
     </div>
