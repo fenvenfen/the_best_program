@@ -2,11 +2,13 @@
     *ngIf="book"
     [appBookBorderColorChanging]="book.tags.length"
     class="card" >
-    <img 
-        [src]="book.src" 
-        [alt]="book.name"
-        appImageOrientalFormating 
-        class="book__poster">
+    <div class="poster__wrapper">
+        <img 
+            [src]="book.src" 
+            [alt]="book.name"
+            appImageOrientalFormating 
+            class="book__poster">
+    </div>
     <span 
         class="icon-favorite"
         [ngClass]="{favorite: isFavorite}"

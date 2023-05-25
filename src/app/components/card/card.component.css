@@ -23,12 +23,16 @@
 .icon-delete:hover::before {
     color: #8ac8e1;
 }
-
+.poster__wrapper{
+    height: 160px;
+    margin-top: auto;
+    margin-bottom: auto;
+    object-fit: contain;
+}
 .book__poster{
     display: block;
     margin: 0 auto 12px;
     max-width: 100%;
-    object-fit: contain;
 }
 .book__name {
     margin-bottom: 16px;

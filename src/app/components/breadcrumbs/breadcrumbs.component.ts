@@ -13,12 +13,10 @@ export class BreadcrumbsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-
   ) {}
   ngOnInit(): void {
     this.currentRoute = this.route.snapshot.url.map(url => url.path);
     this.lastRoute = this.currentRoute[this.currentRoute.length - 1];
-    console.log(this.currentRoute);
   }
 }
 

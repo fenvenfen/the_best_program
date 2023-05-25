@@ -15,6 +15,7 @@ import { CardComponent } from './components/card/card.component';
 import { BooksComponent } from './components/books/books.component';
 import { DetailBookComponent } from './components/detail-book/detail-book.component';
 import { LibraryComponent } from './components/library/library.component';
+import { PageNotFounedComponent } from './components/page-not-founed/page-not-founed.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { LibraryComponent } from './components/library/library.component';
     BooksComponent,
     DetailBookComponent,
     LibraryComponent,
+    PageNotFounedComponent,
   ],
   imports: [
     BrowserModule,
