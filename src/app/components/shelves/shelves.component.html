@@ -10,6 +10,7 @@
     <ul class="shelves__list" [ngClass]="{hidden: !showMore}">
         <li *ngFor="let shelf of shelves; let i = index"  >
             <app-card 
+                [routerLink]="['/library/shelves', shelf.id]"
                 *ngIf="!shouldFavoriteShelvesBeShown || shelf.favorite"                   
                 [book]="shelf" 
                 (favoriteChange)="onChangeShelfFavorites($event, i)"

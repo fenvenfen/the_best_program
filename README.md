@@ -175,13 +175,13 @@ export class AuthGuard implements CanActivate {
 
 Завдання:
 
-1) Створити RoutModule
-2) Описати дефолтний rout для path: '' і добавити до нього redirectTo: '/НАЗВА_ВАШОГО_ОСНОВНОГО_РОУТА'
-2) Описати rout для path: 'library/books/:id' component detail-book.component.ts {data: 'books'}
-2) Описати rout для path: 'library/shelfs/:id' component detail-book.component.ts {data: 'shelfs'}
-3) Створити основний роут який буде відображати основну вашу компоненту
-4) Створити компоненту (detail-book.component.ts) яка буде мати в собі header, tags і breadcrumbs компоненти
-5) Створити роут для новоствореної компоненти і добавити можливість передавти в нього параметер id це буде id нашої книги
++1) Створити RoutModule
++2) Описати дефолтний rout для path: '' і добавити до нього redirectTo: '/НАЗВА_ВАШОГО_ОСНОВНОГО_РОУТА'
++2) Описати rout для path: 'library/books/:id' component detail-book.component.ts {data: 'books'}
++2) Описати rout для path: 'library/shelfs/:id' component detail-book.component.ts {data: 'shelfs'}
++3) Створити основний роут який буде відображати основну вашу компоненту
++4) Створити компоненту (detail-book.component.ts) яка буде мати в собі header, tags і breadcrumbs компоненти
++5) Створити роут для новоствореної компоненти і добавити можливість передавти в нього параметер id це буде id нашої книги
 6) При кліку на одну з книг в полиці використати дефолтний меганізм переходу на інший роут в шаблоні, передати параметре id книги
 7) При кліку на одну з книг в книги використати меганізм переходу через можливості в компоненті, передати параметре id книги
 8) Зробити повністю динамічну комоненту breadcrumbs, показувати повний шлях до компоненти в якій ми знаходимося
