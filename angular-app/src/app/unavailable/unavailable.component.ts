@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-unavailable',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./unavailable.component.sass']
 })
 export class UnavailableComponent implements OnInit {
+  previousRouteUrl!: any;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getPreviousRouteUrl();
   }
 
+  getPreviousRouteUrl() {
+    const currentRouteUrlArray = this.route.snapshot.url;
+    currentRouteUrlArray.pop();
+    this.previousRouteUrl = `/${currentRouteUrlArray.join('/')}`;
+  }
 }
