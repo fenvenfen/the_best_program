@@ -2,29 +2,29 @@
     <app-header></app-header>
     <app-breadcrumbs></app-breadcrumbs>
 
-    detail-book works!
     <div class="book__fullInfo">
-
-        <img 
-        src="https://m.media-amazon.com/images/I/51jQChB+fmL._AC_UF1000,1000_QL80_FMwebp_.jpg" 
-        alt="book.name"
-        class="book_fullInfo__poster">
-
+        <div class="poster__wrapper">
+            <img 
+            [src]="book?.src" 
+            [alt]="book?.name"
+            class="book_fullInfo__poster"
+            appImageOrientalFormating
+            >
+        </div>
         <ul class="book__fullInfo_list">
             <li class="book_fullInfo__name">
-                <!-- {{book.name}} -->
-                bookName
+                <span class="bookInfo__key">Book title :</span>
+                {{book?.name}}
             </li>
             <li class="book_fullInfo__date">
-                <!-- {{book.date | date:'dd.MM.YYYY'}} -->
-                bookDate
+                <span class="bookInfo__key">Date:</span>
+                {{book?.date | date:'dd.MM.YYYY'}}
             </li>
             <li class="book_fullInfo__description">
-                <!-- {{book.description}} -->
-                bookDescription
-
+                <span class="bookInfo__key">Description:</span>
+                <hr>
+                {{book?.description}}
             </li>
         </ul>
     </div>
-
 </section>

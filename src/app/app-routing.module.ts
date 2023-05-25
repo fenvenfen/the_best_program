@@ -6,8 +6,9 @@ import { LibraryComponent } from './components/library/library.component';
 const routes: Routes = [
     { path: '', redirectTo: '/library', pathMatch: 'full' },
     { path: 'library', component: LibraryComponent},
-    { path: 'library/books', component: DetailBookComponent, data: { title: 'Book' } },
-    { path: 'library/shelfs', component: DetailBookComponent, data: { title: 'Shelf' } },
+    { path: 'library/books/:id', component: DetailBookComponent, data: { isBooskOrShelves: 'books' } },
+    { path: 'library/shelves/:id', component: DetailBookComponent, data: { isBooskOrShelves: 'shelves' } },
+    // { path: '**', component: "<p>Page not founded</p>" },
 ];
 
 

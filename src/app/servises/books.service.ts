@@ -285,6 +285,10 @@ export class BookService {
     return books;
   }
 
+  getBookById(id: number) {
+    return this.bookCollections.find((book) => book.id === id);
+  }
+
   getShelves() {
     let shelves = [...this.shelfsCollections];
 
@@ -307,6 +311,11 @@ export class BookService {
 
     return shelves;
   }
+
+  getShelvesById(id: number) {
+    return this.shelfsCollections.find((shelf) => shelf.id === id);
+  }
+
 
   changeFavoriteShelf(isFavorite: boolean, index: number): void {
     this.shelfsCollections[index].favorite = isFavorite;

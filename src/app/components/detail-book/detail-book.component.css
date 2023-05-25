@@ -2,6 +2,12 @@
     padding: 30px;
     display: grid;
     grid-template-columns: 1fr 2fr;
+    gap: 40px;
+}
+.poster__wrapper{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 .book_fullInfo__poster{
     height: 500px;
@@ -9,4 +15,13 @@
 }
 .book__fullInfo_list{
     font-size: 28px;
+    list-style: none;
+    margin: 0;
+}
+.book__fullInfo_list>li{
+    margin-bottom: 20px;
+}
+.bookInfo__key {
+    font-weight: bold;
+    font-size: 32px;
 }

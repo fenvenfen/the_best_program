@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { BookService } from 'src/app/servises/books.service';
 import { Book } from '../../interfaces';
 
@@ -17,11 +18,14 @@ import { Book } from '../../interfaces';
 })
 export class BooksComponent implements OnInit {
   shouldFavoriteBooksBeShown: boolean = false;
+
   @Input() books?: Book[];
 
   // favoriteBooks = this.books?.filter(book => book.favorite)
 
-  constructor(private bookService: BookService){}
+  constructor(
+    private bookService: BookService,
+    private router: Router){}
 
   ngOnInit(): void { }
 
@@ -35,5 +39,8 @@ export class BooksComponent implements OnInit {
   deletingBook(id: number){
     this.bookService.deleteBook(id);
     this.books = this.bookService.getBooks()
+  }
+  openBookDetails(id: number){
+    this.router.navigate([`library/books/${id}`]);
   }
 }
