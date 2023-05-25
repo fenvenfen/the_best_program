@@ -8,13 +8,14 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    max-height: 430px;
 }
 .book_fullInfo__poster{
     height: 500px;
     max-width: 100%;
 }
 .book__fullInfo_list{
-    font-size: 28px;
+    font-size: 18px;
     list-style: none;
     margin: 0;
 }
@@ -23,5 +24,5 @@
 }
 .bookInfo__key {
     font-weight: bold;
-    font-size: 32px;
+    font-size: 22px;
 }

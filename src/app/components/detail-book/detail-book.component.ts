@@ -25,10 +25,10 @@ export class DetailBookComponent implements OnInit {
 
       this.isBooskOrShelves = this.route.snapshot.data['isBooskOrShelves'];
       switch (this.isBooskOrShelves) {
-        case 'books':
+        case 'Books':
           this.book = this.bookService.getBookById(this.id);
           break;
-        case 'shelves':
+        case 'Shelves':
           this.book = this.bookService.getShelvesById(this.id);
           break;
         default:

@@ -2,11 +2,19 @@
     <div class="navigation__wrapper">
         <nav class="navigation">
             <ul class="navigation__list">
-                <li class="navigation__item">HOME</li>
-                <li class="navigation__item">Library</li>
+                <li 
+                    class="navigation__item"
+                    [routerLink]="['/library/']">
+                    HOME
+                </li>
+                <li 
+                    class="navigation__item"
+                    *ngFor="let route of currentRoute;">
+                    {{route | titlecase}}
+                </li>
             </ul>
         </nav>
-        <span class="current__navigation">Library</span>
+        <span class="current__navigation">{{lastRoute}}</span>
     </div>
     <button 
         [routerLink]="['/library/']"

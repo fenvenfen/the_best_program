@@ -16,6 +16,7 @@ nav {
     flex-direction: column;
     flex-wrap: wrap;
     padding-left: 60px;
+    
 }
 .navigation{
     position: relative;
@@ -27,7 +28,8 @@ nav {
 
     position: absolute;
     top: 50%;
-    left: -60%;
+    left: 0%;
+    transform: translate(-115%, -15%);
 }
 
 .lamp__icon {
@@ -42,10 +44,11 @@ nav {
     display: flex;
     margin-bottom: 4px;
 
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .navigation__item:not(:last-child) {
+    cursor: pointer;
     margin-right: 16px;
     position: relative;
 }
@@ -79,4 +82,6 @@ nav {
     padding: 8px 20px;
 
     margin-left: auto;
+
+    cursor: pointer;
 }

@@ -12,6 +12,9 @@
 ul {
     list-style: none
 }
+button {
+    cursor: pointer;
+}
 
 .white-frame{
     background-color: #ffffff;
