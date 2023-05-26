@@ -61,7 +61,10 @@ nav {
     top: 0;
     right: -10px;
 }
-
+.active{
+    font-weight: bold;
+    color: teal
+}
 .current__navigation{
     font-size: 20px;
     font-weight: bold;

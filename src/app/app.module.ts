@@ -16,6 +16,7 @@ import { BooksComponent } from './components/books/books.component';
 import { DetailBookComponent } from './components/detail-book/detail-book.component';
 import { LibraryComponent } from './components/library/library.component';
 import { PageNotFounedComponent } from './components/page-not-founed/page-not-founed.component';
+import { ForbiddenForChildrenComponent } from './components/forbidden-for-children/forbidden-for-children.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PageNotFounedComponent } from './components/page-not-founed/page-not-fo
     DetailBookComponent,
     LibraryComponent,
     PageNotFounedComponent,
+    ForbiddenForChildrenComponent,
   ],
   imports: [
     BrowserModule,

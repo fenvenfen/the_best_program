@@ -12,6 +12,7 @@ export interface Book {
     id: number,
     date: string,
     description: string,
+    forAdults: boolean,
 }
 
 export interface Shelf {
@@ -22,6 +23,8 @@ export interface Shelf {
     favorite: boolean,
     date: string,
     description: string,
+    forAdults: boolean,
+
 }
 
 export interface QueryParams {

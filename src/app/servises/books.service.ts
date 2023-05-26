@@ -14,6 +14,7 @@ export class BookService {
       favorite: false,
       src: 'https://cdn.britannica.com/55/188355-050-D5E49258/Salvatore-Corsitto-The-Godfather-Marlon-Brando-Francis.jpg',
       id: 1,
+      forAdults: false,
       date: '2023-07-24 11:54:25.843 +0000',
     },
     {
@@ -24,6 +25,7 @@ export class BookService {
       favorite: false,
       src: 'https://m.media-amazon.com/images/I/519n1y9Q9kL._SY344_BO1,204,203,200_QL70_ML2_.jpg',
       id: 2,
+      forAdults: true,
       date: '2021-05-22 03:51:31.843 +0000',
     },
     {
@@ -34,6 +36,7 @@ export class BookService {
       favorite: true,
       src: 'https://m.media-amazon.com/images/I/51HX9XQ9HBL._SY344_BO1,204,203,200_QL70_ML2_.jpg',
       id: 3,
+      forAdults: false,
       date: '2019-11-30 11:52:31.843 +0000',
     },
     {
@@ -44,6 +47,7 @@ export class BookService {
       favorite: false,
       src: 'https://flixable.b-cdn.net/hbo-max/large/us/the-da-vinci-code.jpg',
       id: 4,
+      forAdults: false,
       date: '2023-03-18 11:54:25.843 +0000',
     },
     {
@@ -54,6 +58,7 @@ export class BookService {
       favorite: false,
       src: 'https://m.media-amazon.com/images/I/41quWoJq+8L._SY344_BO1,204,203,200_.jpg',
       id: 5,
+      forAdults: false,
       date: '2021-05-02 03:51:31.843 +0000',
     },
     {
@@ -64,6 +69,7 @@ export class BookService {
       favorite: true,
       src: 'https://m.media-amazon.com/images/I/51cTCiLMNAL._SX339_BO1,204,203,200_.jpg',
       id: 6,
+      forAdults: true,
       date: '2009-11-12 11:52:31.843 +0000',
     },
     {
@@ -74,6 +80,7 @@ export class BookService {
       favorite: false,
       src: 'https://m.media-amazon.com/images/I/51IfaP5qfoL._SY344_BO1,204,203,200_QL70_ML2_.jpg',
       id: 7,
+      forAdults: false,
       date: '2023-06-14 11:54:25.843 +0000',
     },
     {
@@ -84,6 +91,7 @@ export class BookService {
       favorite: false,
       src: 'https://m.media-amazon.com/images/I/41CPOyQP6xL._SX331_BO1,204,203,200_.jpg',
       id: 8,
+      forAdults: false,
       date: '2021-05-02 03:51:31.843 +0000',
     },
     {
@@ -91,9 +99,10 @@ export class BookService {
         'Not all of her suggestions were easy to digest. When I first read her idea regarding two important characters, I remember being quite taken aback. I was reluctant to take on some of her notes. She suggested changing the nature of my protagonists’ relationship to each other and, therefore, the impact of the ending. ',
       tags: [8, 19],
       name: 'Jurassic Park',
-      favorite: true,
+      favorite: false,
       src: 'https://m.media-amazon.com/images/I/513qk1TGinL._SX323_BO1,204,203,200_.jpg',
       id: 9,
+      forAdults: true,
       date: '2020-11-02 11:52:31.843 +0000',
     },
     {
@@ -104,6 +113,7 @@ export class BookService {
       favorite: true,
       src: 'https://m.media-amazon.com/images/I/51jSPyJ8v2L._SY344_BO1,204,203,200_QL70_ML2_.jpg',
       id: 10,
+      forAdults: true,
       date: '2023-03-04 11:54:25.843 +0000',
     },
     {
@@ -114,6 +124,7 @@ export class BookService {
       favorite: false,
       src: 'https://m.media-amazon.com/images/I/51Bw27SCLDL._SY498_BO1,204,203,200_.jpg',
       id: 11,
+      forAdults: false,
       date: '2021-05-02 03:51:31.843 +0000',
     },
     {
@@ -124,6 +135,7 @@ export class BookService {
       favorite: false,
       src: 'https://m.media-amazon.com/images/I/41DfP7NpIIL._SX327_BO1,204,203,200_.jpg',
       id: 12,
+      forAdults: false,
       date: '2022-11-02 11:52:31.843 +0000',
     },
   ];
@@ -138,6 +150,7 @@ export class BookService {
       name: 'The Lord of the Rings',
       favorite: true,
       date: '2023-08-18 11:54:25.843 +0000',
+      forAdults: true,
     },
     {
       description:
@@ -148,6 +161,8 @@ export class BookService {
       name: 'The Hunger Games',
       favorite: false,
       date: '2021-05-02 03:51:31.843 +0000',
+      forAdults: true,
+
     },
     {
       description:
@@ -158,6 +173,8 @@ export class BookService {
       name: 'The Chronicles of Narnia',
       favorite: true,
       date: '2012-11-02 11:52:31.843 +0000',
+      forAdults: true,
+
     },
     {
       description:
@@ -168,6 +185,8 @@ export class BookService {
       name: 'Harry Potter',
       favorite: false,
       date: '2023-03-14 11:54:25.843 +0000',
+      forAdults: true,
+
     },
     {
       description:
@@ -178,6 +197,8 @@ export class BookService {
       name: "The Hitchhiker's Guide to the Galaxy",
       favorite: false,
       date: '2021-05-02 03:51:31.843 +0000',
+      forAdults: true,
+
     },
     {
       description:
@@ -188,6 +209,8 @@ export class BookService {
       name: 'Game of Thrones',
       favorite: false,
       date: '1990-11-12 11:52:31.843 +0000',
+      forAdults: true,
+
     },
     {
       description:
@@ -198,6 +221,8 @@ export class BookService {
       name: 'Percy Jackson and the Olympians',
       favorite: true,
       date: '2023-09-14 11:54:25.843 +0000',
+      forAdults: true,
+
     },
     {
       description:
@@ -208,6 +233,8 @@ export class BookService {
       name: 'The Dark Tower',
       favorite: false,
       date: '2021-08-02 03:51:31.843 +0000',
+      forAdults: true,
+
     },
     {
       description:
@@ -218,6 +245,8 @@ export class BookService {
       name: 'The Wheel of Time',
       favorite: true,
       date: '2014-11-02 11:52:31.843 +0000',
+      forAdults: true,
+
     },
     {
       description:
@@ -228,6 +257,8 @@ export class BookService {
       name: 'Dune',
       favorite: true,
       date: '2023-09-14 11:54:25.843 +0000',
+      forAdults: true,
+
     },
     {
       description:
@@ -238,6 +269,8 @@ export class BookService {
       name: 'The Mortal Instruments',
       favorite: false,
       date: '2021-07-22 03:51:31.843 +0000',
+      forAdults: true,
+
     },
     {
       description:
@@ -248,6 +281,8 @@ export class BookService {
       name: 'The Maze Runner',
       favorite: false,
       date: '2013-12-30 11:52:31.843 +0000',
+      forAdults: true,
+
     },
   ];
 

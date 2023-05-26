@@ -1,4 +1,4 @@
-.page__notFound{
+.page__adults{
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -6,7 +6,7 @@
     flex-direction: column;
 }
 h2 {
-    color: rgb(53, 53, 191);
+    color: rgb(155, 52, 24);
     font-size: 38px;
 }
 .back-home__btn{
