@@ -4,7 +4,7 @@
         <div>
             <div class="Nav-bar_info_breadcrumbs">
                 <a [routerLink]="['/home']">HOME</a>
-                <ng-container *ngFor="let route of currentRouteUrlArray">
+                <ng-container *ngFor="let route of currentRouteUrlArrayWithName">
                     <img class="Nav-bar_info_breadcrumbs_arrow" src="/assets/arrow.svg">
                     <a routerLinkActive="Active"
                        [routerLinkActiveOptions]="{exact: true}"

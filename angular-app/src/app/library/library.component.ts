@@ -23,4 +23,8 @@ export class LibraryComponent implements OnInit {
    this.chosenTags = chosenTags;
   }
 
+  componentAdded(event: any) {
+    console.log(event);
+}
+
 }
