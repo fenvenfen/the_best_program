@@ -5,6 +5,7 @@ import { ChangeSecondWordToStarsPipe } from './pipes/change-second-word-to-stars
 import { BorderColorDirective } from './directives/border-color.directive';
 import { InputColorDirective } from './directives/input-color.directive';
 import { ImageSizeDirective } from './directives/image-size.directive';
+import { ChangeBookIndexToNamePipe } from './pipes/change-book-index-to-name.pipe';
 
 @NgModule({
     declarations: [
@@ -14,6 +15,7 @@ import { ImageSizeDirective } from './directives/image-size.directive';
         BorderColorDirective,
         InputColorDirective,
         ImageSizeDirective,
+        ChangeBookIndexToNamePipe,
     ],
     exports: [
         FilterPipe,
@@ -22,6 +24,7 @@ import { ImageSizeDirective } from './directives/image-size.directive';
         BorderColorDirective,
         InputColorDirective,
         ImageSizeDirective,
+        ChangeBookIndexToNamePipe,
     ]
 })
 export class SharedModule {

@@ -13,13 +13,9 @@ export class IsAdultGuard implements CanActivate{
     canActivate(
         route: ActivatedRouteSnapshot, 
         state: RouterStateSnapshot
-    ): boolean | Observable<boolean> | Promise<boolean> {
+    ): boolean {
         if (this.isBookAvailable.isBookForAdults) {
-            this.router.navigate(['/library/unavailable'], {
-                queryParams: {
-                    isAdult: false
-                }
-            });
+            this.router.navigate(['/library/unavailable']);
             return false;
         } else {
             return true;

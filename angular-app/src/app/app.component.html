@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="Container">
-    <app-nav-bar></app-nav-bar>
-    <router-outlet></router-outlet>
+    <app-nav-bar [shelvesOrBooks]="shelvesOrBooks"></app-nav-bar>
+    <router-outlet (activate)="getBooksOrShelves($event)"></router-outlet>
 </div>
 

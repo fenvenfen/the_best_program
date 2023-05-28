@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Book } from '../shared/interfaces';
 import { BooksService } from '../shared/services/books.service';
@@ -9,7 +9,8 @@ import { BooksService } from '../shared/services/books.service';
   styleUrls: ['./detail-book.component.sass']
 })
 export class DetailBookComponent implements OnInit {
-  shelvesOrBooks!: string;
+  @Output() booksOrShelves: EventEmitter<string> = new EventEmitter<string>();
+  shelvesOrBooks!: any;
   book!: Book;
   bookTags!: string[];
 
@@ -21,7 +22,9 @@ export class DetailBookComponent implements OnInit {
       this.shelvesOrBooks = this.route.snapshot.url[1].path;
       this.book = this.booksService.getBookById(this.shelvesOrBooks, +params['id'])
     });
-
     this.bookTags = this.booksService.getTagsNamesByIds(this.book.tags);
+
+    this.shelvesOrBooks = this.route.snapshot.data['isBooskOrShelves'];
+    this.booksOrShelves.emit(this.shelvesOrBooks);
   }
 }

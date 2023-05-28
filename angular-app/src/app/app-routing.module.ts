@@ -9,15 +9,23 @@ import { ShelvesComponent } from "./shelves/shelves.component";
 import { BooksComponent } from "./books/books.component";
 
 const routes: Routes = [
-    {path: '', redirectTo: '/home', pathMatch: 'full'},
+    {path: '', redirectTo: '/home', pathMatch: 'full'},///???????
     {path: 'home', component: HomePageComponent},
     {path: 'library', component: LibraryComponent, 
     // children: [
         // {path: 'shelves', component: ShelvesComponent, outlet: 'shelves'},
         // {path: 'books', component: BooksComponent, outlet: 'books'}]
     },
-    {path: 'library/shelves/:id', component: DetailBookComponent, canActivate: [IsAdultGuard]},
-    {path: 'library/books/:id', component: DetailBookComponent, canActivate: [IsAdultGuard]},
+    {path: 'library/shelves/:id', 
+    component: DetailBookComponent, 
+    data: {isBooskOrShelves: 'shelves'}, 
+    canActivate: [IsAdultGuard]},
+
+    {path: 'library/books/:id', 
+    component: DetailBookComponent, 
+    data: {isBooskOrShelves: 'books'},
+    canActivate: [IsAdultGuard]},
+
     {path: 'library/unavailable', component: UnavailableComponent},
 ]
 

@@ -21,7 +21,7 @@ export class BookComponent implements OnInit {
   @Input() book!: Book;
 
   @Output() onFavorite: EventEmitter<number> = new EventEmitter<number>();
-  @Output() onDeleteBook: EventEmitter<number> = new EventEmitter<number>()
+  @Output() onDeleteBook: EventEmitter<number> = new EventEmitter<number>();
 
   shelfTagsIds!: number[]; 
   shelfTagsNames!: string[];
