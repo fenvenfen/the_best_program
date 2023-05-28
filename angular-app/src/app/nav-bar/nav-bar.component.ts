@@ -13,7 +13,6 @@ export class NavBarComponent implements OnInit, OnDestroy {
   
   currentPage!: string;
   currentRouteUrlArray!: string[];
-  // isShelvesOrBooks!: string;
   routeSub!: Subscription;
 
   constructor(private router: Router,
@@ -27,7 +26,6 @@ export class NavBarComponent implements OnInit, OnDestroy {
           return n != '' && n != 'home' && n != 'unavailable?isAdult=false'
         });
         this.getCurrentPage();
-        // this.isShelvesOrBooks = this.currentRouteUrlArray[this.currentRouteUrlArray.length - 2];
       }
     }) 
   }
@@ -47,24 +45,4 @@ export class NavBarComponent implements OnInit, OnDestroy {
     const neededRouterLinkArray = this.currentRouteUrlArray.slice(0, indexOfRoute + 1);
     return `/${neededRouterLinkArray.join('/')}`; 
   }
-
-  // changeBookIdIntoNameInRouteUrl(): string[] {
-  //   return this.currentRouteUrlArrayWithId.map((route, index) => {
-  //     if (this.currentPage === route && Number.isFinite(+route)) {
-
-  //       let shelvesOrBooks = this.currentRouteUrlArrayWithId[index - 1];
-
-  //       if (shelvesOrBooks === 'shelves') {
-  //         let book = this.booksService.getBookById('shelves', +route);
-  //         this.currentPage = book.name;
-  //         return route = book.name;
-
-  //       } else {
-  //         let book = this.booksService.getBookById('books', +route);
-  //         this.currentPage = book.name;
-  //         return route = book.name;
-  //       }
-  //     } else return route;
-  //   })
-  // }
 }

@@ -17,7 +17,7 @@
                   [routerLink]="['/library/shelves', shelf.id]"
                   (onFavorite)="booksService.updateFavorites($event, shelves)"
                   (onDeleteBook)="booksService.updateBooks($event, shelves, shelvesCopy)"
-                  (click)="isBookAvailableService.passIfAvailable(shelves, shelf.id)"></app-book>
+        ></app-book>
     </ng-container>
 </div>
 
