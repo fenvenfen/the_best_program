@@ -4,7 +4,7 @@ import { DetailBookComponent } from './components/detail-book/detail-book.compon
 import { LibraryComponent } from './components/library/library.component';
 import { PageNotFounedComponent } from './components/page-not-founed/page-not-founed.component';
 import { ForbiddenForChildrenComponent } from './components/forbidden-for-children/forbidden-for-children.component';
-import { AdultGuardService } from './servises/adultGuard.service';
+import { AdultGuardService } from './servises/adult.guard';
 
 const routes: Routes = [
     { path: '', redirectTo: '/library', pathMatch: 'full' },
