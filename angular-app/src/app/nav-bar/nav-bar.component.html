@@ -9,11 +9,11 @@
                     <img class="Nav-bar_info_breadcrumbs_arrow" src="/assets/arrow.svg">
                     <a routerLinkActive="Active"
                        [routerLinkActiveOptions]="{exact: true}"
-                       [routerLink]="getClickedRoute(route)">{{route | changeBookIndexToName:shelvesOrBooks | titlecase}}</a>
+                       [routerLink]="getClickedRoute(route)">{{route | changeBookIndexToName:isBooksOrShelves | titlecase}}</a>
                 </ng-container>
                 
             </div>
-            <p class="Nav-bar_info_current-page">{{currentPage| changeBookIndexToName:shelvesOrBooks | uppercase}}</p>
+            <p class="Nav-bar_info_current-page">{{currentPage| changeBookIndexToName:isBooksOrShelves | uppercase}}</p>
         </div>
     </div>
     <button class="Button Button-goBack" [routerLink]="['/']">BACK HOME</button>

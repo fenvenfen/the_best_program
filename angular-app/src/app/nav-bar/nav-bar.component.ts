@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationStart, Router, RoutesRecognized } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router, RoutesRecognized } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { BooksService } from '../shared/services/books.service';
 
@@ -9,14 +9,13 @@ import { BooksService } from '../shared/services/books.service';
   styleUrls: ['./nav-bar.component.sass']
 })
 export class NavBarComponent implements OnInit, OnDestroy {
-  @Input() shelvesOrBooks!: string;
-  
+  isBooksOrShelves!: string;
   currentPage!: string;
   currentRouteUrlArray!: string[];
   routeSub!: Subscription;
 
   constructor(private router: Router,
-              private booksService: BooksService) { 
+              private route: ActivatedRoute) { 
               }
 
   ngOnInit(): void {
@@ -26,6 +25,12 @@ export class NavBarComponent implements OnInit, OnDestroy {
           return n != '' && n != 'home' && n != 'unavailable?isAdult=false'
         });
         this.getCurrentPage();
+      }
+      else if (event instanceof NavigationEnd) {
+        const currentRoute = this.route.firstChild?.snapshot;
+        this.isBooksOrShelves = currentRoute?.data['isBooskOrShelves'];
+        // console.log(this.route.firstChild);
+        
       }
     }) 
   }

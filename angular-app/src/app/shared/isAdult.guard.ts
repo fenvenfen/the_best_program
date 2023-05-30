@@ -17,7 +17,7 @@ export class IsAdultGuard implements CanActivate{
         const isShelvesOrBooks = route.routeConfig?.data?.['isBooskOrShelves'];
         const book = this.booksService.getBookById(isShelvesOrBooks, Number(bookId));
         const isForAdults = book.forAdults;
-
+        
         if (isForAdults) {
             this.router.navigate(['/library/unavailable']);
             return false;
