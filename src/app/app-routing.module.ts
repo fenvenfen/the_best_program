@@ -15,7 +15,12 @@ const routes: Routes = [
         component: DetailBookComponent, 
         data: { isBooskOrShelves: 'Books' } 
     },
-    { path: 'library/shelves/:id', component: DetailBookComponent, data: { isBooskOrShelves: 'Shelves' } },
+    { 
+        path: 'library/shelves/:id', 
+        canActivate: [AdultGuardService], 
+        component: DetailBookComponent, 
+        data: { isBooskOrShelves: 'Shelves' } 
+    },
     { path: 'library/forbidden', component: ForbiddenForChildrenComponent },
     { path: '**', component: PageNotFounedComponent },
 ];
