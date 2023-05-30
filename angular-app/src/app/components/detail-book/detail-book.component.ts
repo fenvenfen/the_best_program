@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Book } from '../shared/interfaces';
-import { BooksService } from '../shared/services/books.service';
+import { Book } from '../../shared/interfaces';
+import { BooksService } from '../../shared/services/books.service';
 
 @Component({
   selector: 'app-detail-book',

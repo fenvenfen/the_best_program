@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { BooksService } from './shared/services/books.service';
-import { DetailBookComponent } from './detail-book/detail-book.component';
+import { DetailBookComponent } from './components/detail-book/detail-book.component';
 
 @Component({
   selector: 'app-root',

@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { Book } from '../shared/interfaces';
-import { DataStorageService } from '../shared/services/data-storage.service';
-import { BooksService } from '../shared/services/books.service';
+import { Book } from '../../shared/interfaces';
+import { DataStorageService } from '../../shared/services/data-storage.service';
+import { BooksService } from '../../shared/services/books.service';
 import { Router } from '@angular/router';
 
 @Component({

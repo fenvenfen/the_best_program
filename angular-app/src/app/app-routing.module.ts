@@ -1,12 +1,12 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { HomePageComponent } from "./home-page/home-page.component";
-import { LibraryComponent } from "./library/library.component";
-import { DetailBookComponent } from "./detail-book/detail-book.component";
-import { UnavailableComponent } from "./unavailable/unavailable.component";
+import { HomePageComponent } from "./components/home-page/home-page.component";
+import { LibraryComponent } from "./components/library/library.component";
+import { DetailBookComponent } from "./components/detail-book/detail-book.component";
+import { UnavailableComponent } from "./components/unavailable/unavailable.component";
 import { IsAdultGuard } from "./shared/isAdult.guard";
-import { ShelvesComponent } from "./shelves/shelves.component";
-import { BooksComponent } from "./books/books.component";
+import { ShelvesComponent } from "./components/shelves/shelves.component";
+import { BooksComponent } from "./components/books/books.component";
 
 const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},///???????

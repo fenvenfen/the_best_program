@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { Book } from '../shared/interfaces';
-import { BooksService } from '../shared/services/books.service';
+import { Book } from '../../shared/interfaces';
+import { BooksService } from '../../shared/services/books.service';
 @Component({
   selector: 'app-shelves',
   templateUrl: './shelves.component.html',

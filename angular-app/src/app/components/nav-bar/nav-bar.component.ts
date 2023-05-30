@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router, RoutesRecognized } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { BooksService } from '../shared/services/books.service';
+import { BooksService } from '../../shared/services/books.service';
 
 @Component({
   selector: 'app-nav-bar',
