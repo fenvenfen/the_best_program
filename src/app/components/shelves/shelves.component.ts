@@ -37,14 +37,14 @@ export class ShelvesComponent implements OnInit {
 
   onChangeShelfFavorites(isFavorite: boolean, index: number){
     this.bookService.changeFavoriteShelf(isFavorite, index)
-    this.shelves = this.bookService.getShelves()
+    this.bookService.getShelves()
   }
   toggleShowFavoriteShelves(): void {
     this.shouldFavoriteShelvesBeShown = !this.shouldFavoriteShelvesBeShown;
   }
   deletingShelf(id: number){
     this.bookService.deleteShelf(id);
-    this.shelves = this.bookService.getShelves()
+    this.bookService.getShelves()
   }
   showMoreToggler(){
     this.showMore = !this.showMore;

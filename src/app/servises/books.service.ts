@@ -139,6 +139,7 @@ export class BookService {
       date: '2022-11-02 11:52:31.843 +0000',
     },
   ];
+  copyBooks: Book[];
 
   shelfsCollections: Shelf[] = [
     {
@@ -285,22 +286,25 @@ export class BookService {
 
     },
   ];
+  copyShelves: Shelf[];
 
   query: QueryParams = {
     search: '',
     tags: [],
   };
 
-  constructor() {}
+  constructor() {
+    this.copyShelves = [...this.shelfsCollections];
+    this.copyBooks = [...this.bookCollections];
+  }
 
   changeQueryParams(queryParams: QueryParams): void {
     this.query = queryParams;
   }
 
   getBooks() {
-    let books = [...this.bookCollections];
 
-    books = books.filter((book) => {
+    this.bookCollections = this.copyBooks.filter((book) => {
       const doesBookNameContainQuerySearchParam = book.name
         .toLowerCase()
         .includes(this.query.search.toLowerCase());
@@ -316,8 +320,6 @@ export class BookService {
       }
       return true;
     });
-
-    return books;
   }
 
   getBookById(id: number) {
@@ -325,9 +327,7 @@ export class BookService {
   }
 
   getShelves() {
-    let shelves = [...this.shelfsCollections];
-
-    shelves = shelves.filter((shelf) => {
+    this.shelfsCollections = this.copyShelves.filter((shelf) => {
       const doesShelfNameContainQuerySearchParam = shelf.name
         .toLowerCase()
         .includes(this.query.search.toLowerCase());
@@ -343,8 +343,6 @@ export class BookService {
       }
       return true;
     });
-
-    return shelves;
   }
 
   getShelvesById(id: number) {

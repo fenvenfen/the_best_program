@@ -11,8 +11,6 @@ import { BookService } from 'src/app/servises/books.service';
 })
 export class LibraryComponent implements OnInit {
   tags: Tag[] = [];
-  // shelves: Shelf[] = [];
-  books: Book[] = [];
 
   constructor(
     private tagsServece: TagsService,
