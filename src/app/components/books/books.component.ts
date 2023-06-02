@@ -17,9 +17,9 @@ import { Book } from '../../interfaces';
   providers: [BookService],
 })
 export class BooksComponent implements OnInit {
-  shouldFavoriteBooksBeShown: boolean = false;
+  books: Book[] = [];
 
-  @Input() books?: Book[];
+  shouldFavoriteBooksBeShown: boolean = false;
 
   // favoriteBooks = this.books?.filter(book => book.favorite)
 
@@ -27,7 +27,9 @@ export class BooksComponent implements OnInit {
     private bookService: BookService,
     private router: Router){}
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.books = this.bookService.bookCollections;
+  }
 
   onChangeBookfFavorites(isFavorite: boolean, index: number){
     this.bookService.changeFavoriteBook(isFavorite, index)

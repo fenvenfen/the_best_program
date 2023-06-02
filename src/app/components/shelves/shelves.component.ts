@@ -21,14 +21,19 @@ import { Shelf } from "../../interfaces"
   providers: [BookService],
 })
 export class ShelvesComponent implements OnInit {
+  shelves: Shelf[] = [];
+
   shouldFavoriteShelvesBeShown: boolean = false;
   showMore: boolean = false;
-  
-  @Input() shelves?: Shelf[];
-  
-  constructor(private bookService: BookService){ }
+    
+  constructor(
+    private bookService: BookService){ }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+
+    this.shelves = this.bookService.shelfsCollections;
+
+  }
 
   onChangeShelfFavorites(isFavorite: boolean, index: number){
     this.bookService.changeFavoriteShelf(isFavorite, index)
