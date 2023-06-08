@@ -35,7 +35,8 @@ export class CardComponent implements OnInit {
     this.isFavorite = this.book?.favorite;
   }
 
-  toggleFavorite(): void {
+  toggleFavorite(event: any): void {
+    event.stopPropagation(); // Prevent event bubbling
     this.isFavorite = !this.isFavorite;
     this.favoriteChange.emit(this.isFavorite);
   }
