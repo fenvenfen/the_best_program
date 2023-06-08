@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Book, Shelf, QueryParams } from '../interfaces';
+import { Book, QueryParams } from '../interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -141,7 +141,7 @@ export class BookService {
   ];
   copyBooks: Book[];
 
-  shelfsCollections: Shelf[] = [
+  shelfsCollections: Book[] = [
     {
       description:
         'Not all of her suggestions were easy to digest. When I first read her idea regarding two important characters, I remember being quite taken aback. I was reluctant to take on some of her notes. She suggested changing the nature of my protagonists’ relationship to each other and, therefore, the impact of the ending. ',
@@ -286,7 +286,7 @@ export class BookService {
 
     },
   ];
-  copyShelves: Shelf[];
+  copyShelves: Book[];
 
   query: QueryParams = {
     search: '',
@@ -303,7 +303,6 @@ export class BookService {
   }
 
   getBooks() {
-
     this.bookCollections = this.copyBooks.filter((book) => {
       const doesBookNameContainQuerySearchParam = book.name
         .toLowerCase()

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { TagsService } from 'src/app/servises/tags.service';
-import { Tag, Shelf, Book } from "../app/interfaces";
+import { Tag, Book } from "../app/interfaces";
 import { BookService } from './servises/books.service';
 
 

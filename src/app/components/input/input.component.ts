@@ -14,6 +14,7 @@ export class InputComponent implements OnInit {
 
   changeQuery(event: any): void{
     this.querySearch = event.target.value.trim();
-    this.querySearchChange.emit(this.querySearch)
+    this.querySearchChange.emit(this.querySearch);
+    console.log(this.querySearch);
   }
 }

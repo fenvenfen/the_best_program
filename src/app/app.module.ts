@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { SharingModule } from './sharing/sharing.module';
 import { AppRoutingModule } from "./app-routing.module";
 
-import { PredictCardComponent } from './components/predict-card/predict-card.component';
+// import { PredictCardComponent } from './components/shelves/predict-card/predict-card.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 import { InputComponent } from './components/input/input.component';
@@ -21,7 +21,7 @@ import { ForbiddenForChildrenComponent } from './components/forbidden-for-childr
 @NgModule({
   declarations: [
     AppComponent,
-    PredictCardComponent,
+    // PredictCardComponent,
     HeaderComponent,
     BreadcrumbsComponent,
     InputComponent,

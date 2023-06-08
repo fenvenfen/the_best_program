@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { BookService } from 'src/app/servises/books.service';
 import { Book } from '../../interfaces';
@@ -16,19 +16,26 @@ import { Book } from '../../interfaces';
   ],
   providers: [BookService],
 })
-export class BooksComponent implements OnInit {
+export class BooksComponent implements OnChanges {
   books: Book[] = [];
 
   shouldFavoriteBooksBeShown: boolean = false;
+  
+  @Input() querySearchParams: any;
 
   // favoriteBooks = this.books?.filter(book => book.favorite)
 
   constructor(
     private bookService: BookService,
-    private router: Router){}
+    private router: Router
+    ){}
 
-  ngOnInit(): void { 
-    this.books = this.bookService.bookCollections;
+  ngOnChanges(){
+    if(this.querySearchParams) {
+      this.bookService.query.search = this.querySearchParams;
+      this.bookService.getBooks();
+    }
+    this.books = [...this.bookService.bookCollections];
   }
 
   onChangeBookfFavorites(isFavorite: boolean, index: number){

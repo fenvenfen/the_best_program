@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { BookService } from 'src/app/servises/books.service';
-import { Shelf } from "../../interfaces"
+import { Book } from "../../interfaces"
 
 @Component({
   selector: 'app-shelves',
@@ -20,19 +20,24 @@ import { Shelf } from "../../interfaces"
   ],
   providers: [BookService],
 })
-export class ShelvesComponent implements OnInit {
-  shelves: Shelf[] = [];
+export class ShelvesComponent implements OnChanges {
+  shelves: Book[] = [];
 
   shouldFavoriteShelvesBeShown: boolean = false;
   showMore: boolean = false;
+
+  @Input() querySearchParams: any;
     
   constructor(
-    private bookService: BookService){ }
+    private bookService: BookService
+    ){ }
 
-  ngOnInit(): void { 
-
-    this.shelves = this.bookService.shelfsCollections;
-
+  ngOnChanges(){
+    if(this.querySearchParams){
+      this.bookService.query.search = this.querySearchParams;
+      this.bookService.getShelves();
+    }
+    this.shelves = [...this.bookService.shelfsCollections];
   }
 
   onChangeShelfFavorites(isFavorite: boolean, index: number){
