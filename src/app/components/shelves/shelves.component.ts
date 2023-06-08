@@ -6,18 +6,6 @@ import { Book } from "../../interfaces"
   selector: 'app-shelves',
   templateUrl: './shelves.component.html',
   styleUrls: ['./shelves.component.css'],
-  styles: [
-    `
-      .favorite::after {
-        color: #8ac8e1;
-      }
-      .hidden {
-        max-height: 450px;
-        overflow: hidden;
-        gap: 0 30px;
-      }
-    `,
-  ],
   providers: [BookService],
 })
 export class ShelvesComponent implements OnChanges {
@@ -26,17 +14,21 @@ export class ShelvesComponent implements OnChanges {
   shouldFavoriteShelvesBeShown: boolean = false;
   showMore: boolean = false;
 
-  @Input() querySearchParams: any;
+  @Input() querySearchParams?: string;
+  @Input() activeTags?: number[];
     
   constructor(
     private bookService: BookService
-    ){ }
+  ){ }
 
   ngOnChanges(){
     if(this.querySearchParams){
       this.bookService.query.search = this.querySearchParams;
-      this.bookService.getShelves();
     }
+    if(this.activeTags){
+      this.bookService.query.tags = [...this.activeTags];
+    }
+    this.bookService.getShelves();
     this.shelves = [...this.bookService.shelfsCollections];
   }
 

@@ -45,3 +45,6 @@
     padding: 8px 20px;
     margin: 12px auto 0;
 }
+.favorite::after {
+    color: #8ac8e1;
+}

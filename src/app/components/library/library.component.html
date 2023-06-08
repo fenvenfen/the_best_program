@@ -10,8 +10,13 @@
         ></app-tags>
     </div>
 
-    <app-shelves [querySearchParams]="querySearchParams"></app-shelves>
-    <app-books [querySearchParams]="querySearchParams" 
+    <app-shelves 
+    [querySearchParams]="querySearchParams"
+    [activeTags]="activeTags"
+    ></app-shelves>
+    <app-books 
+    [querySearchParams]="querySearchParams"
+    [activeTags]="activeTags" 
     ></app-books>
     
 </div>

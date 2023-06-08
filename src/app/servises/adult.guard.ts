@@ -20,8 +20,6 @@ export class AdultGuardService {
   ): boolean {
     const triggeredBookId = Number(route.params["id"]);
     const currentBook = this.bookService.getBookById(triggeredBookId);
-    console.log(route);
-    console.log(state);
 
     if (!currentBook?.forAdults) {
       return true;

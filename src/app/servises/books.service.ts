@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Book, QueryParams } from '../interfaces';
+import { Book, DataTypes, QueryParams } from '../interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -347,7 +347,12 @@ export class BookService {
   getShelvesById(id: number) {
     return this.shelfsCollections.find((shelf) => shelf.id === id);
   }
+  // updateCollectionList(dataType: DataTypes) {
+  //   dataType === "books" ? 
+  //         this.getBooks(this.bookCollections) : 
+  //         this.getBooks(this.shelfsCollections)
 
+  // }
 
   changeFavoriteShelf(isFavorite: boolean, index: number): void {
     this.shelfsCollections[index].favorite = isFavorite;

@@ -3,12 +3,12 @@
         <h2 class="shelves__title_name">полиці</h2>
         <span 
         class="icon-favorite"
-        [ngClass]="{favorite: shouldFavoriteShelvesBeShown}"
+        [class.favorite]="shouldFavoriteShelvesBeShown"
         (click)="toggleShowFavoriteShelves()"
         ></span>
     </div>
-    <ul class="shelves__list" [ngClass]="{hidden: !showMore}">
-        <li *ngFor="let shelf of shelves ; let i = index"  >
+    <ul class="shelves__list" >
+        <li *ngFor="let shelf of shelves | showMoreMode: showMore ; let i = index"  >
             <app-card 
                 [routerLink]="['/library/shelves', shelf.id]"
                 *ngIf="!shouldFavoriteShelvesBeShown || shelf.favorite"                   

@@ -21,7 +21,8 @@ export class BooksComponent implements OnChanges {
 
   shouldFavoriteBooksBeShown: boolean = false;
   
-  @Input() querySearchParams: any;
+  @Input() querySearchParams?: string;
+  @Input() activeTags?: number[];
 
   // favoriteBooks = this.books?.filter(book => book.favorite)
 
@@ -33,6 +34,9 @@ export class BooksComponent implements OnChanges {
   ngOnChanges(){
     if(this.querySearchParams) {
       this.bookService.query.search = this.querySearchParams;
+    }
+    if(this.activeTags){
+      this.bookService.query.tags = [...this.activeTags];
       this.bookService.getBooks();
     }
     this.books = [...this.bookService.bookCollections];
