@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-library',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./library.component.sass']
 })
 export class LibraryComponent implements OnInit {
+  count$ = new BehaviorSubject<number>(0);
   searchValue!: string;
   chosenTags!: number[];
-  constructor() {}
 
+  constructor() {}
+  
   ngOnInit(): void {
   }
 
@@ -23,6 +26,10 @@ export class LibraryComponent implements OnInit {
 
   componentAdded(event: any) {
     console.log(event);
-}
+ }
 
+ increase() {
+  let count = this.count$.getValue() + 1;
+  this.count$.next(count);
+ }
 }
