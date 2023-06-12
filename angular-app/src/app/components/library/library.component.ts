@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-library',
@@ -17,7 +17,7 @@ export class LibraryComponent implements OnInit {
   }
 
   updateInputValue(inputValue: string): void {
-    this.searchValue = inputValue
+    this.searchValue = inputValue;
   }
 
   updateTagsValue(chosenTags: number[]) {
