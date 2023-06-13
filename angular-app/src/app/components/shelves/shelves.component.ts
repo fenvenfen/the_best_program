@@ -12,8 +12,6 @@ export class ShelvesComponent implements OnInit {
   @Input() searchValue!: string;
   @Input() chosenTagsArray!: number[];
 
-  shelves!: Book[];
-  shelvesCopy!: Book[]; //put in service
   shelf: any;
   shelfHeight!: number;
   shelfMargin!: number;
@@ -30,8 +28,6 @@ export class ShelvesComponent implements OnInit {
               private readonly _changeDetectorRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.shelves = this.booksService.shelves;
-    this.shelvesCopy = [...this.shelves];  //put in service
   }
 
   ngAfterViewInit(): void {
@@ -50,7 +46,6 @@ export class ShelvesComponent implements OnInit {
 
   showFavorites() {
     this.isOnlyFavorite = !this.isOnlyFavorite;
-    let favoriteBooksArray = this.shelvesCopy.filter((book) => {return book.favorite === true});
-    (this.isOnlyFavorite) ? this.shelves = favoriteBooksArray : this.shelves = this.shelvesCopy;
+    this.booksService.showFavorites(this.isOnlyFavorite, 'shelves');
   }
 }

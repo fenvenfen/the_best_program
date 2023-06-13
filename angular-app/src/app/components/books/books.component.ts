@@ -15,8 +15,6 @@ export class BooksComponent implements OnInit {
   @Input() searchValue!: string;
   @Input() chosenTagsArray!: number[];
 
-  books!: Book[];
-  booksCopy!: Book[];
   book: any;
   bookHeight!: number;
   bookMargin!: number;
@@ -34,8 +32,6 @@ export class BooksComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.books = this.booksService.books;
-    this.booksCopy = [...this.books];
   }
 
   ngAfterViewInit(): void {
@@ -54,8 +50,7 @@ export class BooksComponent implements OnInit {
 
   showFavorites() {
     this.isOnlyFavorite = !this.isOnlyFavorite;
-    let favoriteBooksArray = this.booksCopy.filter((book) => {return book.favorite === true});
-    (this.isOnlyFavorite) ? this.books = favoriteBooksArray : this.books = this.booksCopy;
+    this.booksService.showFavorites(this.isOnlyFavorite, 'books');
   }
 
   openBook(id: number) {

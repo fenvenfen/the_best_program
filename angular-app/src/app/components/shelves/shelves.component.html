@@ -11,13 +11,13 @@
 <div class="BooksContainer" 
      [ngClass]="{'BooksContainer_hide': isShelvesInMultipleRow}"
      #shelvesContainer>
-    <ng-container *ngFor="let shelf of shelves | filter:searchValue | filterByTags:chosenTagsArray">
+    <ng-container *ngFor="let shelf of booksService.shelvesObs$ | async | filter:searchValue | filterByTags:chosenTagsArray">
         <app-book class="Books" 
                   [book] = 'shelf' 
                   id="shelf"
                   [routerLink]="['/library/shelves', shelf.id]"
-                  (onFavorite)="booksService.updateFavorites($event, shelves)"
-                  (onDeleteBook)="booksService.updateBooks($event, shelves, shelvesCopy)"
+                  (onFavorite)="booksService.updateFavorites($event, booksService.shelves)"
+                  (onDeleteBook)="booksService.updateBooks($event, booksService.shelves, booksService.shelvesCopy)"
         ></app-book>
     </ng-container>
 </div>
