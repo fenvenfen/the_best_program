@@ -3,7 +3,7 @@
         <h2 class="books__title_name">книги</h2>
         <span 
         class="icon-favorite"
-        [ngClass]="{favorite: shouldFavoriteBooksBeShown}"
+        [class.favorite]="shouldFavoriteBooksBeShown"
         (click)="toggleShowFavoriteBooks()"></span>
     </div>
     <ul class="books__list" *ngIf="books">

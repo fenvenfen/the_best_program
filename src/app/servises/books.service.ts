@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Book, Shelf, QueryParams } from '../interfaces';
+import { Book, DataTypes, QueryParams } from '../interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -139,8 +139,9 @@ export class BookService {
       date: '2022-11-02 11:52:31.843 +0000',
     },
   ];
+  copyBooks: Book[];
 
-  shelfsCollections: Shelf[] = [
+  shelfsCollections: Book[] = [
     {
       description:
         'Not all of her suggestions were easy to digest. When I first read her idea regarding two important characters, I remember being quite taken aback. I was reluctant to take on some of her notes. She suggested changing the nature of my protagonists’ relationship to each other and, therefore, the impact of the ending. ',
@@ -285,22 +286,24 @@ export class BookService {
 
     },
   ];
+  copyShelves: Book[];
 
   query: QueryParams = {
     search: '',
     tags: [],
   };
 
-  constructor() {}
+  constructor() {
+    this.copyShelves = [...this.shelfsCollections];
+    this.copyBooks = [...this.bookCollections];
+  }
 
   changeQueryParams(queryParams: QueryParams): void {
     this.query = queryParams;
   }
 
   getBooks() {
-    let books = [...this.bookCollections];
-
-    books = books.filter((book) => {
+    this.bookCollections = this.copyBooks.filter((book) => {
       const doesBookNameContainQuerySearchParam = book.name
         .toLowerCase()
         .includes(this.query.search.toLowerCase());
@@ -316,8 +319,6 @@ export class BookService {
       }
       return true;
     });
-
-    return books;
   }
 
   getBookById(id: number) {
@@ -325,9 +326,7 @@ export class BookService {
   }
 
   getShelves() {
-    let shelves = [...this.shelfsCollections];
-
-    shelves = shelves.filter((shelf) => {
+    this.shelfsCollections = this.copyShelves.filter((shelf) => {
       const doesShelfNameContainQuerySearchParam = shelf.name
         .toLowerCase()
         .includes(this.query.search.toLowerCase());
@@ -343,14 +342,17 @@ export class BookService {
       }
       return true;
     });
-
-    return shelves;
   }
 
   getShelvesById(id: number) {
     return this.shelfsCollections.find((shelf) => shelf.id === id);
   }
+  // updateCollectionList(dataType: DataTypes) {
+  //   dataType === "books" ? 
+  //         this.getBooks(this.bookCollections) : 
+  //         this.getBooks(this.shelfsCollections)
 
+  // }
 
   changeFavoriteShelf(isFavorite: boolean, index: number): void {
     this.shelfsCollections[index].favorite = isFavorite;

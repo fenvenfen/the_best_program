@@ -12,7 +12,7 @@
     <span 
         class="icon-favorite"
         [ngClass]="{favorite: isFavorite}"
-        (click)="toggleFavorite()"
+        (click)="toggleFavorite($event)"
     ></span>
     <span class="icon-delete"
     (click)="deleteBook(book.id)"></span>

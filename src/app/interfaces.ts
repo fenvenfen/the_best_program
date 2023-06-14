@@ -15,19 +15,8 @@ export interface Book {
     forAdults: boolean,
 }
 
-export interface Shelf {
-    id: number,
-    tags: number[],
-    src: string,
-    name: string,
-    favorite: boolean,
-    date: string,
-    description: string,
-    forAdults: boolean,
-
-}
-
 export interface QueryParams {
     search: string,
     tags: number[]
 }
+export type DataTypes = "books" | "shelves";

@@ -3,8 +3,8 @@
     type="text" 
     placeholder="Search" 
     class="input" 
-    id="input__search"
-    (keyup)="changeQuery($event)"
+    [(ngModel)]="querySearch"
+    (ngModelChange)="changeQuery($event)"
     [appInputColorChanging]="querySearch.length"
     >
 </label>
