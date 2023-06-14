@@ -4,13 +4,19 @@
 </div>
 
 <div class="Page-content">
+    <button class="Button Button-show" (click)="increase()">Increase</button>
+</div>
+
+<div class="Page-content">
     <app-shelves [searchValue]="searchValue"
-                 [chosenTagsArray]="chosenTags">
+                 [chosenTagsArray]="chosenTags"
+                 [count]="count$">
     </app-shelves>
 </div>
 
 <div class="Page-content">
     <app-books [searchValue]="searchValue"
-               [chosenTagsArray]="chosenTags">
+               [chosenTagsArray]="chosenTags"
+               [count]="count$">
     </app-books>
 </div>
