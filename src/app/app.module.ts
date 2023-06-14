@@ -17,6 +17,7 @@ import { DetailBookComponent } from './components/detail-book/detail-book.compon
 import { LibraryComponent } from './components/library/library.component';
 import { PageNotFounedComponent } from './components/page-not-founed/page-not-founed.component';
 import { ForbiddenForChildrenComponent } from './components/forbidden-for-children/forbidden-for-children.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,9 @@ import { ForbiddenForChildrenComponent } from './components/forbidden-for-childr
     BrowserModule,
     SharingModule,
     AppRoutingModule,
+    FormsModule,
+
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

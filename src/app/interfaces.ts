@@ -19,4 +19,4 @@ export interface QueryParams {
     search: string,
     tags: number[]
 }
- export type DataTypes = "books" | "shelves";
+export type DataTypes = "books" | "shelves";

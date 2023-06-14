@@ -6,7 +6,6 @@ import { BookBorderColorChangingDirective } from "./directives/book-border-color
 import { InputColorChangingDirective } from "./directives/input-color-changing.directive"
 import { ImageOrientalFormatingDirective } from './directives/image-oriental-formating.directive';
 
-
 @NgModule({
   declarations: [
     StarMakerPipe,
@@ -16,7 +15,7 @@ import { ImageOrientalFormatingDirective } from './directives/image-oriental-for
     ImageOrientalFormatingDirective,
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
     StarMakerPipe,
