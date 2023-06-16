@@ -3,7 +3,7 @@ import { Book } from '../../shared/interfaces';
 import { DataStorageService } from '../../shared/services/data-storage.service';
 import { BooksService } from '../../shared/services/books.service';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-books',
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./books.component.sass']
 })
 export class BooksComponent implements OnInit {
-  @Input() count!: Observable<any>;
+  @Input() count!: BehaviorSubject<number>;
   @Input() searchValue!: string;
   @Input() chosenTagsArray!: number[];
 

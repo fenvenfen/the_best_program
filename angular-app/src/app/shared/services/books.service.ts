@@ -7,17 +7,18 @@ import { BehaviorSubject, Observable, Subject, find, map } from 'rxjs';
   providedIn: 'root'
 })
 export class BooksService {
-  private _shelvesSub!: BehaviorSubject<Book[]>;
-  shelvesObs$!: Observable<Book[]>;
-
-  private _booksSub!: BehaviorSubject<Book[]>;
-  booksObs$!: Observable<Book[]>;
 
   shelves!: Book[];
   shelvesCopy!: Book[];
   books!: Book[];
   booksCopy!: Book[];
   tags!: Tag[];
+
+  private _shelvesSub: BehaviorSubject<Book[]>;
+  shelvesObs$!: Observable<Book[]>;
+
+  private _booksSub!: BehaviorSubject<Book[]>;
+  booksObs$!: Observable<Book[]>;
 
   constructor(private readonly dataStorageService: DataStorageService) { 
     this.shelves = this.dataStorageService.shelfsCollections;
