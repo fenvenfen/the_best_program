@@ -14,22 +14,25 @@ export class BooksService {
   booksCopy!: Book[];
   tags!: Tag[];
 
-  private _shelvesSub: BehaviorSubject<Book[]>;
+  private _shelvesSub!: BehaviorSubject<Book[]>;
   shelvesObs$!: Observable<Book[]>;
 
   private _booksSub!: BehaviorSubject<Book[]>;
   booksObs$!: Observable<Book[]>;
 
   constructor(private readonly dataStorageService: DataStorageService) { 
-    this.shelves = this.dataStorageService.shelfsCollections;
-    this.shelvesCopy = [...this.shelves];
-    this._shelvesSub = new BehaviorSubject<Book[]>(this.shelves);
-    this.shelvesObs$ = this._shelvesSub.asObservable();
 
-    this.books = this.dataStorageService.bookCollections;
-    this.booksCopy = [...this.books];
-    this._booksSub = new BehaviorSubject<Book[]>(this.books);
-    this.booksObs$ = this._booksSub.asObservable();
+    this.dataStorageService.shelvesObs$.subscribe(shelves => {
+      this.shelves = this.shelvesCopy = shelves;
+      this._shelvesSub = new BehaviorSubject<Book[]>(this.shelves);
+      this.shelvesObs$ = this._shelvesSub.asObservable();
+    })
+
+    this.dataStorageService.booksObs$.subscribe(books => {
+      this.books = this.booksCopy = books;
+      this._booksSub = new BehaviorSubject<Book[]>(this.books);
+      this.booksObs$ = this._booksSub.asObservable();
+    })
 
     this.tags = this.dataStorageService.tags;
   }

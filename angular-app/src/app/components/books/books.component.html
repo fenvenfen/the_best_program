@@ -11,7 +11,7 @@
 <div class="BooksContainer" 
      [ngClass]="{'BooksContainer_hide': isBooksInMultipleRow}"
      #booksContainer>
-    <ng-container *ngIf="booksService.shelvesObs$ | async as books">
+    <ng-container *ngIf="booksService.booksObs$ | async as books">
         <ng-container *ngFor="let book of books | filter:searchValue | filterByTags:chosenTagsArray">
             <app-book class="Book" 
                       [book] = 'book' 
