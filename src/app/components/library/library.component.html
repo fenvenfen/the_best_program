@@ -1,19 +1,22 @@
 <div class="container">
     
+    <button id="jojoBtn">JOJOJO</button>
+
     <app-header></app-header>
     <app-breadcrumbs></app-breadcrumbs>
-
+    
     <div class="white-frame">
         <app-input (querySearchChange)="receiveQuerySearch($event)"></app-input>
         <app-tags [tags]="tags"
         (queryTagsChange)="receiveQueryTags($event)"
         ></app-tags>
     </div>
-<ng-container *ngIf="bookService.ShelvesObs$ | async as shelves">
+    <ng-container *ngIf="bookService.ShelvesObs$ | async as shelves">
 
-    <app-shelves 
-    [shelves]="shelves"></app-shelves>
-</ng-container>
-    <app-books></app-books>
+        <app-shelves 
+        [shelves]="shelves" 
+        [JOObs]="BtnObs$"></app-shelves>
+    </ng-container>
+    <app-books ></app-books>
     
 </div>

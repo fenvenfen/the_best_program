@@ -1,6 +1,8 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { BookService } from 'src/app/servises/books.service';
-import { Book } from "../../interfaces"
+import { Book } from "../../interfaces";
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-shelves',
@@ -14,10 +16,13 @@ export class ShelvesComponent implements OnInit {
   showMore: boolean = false;
   
   @Input() shelves?: Book[];
+  @Input() JOObs!: Observable<any>;
   
   constructor(public bookService: BookService){ }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    console.log(this.JOObs);
+  }
 
   onChangeShelfFavorites(isFavorite: boolean, index: number){
     this.bookService.changeFavoriteShelf(isFavorite, index)
