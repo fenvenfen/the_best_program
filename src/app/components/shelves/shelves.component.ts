@@ -8,29 +8,16 @@ import { Book } from "../../interfaces"
   styleUrls: ['./shelves.component.css'],
   providers: [BookService],
 })
-export class ShelvesComponent implements OnChanges {
-  shelves: Book[] = [];
+export class ShelvesComponent implements OnInit {
 
   shouldFavoriteShelvesBeShown: boolean = false;
   showMore: boolean = false;
+  
+  @Input() shelves?: Book[];
+  
+  constructor(public bookService: BookService){ }
 
-  @Input() querySearchParams?: string;
-  @Input() activeTags?: number[];
-    
-  constructor(
-    private bookService: BookService
-  ){ }
-
-  ngOnChanges(){
-    if(this.querySearchParams){
-      this.bookService.query.search = this.querySearchParams;
-    }
-    if(this.activeTags){
-      this.bookService.query.tags = [...this.activeTags];
-    }
-    this.bookService.getShelves();
-    this.shelves = [...this.bookService.shelfsCollections];
-  }
+  ngOnInit(): void { }
 
   onChangeShelfFavorites(isFavorite: boolean, index: number){
     this.bookService.changeFavoriteShelf(isFavorite, index)

@@ -9,14 +9,11 @@
         (queryTagsChange)="receiveQueryTags($event)"
         ></app-tags>
     </div>
+<ng-container *ngIf="bookService.ShelvesObs$ | async as shelves">
 
     <app-shelves 
-    [querySearchParams]="querySearchParams"
-    [activeTags]="activeTags"
-    ></app-shelves>
-    <app-books 
-    [querySearchParams]="querySearchParams"
-    [activeTags]="activeTags" 
-    ></app-books>
+    [shelves]="shelves"></app-shelves>
+</ng-container>
+    <app-books></app-books>
     
 </div>

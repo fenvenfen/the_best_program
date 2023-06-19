@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Book, DataTypes, QueryParams } from '../interfaces';
+import { Book, QueryParams } from '../interfaces';
+import { BehaviorSubject, Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root',
@@ -139,7 +141,6 @@ export class BookService {
       date: '2022-11-02 11:52:31.843 +0000',
     },
   ];
-  copyBooks: Book[];
 
   shelfsCollections: Book[] = [
     {
@@ -286,16 +287,23 @@ export class BookService {
 
     },
   ];
-  copyShelves: Book[];
 
   query: QueryParams = {
     search: '',
     tags: [],
   };
 
+  copyBooks = [...this.bookCollections];
+  copyShelves = [...this.shelfsCollections];
+  BookSub = new BehaviorSubject(this.bookCollections);
+  BookObs$: Observable<Book[]>;
+  ShelvesSub = new BehaviorSubject(this.shelfsCollections);
+  ShelvesObs$: Observable<Book[]>;
+
   constructor() {
-    this.copyShelves = [...this.shelfsCollections];
-    this.copyBooks = [...this.bookCollections];
+
+    this.BookObs$ = this.BookSub.asObservable();
+    this.ShelvesObs$ = this.ShelvesSub.asObservable();
   }
 
   changeQueryParams(queryParams: QueryParams): void {
@@ -326,6 +334,8 @@ export class BookService {
   }
 
   getShelves() {
+    // let shelves = [...this.shelfsCollections];
+
     this.shelfsCollections = this.copyShelves.filter((shelf) => {
       const doesShelfNameContainQuerySearchParam = shelf.name
         .toLowerCase()
@@ -342,6 +352,9 @@ export class BookService {
       }
       return true;
     });
+
+    this.ShelvesSub.next(this.shelfsCollections)
+    // return shelves;
   }
 
   getShelvesById(id: number) {
