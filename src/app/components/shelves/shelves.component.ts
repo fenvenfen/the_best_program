@@ -27,21 +27,20 @@ export class ShelvesComponent implements OnInit {
       next: value => this.message = value.target.innerText + " Dear User"
     });
   }
-
   ngOnDestroy() {
     this.mySubscribtiontoBtn.unsubscribe();
   }
 
   onChangeShelfFavorites(isFavorite: boolean, index: number){
     this.bookService.changeFavoriteShelf(isFavorite, index)
-    this.bookService.getShelves()
+    this.bookService.updateCollectionList("shelves")
   }
   toggleShowFavoriteShelves(): void {
     this.shouldFavoriteShelvesBeShown = !this.shouldFavoriteShelvesBeShown;
   }
   deletingShelf(id: number){
     this.bookService.deleteShelf(id);
-    this.bookService.getShelves()
+    this.bookService.updateCollectionList("shelves")
   }
   showMoreToggler(){
     this.showMore = !this.showMore;

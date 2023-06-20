@@ -37,13 +37,13 @@ export class LibraryComponent implements OnInit {
 
   receiveQuerySearch(querySearch: string) {
     this.bookService.query.search = querySearch;
-    this.bookService.getShelves();
-    this.bookService.getBooks();
+    this.bookService.updateCollectionList("shelves");
+    this.bookService.updateCollectionList("books");
   }
   receiveQueryTags(activeTags: number[]) {
     this.bookService.query.tags = [...activeTags];
 
-    this.bookService.getShelves();
-    this.bookService.getBooks();
+    this.bookService.updateCollectionList("shelves");
+    this.bookService.updateCollectionList("books");
   }
 }

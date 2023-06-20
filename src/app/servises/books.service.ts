@@ -303,7 +303,6 @@ export class BookService {
   ShelvesObs$: Observable<Book[]>;
 
   constructor() {
-
     this.BookObs$ = this.BookSub.asObservable();
     this.ShelvesObs$ = this.ShelvesSub.asObservable();
   }
@@ -329,7 +328,6 @@ export class BookService {
       }
       return true;
     });
-
     this.BookSub.next(this.bookCollections)
   }
 
@@ -338,7 +336,6 @@ export class BookService {
   }
 
   getShelves() {
-
     this.shelfsCollections = this.copyShelves.filter((shelf) => {
       const doesShelfNameContainQuerySearchParam = shelf.name
         .toLowerCase()
@@ -355,19 +352,17 @@ export class BookService {
       }
       return true;
     });
-
     this.ShelvesSub.next(this.shelfsCollections)
   }
 
   getShelvesById(id: number) {
     return this.shelfsCollections.find((shelf) => shelf.id === id);
   }
-  // updateCollectionList(dataType: DataTypes) {
-  //   dataType === "books" ? 
-  //         this.getBooks(this.bookCollections) : 
-  //         this.getBooks(this.shelfsCollections)
-
-  // }
+  updateCollectionList(dataType: string) {
+    dataType === "books" ? 
+          this.getBooks() : 
+          this.getShelves()
+  }
 
   changeFavoriteShelf(isFavorite: boolean, index: number): void {
     this.shelfsCollections[index].favorite = isFavorite;

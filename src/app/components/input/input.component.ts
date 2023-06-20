@@ -32,6 +32,5 @@ export class InputComponent implements OnInit {
 
   changeQuery(querySearch: string) {
     this.inputDebouncer.next(querySearch);
-    console.log("Query were changed");
   }
 }

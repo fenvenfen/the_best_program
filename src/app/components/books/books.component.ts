@@ -34,14 +34,14 @@ export class BooksComponent implements OnInit {
 
   onChangeBookfFavorites(isFavorite: boolean, index: number){
     this.bookService.changeFavoriteBook(isFavorite, index)
-    this.bookService.getBooks()
+    this.bookService.updateCollectionList("books")
   }
   toggleShowFavoriteBooks(): void {
     this.shouldFavoriteBooksBeShown = !this.shouldFavoriteBooksBeShown;
   }
   deletingBook(id: number){
     this.bookService.deleteBook(id);
-    this.bookService.getBooks()
+    this.bookService.updateCollectionList("books")
   }
   openBookDetails(id: number){
     this.router.navigate([`library/books/${id}`]);
