@@ -19,9 +19,6 @@ export class LibraryComponent implements OnInit {
   shelves: Book[] = [];
   books: Book[] = [];
   BtnObs$!: Observable<any>; 
-  // JOJOBtn: ElementRef;
-
-  // @ViewChild('jojoBtn') jojoBtn!: ElementRef<any>;
 
 
 
@@ -32,13 +29,10 @@ export class LibraryComponent implements OnInit {
 
   ngOnInit(): void {
     this.tags = this.tagsServece.tags;
-    // this.shelves = this.bookService.shelfsCollections;
-    this.books = this.bookService.bookCollections;
-  }
-  ngAfterViewInit() {
+
+    //testing observable:
     const JOJOBtn = document.getElementById('jojoBtn');
     this.BtnObs$ = fromEvent(JOJOBtn!, "click");
-    // console.log(this.BtnObs$);
   }
 
   receiveQuerySearch(querySearch: string) {

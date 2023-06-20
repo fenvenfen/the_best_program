@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { BookService } from 'src/app/servises/books.service';
 import { Book } from "../../interfaces";
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 
 @Component({
@@ -17,11 +17,16 @@ export class ShelvesComponent implements OnInit {
   
   @Input() shelves!: Book[];
   @Input() JOObs!: Observable<any>;
-  
+  mySubscribtiontoBtn!: Subscription;
+
   constructor(public bookService: BookService){ }
 
   ngOnInit(): void {
-    console.log(this.JOObs);
+    this.mySubscribtiontoBtn = this.JOObs.subscribe({ next: value => console.log(value.target.innerText + " Dear User")});
+  }
+
+  ngOnDestroy() {
+    this.mySubscribtiontoBtn.unsubscribe();
   }
 
   onChangeShelfFavorites(isFavorite: boolean, index: number){
@@ -39,3 +44,6 @@ export class ShelvesComponent implements OnInit {
     this.showMore = !this.showMore;
   }
 }
+
+
+

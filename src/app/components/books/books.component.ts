@@ -20,7 +20,6 @@ export class BooksComponent implements OnInit {
 
   shouldFavoriteBooksBeShown: boolean = false;
   
-  @Input() activeTags?: number[];
   @Input() books!: Book[];
 
   // favoriteBooks = this.books?.filter(book => book.favorite)
@@ -32,16 +31,6 @@ export class BooksComponent implements OnInit {
 
     ngOnInit(): void {}
   
-  // ngOnChanges(){
-  //   if(this.querySearchParams) {
-  //     this.bookService.query.search = this.querySearchParams;
-  //   }
-  //   if(this.activeTags){
-  //     this.bookService.query.tags = [...this.activeTags];
-  //     this.bookService.getBooks();
-  //   }
-  //   this.books = [...this.bookService.bookCollections];
-  // }
 
   onChangeBookfFavorites(isFavorite: boolean, index: number){
     this.bookService.changeFavoriteBook(isFavorite, index)

@@ -1,7 +1,5 @@
 <div class="container">
     
-    <button id="jojoBtn">JOJOJO</button>
-
     <app-header></app-header>
     <app-breadcrumbs></app-breadcrumbs>
     
@@ -11,7 +9,9 @@
         [tags]="tags"
         (queryTagsChange)="receiveQueryTags($event)"
         ></app-tags>
+        <button id="jojoBtn">HELLO</button>
     </div>
+    
     <ng-container *ngIf="bookService.ShelvesObs$ | async as shelves">
         <app-shelves 
             [shelves]="shelves" 
