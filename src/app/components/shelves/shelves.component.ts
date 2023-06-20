@@ -18,11 +18,14 @@ export class ShelvesComponent implements OnInit {
   @Input() shelves!: Book[];
   @Input() JOObs!: Observable<any>;
   mySubscribtiontoBtn!: Subscription;
+  message: string = "...";
 
   constructor(public bookService: BookService){ }
 
   ngOnInit(): void {
-    this.mySubscribtiontoBtn = this.JOObs.subscribe({ next: value => console.log(value.target.innerText + " Dear User")});
+    this.mySubscribtiontoBtn = this.JOObs.subscribe({ 
+      next: value => this.message = value.target.innerText + " Dear User"
+    });
   }
 
   ngOnDestroy() {

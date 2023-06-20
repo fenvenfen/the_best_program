@@ -7,6 +7,7 @@
         (click)="toggleShowFavoriteShelves()"
         ></span>
     </div>
+    <p>{{message}}</p>
     <ul class="shelves__list" >
         <li *ngFor="let shelf of shelves | showMoreMode: showMore ; let i = index"  >
             <app-card 
