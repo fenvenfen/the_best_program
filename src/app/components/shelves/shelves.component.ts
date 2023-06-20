@@ -15,7 +15,7 @@ export class ShelvesComponent implements OnInit {
   shouldFavoriteShelvesBeShown: boolean = false;
   showMore: boolean = false;
   
-  @Input() shelves?: Book[];
+  @Input() shelves!: Book[];
   @Input() JOObs!: Observable<any>;
   
   constructor(public bookService: BookService){ }

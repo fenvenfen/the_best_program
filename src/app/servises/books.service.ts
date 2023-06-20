@@ -295,8 +295,10 @@ export class BookService {
 
   copyBooks = [...this.bookCollections];
   copyShelves = [...this.shelfsCollections];
+
   BookSub = new BehaviorSubject(this.bookCollections);
   BookObs$: Observable<Book[]>;
+
   ShelvesSub = new BehaviorSubject(this.shelfsCollections);
   ShelvesObs$: Observable<Book[]>;
 
@@ -327,6 +329,8 @@ export class BookService {
       }
       return true;
     });
+
+    this.BookSub.next(this.bookCollections)
   }
 
   getBookById(id: number) {
@@ -334,7 +338,6 @@ export class BookService {
   }
 
   getShelves() {
-    // let shelves = [...this.shelfsCollections];
 
     this.shelfsCollections = this.copyShelves.filter((shelf) => {
       const doesShelfNameContainQuerySearchParam = shelf.name
@@ -354,7 +357,6 @@ export class BookService {
     });
 
     this.ShelvesSub.next(this.shelfsCollections)
-    // return shelves;
   }
 
   getShelvesById(id: number) {

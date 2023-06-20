@@ -7,16 +7,20 @@
     
     <div class="white-frame">
         <app-input (querySearchChange)="receiveQuerySearch($event)"></app-input>
-        <app-tags [tags]="tags"
+        <app-tags 
+        [tags]="tags"
         (queryTagsChange)="receiveQueryTags($event)"
         ></app-tags>
     </div>
     <ng-container *ngIf="bookService.ShelvesObs$ | async as shelves">
-
         <app-shelves 
-        [shelves]="shelves" 
-        [JOObs]="BtnObs$"></app-shelves>
+            [shelves]="shelves" 
+            [JOObs]="BtnObs$"></app-shelves>
     </ng-container>
-    <app-books ></app-books>
+    <ng-container *ngIf="bookService.BookObs$ | async as books">
+        <app-books 
+            [books]="books"
+        ></app-books>
+    </ng-container>
     
 </div>
