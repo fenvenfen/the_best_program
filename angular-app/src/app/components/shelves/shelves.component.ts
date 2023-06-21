@@ -1,14 +1,14 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Book } from '../../shared/interfaces';
 import { BooksService } from '../../shared/services/books.service';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 @Component({
   selector: 'app-shelves',
   templateUrl: './shelves.component.html',
   styleUrls: ['./shelves.component.sass']
 })
 export class ShelvesComponent implements OnInit {
-  @Input() count!: Observable<any>;
+  @Input() count!: BehaviorSubject<number>;
   @Input() searchValue!: string;
   @Input() chosenTagsArray!: number[];
 

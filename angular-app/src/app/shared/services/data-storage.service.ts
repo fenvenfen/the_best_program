@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Tag, Book } from '../interfaces';
+import { Observable, filter, from, map, of, tap, toArray } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -90,4 +91,20 @@ export class DataStorageService {
       return (a.timesUsed === b.timesUsed) ? a.name.localeCompare(b.name) : b.timesUsed - a.timesUsed;
     })
   }
+
+  shelvesObs$ = from(this.shelfsCollections)
+  .pipe(
+    filter(book => book.id % 2 === 0),
+    toArray()
+  );
+
+  booksObs$ = from(this.bookCollections)
+  .pipe(
+    filter(book => book.id % 2 === 0),
+    toArray()
+  );
+
+  // makeObservable(booksArray: Book[]) :Observable<Book> {
+  //   return from(booksArray);
+  // }
 }
