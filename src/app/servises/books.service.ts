@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Book, DataTypes, QueryParams } from '../interfaces';
+import { Book, QueryParams } from '../interfaces';
+import { BehaviorSubject, Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root',
@@ -139,7 +141,6 @@ export class BookService {
       date: '2022-11-02 11:52:31.843 +0000',
     },
   ];
-  copyBooks: Book[];
 
   shelfsCollections: Book[] = [
     {
@@ -286,16 +287,24 @@ export class BookService {
 
     },
   ];
-  copyShelves: Book[];
 
   query: QueryParams = {
     search: '',
     tags: [],
   };
 
+  copyBooks = [...this.bookCollections];
+  copyShelves = [...this.shelfsCollections];
+
+  BookSub = new BehaviorSubject(this.bookCollections);
+  BookObs$: Observable<Book[]>;
+
+  ShelvesSub = new BehaviorSubject(this.shelfsCollections);
+  ShelvesObs$: Observable<Book[]>;
+
   constructor() {
-    this.copyShelves = [...this.shelfsCollections];
-    this.copyBooks = [...this.bookCollections];
+    this.BookObs$ = this.BookSub.asObservable();
+    this.ShelvesObs$ = this.ShelvesSub.asObservable();
   }
 
   changeQueryParams(queryParams: QueryParams): void {
@@ -319,6 +328,7 @@ export class BookService {
       }
       return true;
     });
+    this.BookSub.next(this.bookCollections)
   }
 
   getBookById(id: number) {
@@ -342,17 +352,17 @@ export class BookService {
       }
       return true;
     });
+    this.ShelvesSub.next(this.shelfsCollections)
   }
 
   getShelvesById(id: number) {
     return this.shelfsCollections.find((shelf) => shelf.id === id);
   }
-  // updateCollectionList(dataType: DataTypes) {
-  //   dataType === "books" ? 
-  //         this.getBooks(this.bookCollections) : 
-  //         this.getBooks(this.shelfsCollections)
-
-  // }
+  updateCollectionList(dataType: string) {
+    dataType === "books" ? 
+          this.getBooks() : 
+          this.getShelves()
+  }
 
   changeFavoriteShelf(isFavorite: boolean, index: number): void {
     this.shelfsCollections[index].favorite = isFavorite;

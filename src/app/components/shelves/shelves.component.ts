@@ -1,6 +1,8 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { BookService } from 'src/app/servises/books.service';
-import { Book } from "../../interfaces"
+import { Book } from "../../interfaces";
+import { Observable, Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-shelves',
@@ -8,42 +10,42 @@ import { Book } from "../../interfaces"
   styleUrls: ['./shelves.component.css'],
   providers: [BookService],
 })
-export class ShelvesComponent implements OnChanges {
-  shelves: Book[] = [];
+export class ShelvesComponent implements OnInit {
 
   shouldFavoriteShelvesBeShown: boolean = false;
   showMore: boolean = false;
+  
+  @Input() shelves!: Book[];
+  @Input() JOObs!: Observable<any>;
+  mySubscribtiontoBtn!: Subscription;
+  message: string = "...";
 
-  @Input() querySearchParams?: string;
-  @Input() activeTags?: number[];
-    
-  constructor(
-    private bookService: BookService
-  ){ }
+  constructor(public bookService: BookService){ }
 
-  ngOnChanges(){
-    if(this.querySearchParams){
-      this.bookService.query.search = this.querySearchParams;
-    }
-    if(this.activeTags){
-      this.bookService.query.tags = [...this.activeTags];
-    }
-    this.bookService.getShelves();
-    this.shelves = [...this.bookService.shelfsCollections];
+  ngOnInit(): void {
+    this.mySubscribtiontoBtn = this.JOObs.subscribe({ 
+      next: value => this.message = value.target.innerText + " Dear User"
+    });
+  }
+  ngOnDestroy() {
+    this.mySubscribtiontoBtn.unsubscribe();
   }
 
   onChangeShelfFavorites(isFavorite: boolean, index: number){
     this.bookService.changeFavoriteShelf(isFavorite, index)
-    this.bookService.getShelves()
+    this.bookService.updateCollectionList("shelves")
   }
   toggleShowFavoriteShelves(): void {
     this.shouldFavoriteShelvesBeShown = !this.shouldFavoriteShelvesBeShown;
   }
   deletingShelf(id: number){
     this.bookService.deleteShelf(id);
-    this.bookService.getShelves()
+    this.bookService.updateCollectionList("shelves")
   }
   showMoreToggler(){
     this.showMore = !this.showMore;
   }
 }
+
+
+

@@ -16,13 +16,11 @@ import { Book } from '../../interfaces';
   ],
   providers: [BookService],
 })
-export class BooksComponent implements OnChanges {
-  books: Book[] = [];
+export class BooksComponent implements OnInit {
 
   shouldFavoriteBooksBeShown: boolean = false;
   
-  @Input() querySearchParams?: string;
-  @Input() activeTags?: number[];
+  @Input() books!: Book[];
 
   // favoriteBooks = this.books?.filter(book => book.favorite)
 
@@ -31,27 +29,19 @@ export class BooksComponent implements OnChanges {
     private router: Router
     ){}
 
-  ngOnChanges(){
-    if(this.querySearchParams) {
-      this.bookService.query.search = this.querySearchParams;
-    }
-    if(this.activeTags){
-      this.bookService.query.tags = [...this.activeTags];
-      this.bookService.getBooks();
-    }
-    this.books = [...this.bookService.bookCollections];
-  }
+    ngOnInit(): void {}
+  
 
   onChangeBookfFavorites(isFavorite: boolean, index: number){
     this.bookService.changeFavoriteBook(isFavorite, index)
-    this.bookService.getBooks()
+    this.bookService.updateCollectionList("books")
   }
   toggleShowFavoriteBooks(): void {
     this.shouldFavoriteBooksBeShown = !this.shouldFavoriteBooksBeShown;
   }
   deletingBook(id: number){
     this.bookService.deleteBook(id);
-    this.bookService.getBooks()
+    this.bookService.updateCollectionList("books")
   }
   openBookDetails(id: number){
     this.router.navigate([`library/books/${id}`]);
