@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map, pipe } from 'rxjs';
 import { Credentials, User } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  user!: User;
 
   constructor() { }
 
@@ -30,6 +31,14 @@ export class UserService {
               observer.next('Wrong password');
           }
       }, 2000)
-  }) 
+    })
+  }
+
+  setCurrentUser(user: User) {
+    this.user = user;
+  }
+
+  setToken(token: string) {
+    localStorage.setItem('token', token);
   }
 }

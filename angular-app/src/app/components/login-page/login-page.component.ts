@@ -11,7 +11,6 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class LoginPageComponent implements OnInit {
   form!: FormGroup;
-  user!: User;
 
   constructor(private userService: UserService) { }
 
@@ -32,7 +31,16 @@ export class LoginPageComponent implements OnInit {
       password: this.form.value.password
     }
 
-    this.userService.login(credentials).subscribe(user => console.log(user)
+    this.userService.login(credentials)
+    .pipe(
+      tap((user) => {
+        if (!(typeof user === 'string')) {
+          this.userService.setCurrentUser(user);
+          this.userService.setToken(user.token);
+        }
+      })
+    )
+    .subscribe((user) => console.log(user)
     )
   }
 }
