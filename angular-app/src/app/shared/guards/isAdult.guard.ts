@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
-import { BooksService } from "./services/books.service";
+import { BooksService } from "../services/books.service";
 
 @Injectable({providedIn: 'root'})
 export class IsAdultGuard implements CanActivate{
