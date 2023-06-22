@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Credentials, User } from '../../shared/interfaces';
+import { Observable, pipe, tap } from 'rxjs';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-login-page',
@@ -8,7 +11,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginPageComponent implements OnInit {
   form!: FormGroup;
-  constructor() { }
+  user!: User;
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -18,7 +23,16 @@ export class LoginPageComponent implements OnInit {
   }
 
   submit() {
-    
-  }
+    if(this.form.invalid) {
+      return;
+    }
 
+    const credentials = {
+      email: this.form.value.email,
+      password: this.form.value.password
+    }
+
+    this.userService.login(credentials).subscribe(user => console.log(user)
+    )
+  }
 }
