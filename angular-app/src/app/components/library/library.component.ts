@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { BooksService } from 'src/app/shared/services/books.service';
 
 @Component({
   selector: 'app-library',
@@ -11,7 +12,7 @@ export class LibraryComponent implements OnInit {
   searchValue!: string;
   chosenTags!: number[];
 
-  constructor() {}
+  constructor(public booksService: BooksService) {}
   
   ngOnInit(): void {
   }

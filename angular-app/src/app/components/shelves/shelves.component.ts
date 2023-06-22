@@ -11,6 +11,7 @@ export class ShelvesComponent implements OnInit {
   @Input() count!: BehaviorSubject<number>;
   @Input() searchValue!: string;
   @Input() chosenTagsArray!: number[];
+  @Input() shelves!: Book[];
 
   shelf: any;
   shelfHeight!: number;

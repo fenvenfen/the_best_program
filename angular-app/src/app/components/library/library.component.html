@@ -8,15 +8,21 @@
 </div>
 
 <div class="Page-content">
-    <app-shelves [searchValue]="searchValue"
+    <ng-container *ngIf="booksService.shelvesObs$| async as shelves">
+        <app-shelves [searchValue]="searchValue"
                  [chosenTagsArray]="chosenTags"
-                 [count]="count$">
-    </app-shelves>
+                 [count]="count$"
+                 [shelves]="shelves">
+        </app-shelves>
+    </ng-container>
 </div>
 
 <div class="Page-content">
-    <app-books [searchValue]="searchValue"
-               [chosenTagsArray]="chosenTags"
-               [count]="count$">
-    </app-books>
+    <ng-container *ngIf="booksService.booksObs$| async as books">
+        <app-books [searchValue]="searchValue"
+                [chosenTagsArray]="chosenTags"
+                [count]="count$"
+                [books]="books">
+        </app-books>
+    </ng-container>
 </div>
