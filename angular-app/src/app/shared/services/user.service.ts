@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, map, pipe } from 'rxjs';
+import { BehaviorSubject, Observable, map, pipe } from 'rxjs';
 import { Credentials, User } from '../interfaces';
 
 @Injectable({
@@ -7,6 +7,7 @@ import { Credentials, User } from '../interfaces';
 })
 export class UserService {
   user!: User;
+  isLogged$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor() { }
 
@@ -15,14 +16,14 @@ export class UserService {
       setTimeout(() => {
           if (credentials.email === 'test@gmail.com'){
               observer.next({
-                  name: 'Admin user',
+                  name: 'Григорій',
                   email: 'test@gmail.com',
                   token: 'ikdjsaogiknk42tio3n2orhnol',
                   admin: true
               });
           }else if (credentials.email === 'vova@gmail.com'){
               observer.next({
-                  name: 'User',
+                  name: 'Степан',
                   email: 'vova@gmail.com',
                   token: 'ikdjdskljflkodsjfkldjslk',
                   admin: false

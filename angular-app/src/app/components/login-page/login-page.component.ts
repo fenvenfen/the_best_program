@@ -50,6 +50,8 @@ export class LoginPageComponent implements OnInit {
           case false: this.router.navigate(['/library-user'])
           break;
         }
+
+        this.userService.isLogged$.next(true);
       }
     })
   }
