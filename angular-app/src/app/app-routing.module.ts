@@ -13,11 +13,9 @@ const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},///???????
     {path: 'home', component: HomePageComponent},
     {path: 'login', component: LoginPageComponent},
-    {path: 'library', component: LibraryComponent, 
-    // children: [
-        // {path: 'shelves', component: ShelvesComponent, outlet: 'shelves'},
-        // {path: 'books', component: BooksComponent, outlet: 'books'}]
-    },
+    {path: 'library', component: LibraryComponent},
+    {path: 'library-admin', component: LibraryComponent},
+    {path: 'library-user', component: LibraryComponent},
     {path: 'library/shelves/:id', 
     component: DetailBookComponent, 
     data: {isBooskOrShelves: 'shelves'}, 

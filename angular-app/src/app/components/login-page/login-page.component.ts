@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Credentials, User } from '../../shared/interfaces';
 import { Observable, pipe, tap } from 'rxjs';
 import { UserService } from 'src/app/shared/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -12,7 +13,8 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class LoginPageComponent implements OnInit {
   form!: FormGroup;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -40,7 +42,15 @@ export class LoginPageComponent implements OnInit {
         }
       })
     )
-    .subscribe((user) => console.log(user)
-    )
+    .subscribe((user: User | string) => {
+      if (!(typeof user === 'string')) {
+        switch (user.admin) {
+          case true: this.router.navigate(['/library-admin'])
+          break;
+          case false: this.router.navigate(['/library-user'])
+          break;
+        }
+      }
+    })
   }
 }
