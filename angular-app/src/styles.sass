@@ -50,7 +50,7 @@
 button, input, p, a
     all: unset
 
-button, a
+a
     cursor: pointer
 
 body 
@@ -79,11 +79,13 @@ hr
 .Light-grey
     color: #bec0bf
 
+.Wrap
+    word-wrap: break-word
+
 .Button
     border-radius: 5px
     height: fit-content
     color: #48494B
-    cursor: pointer
 
 .Button-goBack
     max-width: 100px
@@ -92,6 +94,7 @@ hr
     padding: 6px 22px
     font-weight: bold
     letter-spacing: 0.1em
+    cursor: pointer
 
 .Button-show
     display: block
@@ -102,6 +105,7 @@ hr
     font-weight: normal
     letter-spacing: 0
     box-shadow: 1px 1px 4px #EBECF0
+    cursor: pointer
 
     &_arrow
         display: inline-block
@@ -109,6 +113,16 @@ hr
 
         &__close
             transform: rotate(180deg)
+            
+.Button-log
+    border: solid 1px #EBECF0
+    padding: 5px 20px
+    background-color: #F2F3F4
+    cursor: pointer
+
+    &:disabled
+        cursor: not-allowed
+        opacity: 30%
 
 .BooksContainer
     display: flex

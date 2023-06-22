@@ -7,10 +7,12 @@ import { UnavailableComponent } from "./components/unavailable/unavailable.compo
 import { IsAdultGuard } from "./shared/isAdult.guard";
 import { ShelvesComponent } from "./components/shelves/shelves.component";
 import { BooksComponent } from "./components/books/books.component";
+import { LoginPageComponent } from "./components/login-page/login-page.component";
 
 const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},///???????
     {path: 'home', component: HomePageComponent},
+    {path: 'login', component: LoginPageComponent},
     {path: 'library', component: LibraryComponent, 
     // children: [
         // {path: 'shelves', component: ShelvesComponent, outlet: 'shelves'},

@@ -1,4 +1,5 @@
 <nav class="Nav-bar">
+    
     <div class="Nav-bar_info">
         <img class='Nav-bar_icon' src="/assets/lamp.png">
         <div>
@@ -16,5 +17,9 @@
             <p class="Nav-bar_info_current-page">{{currentPage| changeBookIndexToName:isBooksOrShelves | uppercase}}</p>
         </div>
     </div>
-    <button class="Button Button-goBack" [routerLink]="['/']">BACK HOME</button>
+
+    <div class="Nav-bar_buttons">
+        <button class="Button Button-goBack" [routerLink]="['/']">BACK HOME</button>
+        <button class="Button Button-goBack" [routerLink]="['/login']">LOGOUT</button>
+    </div>
 </nav>
