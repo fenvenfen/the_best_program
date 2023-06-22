@@ -50,4 +50,9 @@ export class NavBarComponent implements OnInit, OnDestroy {
     const neededRouterLinkArray = this.currentRouteUrlArray.slice(0, indexOfRoute + 1);
     return `/${neededRouterLinkArray.join('/')}`; 
   }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
 }

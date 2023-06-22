@@ -20,6 +20,6 @@
 
     <div class="Nav-bar_buttons">
         <button class="Button Button-goBack" [routerLink]="['/']">BACK HOME</button>
-        <button class="Button Button-goBack" [routerLink]="['/login']">LOGOUT</button>
+        <button class="Button Button-goBack" (click)="logout()">LOGOUT</button>
     </div>
 </nav>

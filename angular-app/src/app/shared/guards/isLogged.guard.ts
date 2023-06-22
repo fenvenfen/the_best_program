@@ -15,6 +15,5 @@ export class IsLogged implements CanActivate {
             this.router.navigate(['/login']);
             return false
         }
-    }
-    
+    }   
 }
