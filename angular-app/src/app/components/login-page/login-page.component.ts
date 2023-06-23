@@ -61,6 +61,6 @@ export class LoginPageComponent implements OnInit {
     setTimeout(() => {
        localStorage.removeItem('token');
        this.userService.isLogged$.next(false);
-    }, 50000)
+    }, 5 * 60 * 1000)
   }
 }
