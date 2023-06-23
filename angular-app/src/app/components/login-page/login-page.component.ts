@@ -21,6 +21,10 @@ export class LoginPageComponent implements OnInit {
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [Validators.required, Validators.minLength(8)])
     })
+
+    this.userService.isLogged$.subscribe(isLogged => {
+      if (!isLogged) this.router.navigate(['/login'])
+    })
   }
 
   submit() {
@@ -50,9 +54,13 @@ export class LoginPageComponent implements OnInit {
           case false: this.router.navigate(['/library-user'])
           break;
         }
-
         this.userService.isLogged$.next(true);
       }
     })
+
+    setTimeout(() => {
+       localStorage.removeItem('token');
+       this.userService.isLogged$.next(false);
+    }, 50000)
   }
 }
