@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Credentials, User } from '../../shared/interfaces';
-import { Observable, pipe, tap } from 'rxjs';
+import { Observable, Subscription, pipe, tap } from 'rxjs';
 import { UserService } from 'src/app/shared/services/user.service';
 import { Router } from '@angular/router';
 
@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
 })
 export class LoginPageComponent implements OnInit {
   form!: FormGroup;
+  notAuthorizedMessage!: string | null;
+  loginSub!: Subscription;
+  isLoggedSub! : Subscription;
 
   constructor(private userService: UserService,
               private router: Router) { }
@@ -22,9 +25,9 @@ export class LoginPageComponent implements OnInit {
       password: new FormControl(null, [Validators.required, Validators.minLength(8)])
     })
 
-    this.userService.isLogged$.subscribe(isLogged => {
+    this.isLoggedSub = this.userService.isLogged$.subscribe(isLogged => {
       if (!isLogged) this.router.navigate(['/login'])
-    })
+    })    
   }
 
   submit() {
@@ -32,23 +35,27 @@ export class LoginPageComponent implements OnInit {
       return;
     }
 
-    const credentials = {
+    const credentials: Credentials = {
       email: this.form.value.email,
       password: this.form.value.password
     }
 
-    this.userService.login(credentials)
+    const userData = this.userService.login(credentials)
     .pipe(
-      tap((user) => {
-        if (!(typeof user === 'string')) {
-          this.userService.setCurrentUser(user);
-          this.userService.setToken(user.token);
+      tap((data) => {
+        if (!(typeof data === 'string')) {
+          this.userService.setCurrentUser(data);
+          this.userService.setToken(data.token);
+        } else {
+          this.notAuthorizedMessage = data;
+          setTimeout(() => this.notAuthorizedMessage = null ,4000)
         }
       })
     )
-    .subscribe((user: User | string) => {
-      if (!(typeof user === 'string')) {
-        switch (user.admin) {
+
+    this.loginSub = userData.subscribe((data: User | string) => {
+      if (!(typeof data === 'string')) {
+        switch (data.admin) {
           case true: this.router.navigate(['/library-admin'])
           break;
           case false: this.router.navigate(['/library-user'])
@@ -62,5 +69,12 @@ export class LoginPageComponent implements OnInit {
        localStorage.removeItem('token');
        this.userService.isLogged$.next(false);
     }, 5 * 60 * 1000)
+
+    this.form.reset();
+  }
+
+  ngOnDestroy() {
+    this.isLoggedSub.unsubscribe();
+    this.loginSub.unsubscribe();
   }
 }

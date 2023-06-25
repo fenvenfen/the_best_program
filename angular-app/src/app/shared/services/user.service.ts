@@ -14,23 +14,28 @@ export class UserService {
   login(credentials: Credentials): Observable<User | string> {
     return new Observable((observer) => {
       setTimeout(() => {
-          if (credentials.email === 'test@gmail.com'){
-              observer.next({
-                  name: 'Григорій',
-                  email: 'test@gmail.com',
-                  token: 'ikdjsaogiknk42tio3n2orhnol',
-                  admin: true
-              });
-          }else if (credentials.email === 'vova@gmail.com'){
-              observer.next({
-                  name: 'Степан',
-                  email: 'vova@gmail.com',
-                  token: 'ikdjdskljflkodsjfkldjslk',
-                  admin: false
-              });
-          }else {
-              observer.next('Wrong password');
-          }
+        switch(credentials.email) {
+          case 'test@gmail.com':
+            observer.next({
+              name: 'Григорій',
+              email: 'test@gmail.com',
+              token: 'ikdjsaogiknk42tio3n2orhnol',
+              admin: true
+          })
+          break;
+
+          case 'vova@gmail.com':
+            observer.next({
+              name: 'Степан',
+              email: 'vova@gmail.com',
+              token: 'ikdjdskljflkodsjfkldjslk',
+              admin: false
+          })
+          break;
+
+          default:
+            observer.next('This user is not authorized!');
+        }
       }, 2000)
     })
   }

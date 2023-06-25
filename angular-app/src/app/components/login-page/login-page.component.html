@@ -27,5 +27,6 @@
         [disabled]="form.invalid">
         LOGIN
     </button>
+    <div class="Form-login_notAuth" *ngIf="notAuthorizedMessage">{{notAuthorizedMessage}}</div>
 </form>
 

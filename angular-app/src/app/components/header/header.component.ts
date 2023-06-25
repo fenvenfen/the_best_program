@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class HeaderComponent implements OnInit {
   isLogged!: boolean;
+  isLoggedSub!: Subscription;
 
   constructor(public userService: UserService) { }
 
@@ -16,4 +17,7 @@ export class HeaderComponent implements OnInit {
     this.userService.isLogged$.subscribe(isLogged => this.isLogged = isLogged)
   }
 
+  ngOnDestroy() {
+    this.isLoggedSub.unsubscribe();
+  }
 }
