@@ -14,6 +14,7 @@ export class BooksComponent implements OnInit {
   @Input() count!: BehaviorSubject<number>;
   @Input() searchValue!: string;
   @Input() chosenTagsArray!: number[];
+  @Input() books!: Book[];
 
   book: any;
   bookHeight!: number;

@@ -14,3 +14,15 @@ export interface Book {
     date: string,
     forAdults: boolean
 }
+
+export interface Credentials {
+    email: any;
+    password: any;
+}
+
+export interface User {
+    name: string;
+    email: string;
+    token: string;
+    admin: boolean;
+}

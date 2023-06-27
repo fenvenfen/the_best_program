@@ -11,7 +11,6 @@
 <div class="BooksContainer" 
      [ngClass]="{'BooksContainer_hide': isBooksInMultipleRow}"
      #booksContainer>
-    <ng-container *ngIf="booksService.booksObs$ | async as books">
         <ng-container *ngFor="let book of books | filter:searchValue | filterByTags:chosenTagsArray">
             <app-book class="Book" 
                       [book] = 'book' 
@@ -20,7 +19,6 @@
                       (onFavorite)="booksService.updateFavorites($event, booksService.books)"
                       (onDeleteBook)="booksService.updateBooks($event, booksService.books, booksService.booksCopy)"></app-book>
         </ng-container>
-    </ng-container>
 </div>
 <button class="Button Button-show"
         (click)="openOrCloseBooks()">

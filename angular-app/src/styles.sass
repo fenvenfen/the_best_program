@@ -63,10 +63,9 @@ hr
     border: none
 
 .Container
-    width: 85%
     height: 100%
     margin: 0 auto
-    overflow: auto
+    padding: 0 20px
 
 .Page-content
     width: 100%
@@ -79,19 +78,27 @@ hr
 .Light-grey
     color: #bec0bf
 
+.Wrap
+    word-wrap: break-word
+
 .Button
     border-radius: 5px
     height: fit-content
     color: #48494B
-    cursor: pointer
 
 .Button-goBack
-    max-width: 100px
+    width: fit-content
+    max-height: 30px
+    box-sizing: border-box
+    white-space: nowrap
     border: solid 1px #48494B
     font-size: 0.9em
     padding: 6px 22px
     font-weight: bold
     letter-spacing: 0.1em
+
+    &:hover
+        box-shadow: 1px 1px 2px #bec0bf
 
 .Button-show
     display: block
@@ -109,6 +116,18 @@ hr
 
         &__close
             transform: rotate(180deg)
+            
+.Button-log
+    border: solid 1px #EBECF0
+    padding: 5px 20px
+    background-color: #F2F3F4
+
+    &:hover
+        box-shadow: 1px 1px 2px #bec0bf
+        
+    &:disabled
+        cursor: not-allowed
+        opacity: 30%
 
 .BooksContainer
     display: flex
