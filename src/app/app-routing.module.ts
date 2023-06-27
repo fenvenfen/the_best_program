@@ -5,9 +5,11 @@ import { LibraryComponent } from './components/library/library.component';
 import { PageNotFounedComponent } from './components/page-not-founed/page-not-founed.component';
 import { ForbiddenForChildrenComponent } from './components/forbidden-for-children/forbidden-for-children.component';
 import { AdultGuardService } from './servises/adult.guard';
+import { AuthFormComponent } from './components/auth-form/auth-form.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/library', pathMatch: 'full' },
+    { path: '', redirectTo: '/auth', pathMatch: 'full' },
+    { path: 'auth', component: AuthFormComponent },
     { path: 'library', component: LibraryComponent},
     { 
         path: 'library/books/:id', 

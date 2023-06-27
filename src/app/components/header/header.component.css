@@ -28,3 +28,18 @@
     
     background-image: linear-gradient(to left top, #000000, #313131, #f7f7f7);
 }
+
+.logout-btn{
+    height: 40px;
+    padding: 0px 24px;
+    border: none;
+    border-radius: 8px;
+
+    margin-left: 12px;
+
+    font-size: 22px;
+    text-align: center;
+    color: #FFFFFF;
+
+    background-image: linear-gradient(to left top, #000000, #313131, #f7f7f7);
+}

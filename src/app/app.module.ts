@@ -17,7 +17,9 @@ import { DetailBookComponent } from './components/detail-book/detail-book.compon
 import { LibraryComponent } from './components/library/library.component';
 import { PageNotFounedComponent } from './components/page-not-founed/page-not-founed.component';
 import { ForbiddenForChildrenComponent } from './components/forbidden-for-children/forbidden-for-children.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { AuthFormComponent } from './components/auth-form/auth-form.component';
 
 @NgModule({
   declarations: [
@@ -34,14 +36,14 @@ import { FormsModule } from '@angular/forms';
     LibraryComponent,
     PageNotFounedComponent,
     ForbiddenForChildrenComponent,
+    AuthFormComponent,
   ],
   imports: [
     BrowserModule,
     SharingModule,
     AppRoutingModule,
     FormsModule,
-
-    
+    ReactiveFormsModule,    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,23 @@
+<div class="auth-container" [formGroup]="authForm">
+    <div class="info-block">
+        Welcome to Authorization
+        <p
+        *ngIf="authForm.get('email')?.invalid && authForm.get('email')?.touched"
+        class="error-message"
+        >
+        Введіть коректний Email
+        </p>
+    </div>
+
+    <input 
+        type="email" 
+        id="email" 
+        formControlName="email" 
+    />
+    <input 
+        type="text" 
+        id="name" 
+        formControlName="name" 
+    />
+    <button class="login-btn" (click)="submitForm()">LogIn</button>
+</div>

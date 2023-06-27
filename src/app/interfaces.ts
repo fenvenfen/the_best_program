@@ -20,3 +20,14 @@ export interface QueryParams {
     tags: number[]
 }
 export type DataTypes = "books" | "shelves";
+
+export interface Credentials {
+    email: string;
+    password: string;
+}
+export interface User {
+    name: string;
+    email: string;
+    token: string;
+    admin: boolean;
+}

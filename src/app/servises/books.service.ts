@@ -307,10 +307,6 @@ export class BookService {
     this.ShelvesObs$ = this.ShelvesSub.asObservable();
   }
 
-  changeQueryParams(queryParams: QueryParams): void {
-    this.query = queryParams;
-  }
-
   getBooks() {
     this.bookCollections = this.copyBooks.filter((book) => {
       const doesBookNameContainQuerySearchParam = book.name

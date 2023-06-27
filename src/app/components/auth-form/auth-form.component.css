@@ -1,0 +1,44 @@
+.auth-container{
+    margin: auto;
+    padding: 100px;
+
+    background-color: #f1f1f1;
+    border-radius: 8px;
+}
+
+input {
+    display: block;
+    font-size: 18px;
+    padding: 20px 10px;
+    border-radius: 4px;
+    border: 1px solid #ededed;
+    outline: none;
+    color: #4b4b4b;
+    width: 80%;
+    box-shadow: 8px 8px 10px -11px rgba(66, 68, 90, 1);
+
+    margin: 8px auto;
+}
+
+.info-block{
+    height: 50px;
+    text-align: center;
+}
+.error-message{ 
+    color: rgb(206, 24, 24);
+}
+.login-btn {
+    display: block;
+    height: 40px;
+    padding: 0px 24px;
+    border: none;
+    border-radius: 8px;
+
+    margin: 40px auto 0;
+
+    font-size: 22px;
+    text-align: center;
+    color: #FFFFFF;
+
+    background-image: linear-gradient(to left top, #000000, #313131, #767676);
+}
