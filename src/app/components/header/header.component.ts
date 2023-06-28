@@ -17,9 +17,8 @@ export class HeaderComponent implements OnInit {
     ) {  }
 
   ngOnInit(): void { 
-    this.userName = JSON.parse(localStorage.getItem("CURRENT_USER")!).name
-    // this.authServise.currentUser$?.subscribe(user => this.userName = user!.name)
-   }
+    this.userName = this.authServise.getCurrentUser().name
+  }
 
   LogOut(){
     this.authServise.logOut();

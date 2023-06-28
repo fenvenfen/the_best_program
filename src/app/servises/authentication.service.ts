@@ -54,6 +54,10 @@ export class AuthenticationService {
   getToken(): Observable<string | null > | undefined{
     return this.token$;
   }
+  
+  getCurrentUser(): User {
+    return JSON.parse(localStorage.getItem(this.CURRENT_USER)!);
+  }
 
   setCurrentUser(user: User): void {
     this.currentUser_Sub.next(user)

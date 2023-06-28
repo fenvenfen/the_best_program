@@ -10,19 +10,17 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
 import { AuthFormComponent } from './components/auth-form/auth-form.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/', pathMatch: 'full' },
+    { path: '', redirectTo: '/auth', pathMatch: 'full' },
     { 
         path: 'auth', 
         component: AuthFormComponent 
     },
     { 
         path: 'admin', 
-        canActivate: [AuthGuardService],
         component: AdminPageComponent 
     }, 
     { 
         path: 'library', 
-        canActivate: [AuthGuardService],
         component: LibraryComponent
     },
     { 
