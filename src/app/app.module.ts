@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { SharingModule } from './sharing/sharing.module';
 import { AppRoutingModule } from "./app-routing.module";
 
-// import { PredictCardComponent } from './components/shelves/predict-card/predict-card.component';
+import { PredictCardComponent } from './components/predict-card/predict-card.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 import { InputComponent } from './components/input/input.component';
@@ -17,12 +17,15 @@ import { DetailBookComponent } from './components/detail-book/detail-book.compon
 import { LibraryComponent } from './components/library/library.component';
 import { PageNotFounedComponent } from './components/page-not-founed/page-not-founed.component';
 import { ForbiddenForChildrenComponent } from './components/forbidden-for-children/forbidden-for-children.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { AuthFormComponent } from './components/auth-form/auth-form.component';
+import { AdminPageComponent } from './components/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // PredictCardComponent,
+    PredictCardComponent,
     HeaderComponent,
     BreadcrumbsComponent,
     InputComponent,
@@ -34,14 +37,15 @@ import { FormsModule } from '@angular/forms';
     LibraryComponent,
     PageNotFounedComponent,
     ForbiddenForChildrenComponent,
+    AuthFormComponent,
+    AdminPageComponent,
   ],
   imports: [
     BrowserModule,
     SharingModule,
     AppRoutingModule,
     FormsModule,
-
-    
+    ReactiveFormsModule,    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -21,7 +21,7 @@
     </ul>
     <p *ngIf="shelves?.length === 0">no results, please try again</p>
 
-    <button *ngIf="shelves?.length !== 0" 
+    <button *ngIf="shelves!.length > 4" 
         class="showmore__btn" 
         (click)="showMoreToggler()">
         {{showMore ? "HIDE" : "SHOW MORE"}}

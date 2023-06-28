@@ -31,7 +31,6 @@ export class BooksComponent implements OnInit {
 
     ngOnInit(): void {}
   
-
   onChangeBookfFavorites(isFavorite: boolean, index: number){
     this.bookService.changeFavoriteBook(isFavorite, index)
     this.bookService.updateCollectionList("books")

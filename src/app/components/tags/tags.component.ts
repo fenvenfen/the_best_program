@@ -6,7 +6,8 @@ import {
   ElementRef,
   Input,
   Output,
-  EventEmitter
+  EventEmitter,
+  ChangeDetectorRef
 } from '@angular/core';
 import { Tag } from '../../interfaces';
 
@@ -43,7 +44,7 @@ export class TagsComponent implements AfterViewInit {
 
   @Output() queryTagsChange = new EventEmitter<number[]>();
 
-  constructor() {}
+  constructor(private cdref: ChangeDetectorRef) {}
 
   ngOnInit(): void {}
 
@@ -51,6 +52,7 @@ export class TagsComponent implements AfterViewInit {
     const tagsListChildren = [...this.taglist.nativeElement.childNodes];
     const parentTagsWidth = this.taglist.nativeElement.offsetWidth;
     this.checkTagsEnoughToOpenTaglist(tagsListChildren, parentTagsWidth);
+    this.cdref.detectChanges();
   }
 
   checkTagsEnoughToOpenTaglist(
