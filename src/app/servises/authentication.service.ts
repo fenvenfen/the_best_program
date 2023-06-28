@@ -51,8 +51,10 @@ export class AuthenticationService {
       localStorage.removeItem(this.TOKEN);
     }, 10000);
   }
-  getToken(): Observable<string | null > | undefined{
-    return this.token$;
+
+  getToken(): string | null {
+    // return this.token$;
+    return JSON.parse(localStorage.getItem(this.TOKEN)!);
   }
   
   getCurrentUser(): User {
