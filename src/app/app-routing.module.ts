@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdultGuardService } from './servises/adult.guard';
+import { AuthGuardService } from './servises/auth.guard ';
 import { DetailBookComponent } from './components/detail-book/detail-book.component';
 import { LibraryComponent } from './components/library/library.component';
 import { PageNotFounedComponent } from './components/page-not-founed/page-not-founed.component';
@@ -10,9 +11,20 @@ import { AuthFormComponent } from './components/auth-form/auth-form.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/', pathMatch: 'full' },
-    { path: 'auth', component: AuthFormComponent },
-    { path: 'admin', component: AdminPageComponent }, 
-    { path: 'library', component: LibraryComponent},
+    { 
+        path: 'auth', 
+        component: AuthFormComponent 
+    },
+    { 
+        path: 'admin', 
+        canActivate: [AuthGuardService],
+        component: AdminPageComponent 
+    }, 
+    { 
+        path: 'library', 
+        canActivate: [AuthGuardService],
+        component: LibraryComponent
+    },
     { 
         path: 'library/books/:id', 
         canActivate: [AdultGuardService],

@@ -16,18 +16,17 @@ export class AuthFormComponent implements OnInit {
 
   constructor(
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit() {
     this.authForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      name: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
     });
   }
 
   submitForm() {
-    // console.log(this.authForm);
     if (!this.authForm.valid) {
       return;
     }
@@ -44,10 +43,9 @@ export class AuthFormComponent implements OnInit {
         }
       },
     );
-    // this.authService.login(this.authForm.value);
   }
-  redirectUserToHisPage(user: User) {
 
+  redirectUserToHisPage(user: User) {
     if (user.admin) {
       this.router.navigate(["admin"]);
     } else if (!user.admin) {

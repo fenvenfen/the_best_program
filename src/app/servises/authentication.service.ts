@@ -51,9 +51,20 @@ export class AuthenticationService {
       localStorage.removeItem(this.TOKEN);
     }, 10000);
   }
-  
+  getToken(): Observable<string | null > | undefined{
+    return this.token$;
+  }
+
   setCurrentUser(user: User): void {
     this.currentUser_Sub.next(user)
     localStorage.setItem(this.CURRENT_USER, JSON.stringify(user));
   }  
+
+  logOut(){
+    this.token_Sub.next(null);
+    this.currentUser_Sub.next(null);
+
+    localStorage.removeItem(this.TOKEN);
+    localStorage.removeItem(this.CURRENT_USER);
+  }
 }
