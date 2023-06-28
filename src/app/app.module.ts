@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { SharingModule } from './sharing/sharing.module';
 import { AppRoutingModule } from "./app-routing.module";
 
-// import { PredictCardComponent } from './components/shelves/predict-card/predict-card.component';
+import { PredictCardComponent } from './components/predict-card/predict-card.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 import { InputComponent } from './components/input/input.component';
@@ -20,11 +20,12 @@ import { ForbiddenForChildrenComponent } from './components/forbidden-for-childr
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthFormComponent } from './components/auth-form/auth-form.component';
+import { AdminPageComponent } from './components/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // PredictCardComponent,
+    PredictCardComponent,
     HeaderComponent,
     BreadcrumbsComponent,
     InputComponent,
@@ -37,6 +38,7 @@ import { AuthFormComponent } from './components/auth-form/auth-form.component';
     PageNotFounedComponent,
     ForbiddenForChildrenComponent,
     AuthFormComponent,
+    AdminPageComponent,
   ],
   imports: [
     BrowserModule,

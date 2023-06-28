@@ -51,6 +51,7 @@ export class AuthenticationService {
       localStorage.removeItem(this.TOKEN);
     }, 10000);
   }
+  
   setCurrentUser(user: User): void {
     this.currentUser_Sub.next(user)
     localStorage.setItem(this.CURRENT_USER, JSON.stringify(user));
