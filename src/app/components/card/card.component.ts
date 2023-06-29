@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Book, Tag } from "../../interfaces";
+import { Book, Tag } from "../../interfaces/interfaces";
 import { TagsService } from 'src/app/servises/tags.service';
 import { BookService } from 'src/app/servises/books.service';
 @Component({
@@ -28,7 +28,6 @@ export class CardComponent implements OnInit {
   constructor(private tagsServece: TagsService, private bookService: BookService) {  }
 
   ngOnInit(): void {
-    
     this.booksTags = this.tagsServece.tags.filter(tag =>
       this.book.tags.includes(tag.id) 
     );

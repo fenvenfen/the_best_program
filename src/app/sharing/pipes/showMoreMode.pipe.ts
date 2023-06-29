@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Book } from 'src/app/interfaces';
+import { Book } from 'src/app/interfaces/interfaces';
 
 @Pipe({
   name: 'showMoreMode',

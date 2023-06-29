@@ -11,31 +11,30 @@ import { AuthFormComponent } from './components/auth-form/auth-form.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/auth', pathMatch: 'full' },
-    { 
-        path: 'auth', 
-        component: AuthFormComponent 
-    },
-    { 
-        path: 'admin', 
-        component: AdminPageComponent 
-    }, 
+    { path: 'auth', component: AuthFormComponent },
+    { path: 'admin', component: AdminPageComponent }, 
     { 
         path: 'library', 
-        component: LibraryComponent
+        children: [
+            {
+                path: '', 
+                component: LibraryComponent,
+            },
+            { 
+                path: 'books/:id', 
+                canActivate: [AdultGuardService],
+                component: DetailBookComponent, 
+                data: { isBooskOrShelves: 'Books' } 
+            },
+            { 
+                path: 'shelves/:id', 
+                canActivate: [AdultGuardService], 
+                component: DetailBookComponent, 
+                data: { isBooskOrShelves: 'Shelves' } 
+            },
+            { path: 'forbidden', component: ForbiddenForChildrenComponent },
+        ]
     },
-    { 
-        path: 'library/books/:id', 
-        canActivate: [AdultGuardService],
-        component: DetailBookComponent, 
-        data: { isBooskOrShelves: 'Books' } 
-    },
-    { 
-        path: 'library/shelves/:id', 
-        canActivate: [AdultGuardService], 
-        component: DetailBookComponent, 
-        data: { isBooskOrShelves: 'Shelves' } 
-    },
-    { path: 'library/forbidden', component: ForbiddenForChildrenComponent },
     { path: '**', component: PageNotFounedComponent },
 ];
 

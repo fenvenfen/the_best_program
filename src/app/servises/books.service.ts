@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Book, QueryParams } from '../interfaces';
+import { Book, QueryParams } from '../interfaces/interfaces';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 

@@ -9,7 +9,7 @@ import {
   EventEmitter,
   ChangeDetectorRef
 } from '@angular/core';
-import { Tag } from '../../interfaces';
+import { Tag } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-tags',

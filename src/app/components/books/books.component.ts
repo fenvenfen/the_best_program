@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { BookService } from 'src/app/servises/books.service';
-import { Book } from '../../interfaces';
+import { Book } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-books',

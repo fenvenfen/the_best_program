@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { TagsService } from 'src/app/servises/tags.service';
-import { Tag, Book } from '../../interfaces';
+import { Tag, Book } from '../../interfaces/interfaces';
 import { BookService } from 'src/app/servises/books.service';
 import { Observable, fromEvent } from 'rxjs';
 
