@@ -4,7 +4,7 @@ import {
   RouterStateSnapshot,
   Router,
 } from '@angular/router';
-import { BookService } from './books.service';
+import { BookService } from '../servises/books.service';
 
 @Injectable({
   providedIn: 'root',

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AdultGuardService } from './servises/adult.guard';
-import { AuthGuardService } from './servises/auth.guard ';
+import { AdultGuardService } from './guards/adult.guard';
+import { AuthGuardService } from './guards/auth.guard ';
 import { DetailBookComponent } from './components/detail-book/detail-book.component';
 import { LibraryComponent } from './components/library/library.component';
 import { PageNotFounedComponent } from './components/page-not-founed/page-not-founed.component';

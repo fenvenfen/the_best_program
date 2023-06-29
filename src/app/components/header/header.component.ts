@@ -9,21 +9,16 @@ import { AuthenticationService } from 'src/app/servises/authentication.service';
   providers: [AuthenticationService],
 })
 export class HeaderComponent implements OnInit {
-    userName = "Superuser"
+  userName = "Superuser";
 
-  constructor(
-    private authServise: AuthenticationService,
-    private router: Router,
-    ) {  }
+  constructor( private authServise: AuthenticationService, private router: Router) {  }
 
   ngOnInit(): void { 
     this.userName = this.authServise.getCurrentUser().name
   }
 
-  LogOut(){
+  LogOut(): void {
     this.authServise.logOut();
     this.router.navigate(["auth"])
   }
-
-
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { BookService } from 'src/app/servises/books.service';
 import { Book } from '../../interfaces/interfaces';
@@ -7,13 +7,6 @@ import { Book } from '../../interfaces/interfaces';
   selector: 'app-books',
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.css'],
-  styles: [
-    `
-      .favorite::after {
-        color: #8ac8e1;
-      }
-    `,
-  ],
   providers: [BookService],
 })
 export class BooksComponent implements OnInit {
@@ -22,27 +15,22 @@ export class BooksComponent implements OnInit {
   
   @Input() books!: Book[];
 
-  // favoriteBooks = this.books?.filter(book => book.favorite)
+  constructor(private bookService: BookService, private router: Router){}
 
-  constructor(
-    private bookService: BookService,
-    private router: Router
-    ){}
-
-    ngOnInit(): void {}
+  ngOnInit(): void {}
   
-  onChangeBookfFavorites(isFavorite: boolean, index: number){
+  onChangeBookfFavorites(isFavorite: boolean, index: number): void {
     this.bookService.changeFavoriteBook(isFavorite, index)
     this.bookService.updateCollectionList("books")
   }
   toggleShowFavoriteBooks(): void {
     this.shouldFavoriteBooksBeShown = !this.shouldFavoriteBooksBeShown;
   }
-  deletingBook(id: number){
+  deletingBook(id: number): void {
     this.bookService.deleteBook(id);
     this.bookService.updateCollectionList("books")
   }
-  openBookDetails(id: number){
+  openBookDetails(id: number): void {
     this.router.navigate([`library/books/${id}`]);
   }
 }

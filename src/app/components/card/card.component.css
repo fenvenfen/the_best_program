@@ -49,3 +49,6 @@
 .book__description{
     font-size: 14px;
 }
+.favorite::before {
+    color: #8ac8e1;
+}

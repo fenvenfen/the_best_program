@@ -7,6 +7,7 @@
 
     background-color: #f1f1f1;
 }
+
 nav {
     margin-top: auto;
 }
@@ -18,9 +19,11 @@ nav {
     padding-left: 60px;
     
 }
+
 .navigation{
     position: relative;
 }
+
 .navigation::before{
     content: "\e900";
     font-size: 3em;
@@ -61,10 +64,12 @@ nav {
     top: 0;
     right: -10px;
 }
+
 .active{
     font-weight: bold;
     color: teal
 }
+
 .current__navigation{
     font-size: 20px;
     font-weight: bold;

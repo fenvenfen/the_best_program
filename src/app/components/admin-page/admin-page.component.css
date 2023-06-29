@@ -11,8 +11,8 @@
 }
 .back-home__btn{
     display: block;
-    border-radius: 4px;
     border: none;
+    border-radius: 4px;
     background-color: #125574;
     color: #FFFFFF;
     text-transform: uppercase;

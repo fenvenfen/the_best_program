@@ -1,9 +1,10 @@
 .books{
-    background-color: #ffffff;
     width: 90%;
-    margin: 30px auto 0;
-    font-size: 24px;
     padding: 20px 36px;
+    margin: 30px auto 0;
+
+    font-size: 24px;
+    background-color: #ffffff;
 }
 .books__title{
     display: flex;
@@ -16,6 +17,7 @@
     content: "\e906";
     font-size: 0.8em;
     font-family: 'icomoon';
+
     margin-right: 8px;
 }
 .icon-favorite::after{
@@ -26,10 +28,13 @@
     font-family: 'icomoon';
 }
 .books__list{
-    list-style: none;
     display: flex;
     flex-wrap: wrap;
+    list-style: none;
 
     margin-right: -20px;
     margin-bottom: -20px;
+}
+.favorite::after {
+    color: #8ac8e1;
 }

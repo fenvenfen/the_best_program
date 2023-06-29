@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-// import { Observable } from 'rxjs';
-import { Credentials, User } from 'src/app/interfaces/interfaces';
+import { User } from 'src/app/interfaces/interfaces';
 import { AuthenticationService } from 'src/app/servises/authentication.service';
 
 @Component({
@@ -14,26 +13,21 @@ import { AuthenticationService } from 'src/app/servises/authentication.service';
 export class AuthFormComponent implements OnInit {
   authForm!: FormGroup;
 
-  constructor(
-    private authService: AuthenticationService,
-    private router: Router,
-  ) {}
+  constructor(private authService: AuthenticationService, private router: Router) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.authForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
     });
   }
 
-  submitForm() {
-    if (!this.authForm.valid) {
-      return;
-    }
+  submitForm(): void {
+    if (!this.authForm.valid) { return }
 
     const user$ = this.authService.login(this.authForm.value);
 
-    user$.subscribe((user) => {
+    user$.subscribe((user: User | string) => {
         if (typeof user === 'string') {
           alert(user);
         } else {
@@ -45,7 +39,7 @@ export class AuthFormComponent implements OnInit {
     );
   }
 
-  redirectUserToHisPage(user: User) {
+  redirectUserToHisPage(user: User): void {
     if (user.admin) {
       this.router.navigate(["admin"]);
     } else if (!user.admin) {

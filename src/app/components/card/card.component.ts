@@ -6,22 +6,15 @@ import { BookService } from 'src/app/servises/books.service';
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
-  styles: [
-    `
-      .favorite::before {
-        color: #8ac8e1;
-      }
-    `,
-  ]
 })
 export class CardComponent implements OnInit {
   @Input() book!: Book;
   
   booksTags: Tag[] = [];
-  isFavorite = this.book?.favorite; 
-  price = this.bookService.generateRandomPrice();
-
-
+  isFavorite: boolean = this.book?.favorite; 
+  price: string = this.bookService.generateRandomPrice();
+  howManyTagsBookHas!: number;
+  
   @Output() favoriteChange = new EventEmitter<boolean>();
   @Output() deleteBookbyId = new EventEmitter<number>();
 
@@ -32,6 +25,7 @@ export class CardComponent implements OnInit {
       this.book.tags.includes(tag.id) 
     );
     this.isFavorite = this.book?.favorite;
+    this.howManyTagsBookHas = this.book.tags.length;
   }
 
   toggleFavorite(event: any): void {

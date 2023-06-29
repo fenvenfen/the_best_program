@@ -13,10 +13,7 @@ export class DetailBookComponent implements OnInit {
   id!: number;
   book?: Book;
 
-  constructor(
-    private route: ActivatedRoute,
-    private bookService: BookService
-  ) {}
+  constructor(private route: ActivatedRoute, private bookService: BookService) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
